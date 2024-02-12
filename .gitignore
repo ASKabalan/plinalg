@@ -6,3 +6,31 @@
 *.fatbin
 plinalg/__pycache__/hermitian.cpython-310.pyc
 plinalg/__pycache__/__init__.cpython-310.pyc
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+build/
+
+# Python    
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# C++
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.exe
+out/
+
+# vscode
+.vscode/
+
+# neovim
+*.vim
