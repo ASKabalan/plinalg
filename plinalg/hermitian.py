@@ -43,7 +43,7 @@ phermitian_p.multiple_results = False
 
 phermitian_p.def_impl(partial(xla.apply_primitive,phermitian_p))
 
-def phermitian(x) :
+def hermitian(x) :
     (x,) = promote_dtypes_complex(x)
     return phermitian_p.bind(x)
 
@@ -138,7 +138,7 @@ phermitian_p.def_abstract_eval(phermitian_abstract_eval)
 #######################################
 
 def _phermitian_transpose_rule(t, x):
-    return (phermitian(cotangent),)  
+    return (hermitian(cotangent),)  
 
 ad.deflinear2(phermitian_p, _phermitian_transpose_rule)
 
@@ -150,16 +150,32 @@ ad.deflinear2(phermitian_p, _phermitian_transpose_rule)
 def phermitian_batching_rule(batched_args, batch_dims):
     (x,), (x_bdim,) = batched_args, batch_dims
     if x_bdim is None:
-        return phermitian(x), None
+        return hermitian(x), None
     else:
         # Move the batch dimension to the front if it's not already there
         x = jnp.moveaxis(x, x_bdim, 0)
-        return phermitian(x), 0
+        return hermitian(x), 0
 
 batching.primitive_batchers[phermitian_p] = phermitian_batching_rule
 
 ######################
 # SPMD Defintion     #
 ######################
+
+from jax.experimental.maps import xmap
+jax.config.update("experimental_xmap_spmd_lowering", True)
+jax.config.update("experimental_xmap_spmd_lowering_manual", True)
+
+def phermitian(x, *, device_count):
+    reshaped = x.reshape(device_count, x.shape[0] // device_count, *x.shape[1:])
+    xmapped = xmap(
+        rms_norm,
+        in_axes=("x", None, None, None),
+        out_axes=("x", None, None, None),
+        axis_resources={"x": "x"},
+    )
+    reshaped_out = xmapped(reshaped, weight)
+    return reshaped_out.reshape(x.shape)
+
 
 
