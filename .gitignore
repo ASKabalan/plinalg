@@ -4,3 +4,5 @@
 *.ptx
 *.cubin
 *.fatbin
+plinalg/__pycache__/hermitian.cpython-310.pyc
+plinalg/__pycache__/__init__.cpython-310.pyc
