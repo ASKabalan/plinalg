@@ -138,6 +138,6 @@ def phermitian(x):
 
 with mesh:
     jitted = jit(phermitian)
-    out = jitted(SDA)
+    out = jitted(GDA)
 
 ```

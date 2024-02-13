@@ -9,7 +9,7 @@ import jax.numpy as jnp
 from jax.experimental.maps import xmap
 from jax.experimental.shard_map import shard_map
 from functools import partial
-from jax import jit
+from jax import jit,vmap
 import re
 from plinalg.utils import inspect_attr
 
@@ -33,10 +33,16 @@ pspecs = P('x')
 global_array = multihost_utils.host_local_array_to_global_array(x,mesh,pspecs)
 global_resh = global_array.reshape(jax.device_count(), global_array.shape[0] // jax.device_count(), *global_array.shape[1:])
 
+# Compute the all-gathered array on one GPU for reference.
+global_all_gathered = multihost_utils.all_gather(global_array)
+global_all_gathered = global_all_gathered.reshape(jax.device_count(), global_array.shape[0] // jax.device_count(), *global_array.shape[1:])
+
 if jax.process_index() == 0:
     inspect_attr(x,"Local Array" , "main")
     inspect_attr(global_array,"Global Array" , "main")
     inspect_attr(global_resh,"Global Reshaped Array" , "main")
+    ref = vmap(hermitian)(global_all_gathered)
+
 
 multihost_utils.sync_global_devices("For Printing")
 
@@ -72,7 +78,7 @@ def test_all_gather():
         #check that hlo_graph did an all-gather followed by a dynamic-slice
         assert(re.search(_PATTERN, hlo_graph) is not None)
 
-        # Don't know how to compare in multi controller setup
+        # Don't know how to compare in multi controller setup (Maybe use vmap in first device?)
         #assert jnp.allclose(ref, out, atol=1e-2, rtol=1e-2)
 
 multihost_utils.sync_global_devices("For Printing")
@@ -109,7 +115,7 @@ def test_xmap_lowering():
         print(hlo_graph)
 
         #check that hlo_graph did not do an all-gather followed by a dynamic-slice
-        # assert(re.search(_PATTERN, hlo_graph) is None)
+        assert(re.search(_PATTERN, hlo_graph) is None)
 
         # Don't know yet how to compare in multi controller setup (maybe vmap in first device?)
         #assert jnp.allclose(ref, out, atol=1e-2, rtol=1e-2)

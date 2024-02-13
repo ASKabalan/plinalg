@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --account=tkc@a100
-#SBATCH --job-name=A100-Sngle-host    # Name of job
+#SBATCH --job-name=A100-Single-host    # Name of job
 # Other partitions are usable by activating/uncommenting
 # one of the 5 following directives:
 ##SBATCH -C v100-16g                 # decommenter pour reserver uniquement des GPU V100 16 Go
