@@ -154,12 +154,12 @@ def phermitian(x, *, device_count):
 
     reshaped = x.reshape(device_count, x.shape[0] // device_count, *x.shape[1:])
     xmapped = xmap(
-        rms_norm,
+        hermitian,
         in_axes=("x", None, None),
         out_axes=("x", None, None),
         axis_resources={"x": "x"},
     )
-    reshaped_out = xmapped(reshaped, weight)
+    reshaped_out = xmapped(reshaped)
     return reshaped_out.reshape(x.shape)
 
 
