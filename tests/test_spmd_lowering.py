@@ -11,6 +11,7 @@ from jax.experimental.shard_map import shard_map
 from functools import partial
 from jax import jit
 import re
+from plinalg.utils import inspect_attr
 
 jax.distributed.initialize()
 
@@ -32,6 +33,13 @@ pspecs = P('x')
 global_array = multihost_utils.host_local_array_to_global_array(x,mesh,pspecs)
 global_resh = global_array.reshape(jax.device_count(), global_array.shape[0] // jax.device_count(), *global_array.shape[1:])
 
+if jax.process_index() == 0:
+    inspect_attr(x,"Local Array" , "main")
+    inspect_attr(global_array,"Global Array" , "main")
+    inspect_attr(global_resh,"Global Reshaped Array" , "main")
+
+multihost_utils.sync_global_devices("For Printing")
+
 # Pattern to detect all-gather or dynamic-slice in the generated HLO
 _PATTERN = '(dynamic-slice|all-gather)'
 
@@ -50,7 +58,7 @@ def test_all_gather():
         # Shard x by batch dimension and replicate weight on all devices.
         in_shardings=P("x", None),
         # Shard the output by batch dimension.
-        out_shardings=P("x", None),
+        out_shardings=P(None, "x"),#Notice that it was transposed because it was hermitianned on the all gathered matrix rather than on the batches
     )
 
     with mesh:
@@ -66,6 +74,8 @@ def test_all_gather():
 
         # Don't know how to compare in multi controller setup
         #assert jnp.allclose(ref, out, atol=1e-2, rtol=1e-2)
+
+multihost_utils.sync_global_devices("For Printing")
 
 
 def test_xmap_lowering():
@@ -104,28 +114,62 @@ def test_xmap_lowering():
         # Don't know yet how to compare in multi controller setup (maybe vmap in first device?)
         #assert jnp.allclose(ref, out, atol=1e-2, rtol=1e-2)
 
+multihost_utils.sync_global_devices("For Printing")
+
+
 def test_shard_mapped_lowering():
 
-    @partial(shard_map,mesh=mesh,in_specs=P("x", None, None),out_specs=P("x", None, None))
+    @partial(shard_map,mesh=mesh,in_specs=P("x", None, None),out_specs=P("x", None, None),check_rep=False)
     def phermitian(x):
         return hermitian(x)
     
-    jitted = jit(phermitian,in_shardings=P("x", None, None),out_shardings=P("x", None, None))
+    with mesh:
+        jitted = pjit(           
+                phermitian,
+                # Shard x by batch dimension and replicate weight on all devices.
+                in_shardings=P("x", None, None),
+                # Shard the output by batch dimension.
+                out_shardings=P("x", None, None),
+        )
 
-    hlo_graph = jitted.lower(global_resh).compile().runtime_executable().hlo_modules()[0].to_string()
-    out = phermitian(global_resh)
+        hlo_graph = jitted.lower(global_resh).compile().runtime_executable().hlo_modules()[0].to_string()
+        out = phermitian(global_resh)
 
     if jax.process_index() == 0:
         print(f"Printing HLO Graph that was shard_mapped and jitted")
         print(hlo_graph)
 
         #check that hlo_graph did not do an all-gather followed by a dynamic-slice
-        # assert(re.search(_PATTERN, hlo_graph) is None)
+        assert(re.search(_PATTERN, hlo_graph) is None)
 
         # Don't know yet how to compare in multi controller setup (maybe vmap in first device?)
         #assert jnp.allclose(ref, out, atol=1e-2, rtol=1e-2)
 
+multihost_utils.sync_global_devices("For Printing")
 
+def test_shard_mapped_lowering_with_jit():
+
+    @partial(shard_map,mesh=mesh,in_specs=P("x", None, None),out_specs=P("x", None, None),check_rep=False)
+    def phermitian(x):
+        return hermitian(x)
+    
+    with mesh:
+        jitted = jit(phermitian)
+
+        hlo_graph = jitted.lower(global_resh).compile().runtime_executable().hlo_modules()[0].to_string()
+        out = phermitian(global_resh)
+
+    if jax.process_index() == 0:
+        print(f"Printing HLO Graph that was shard_mapped and jitted")
+        print(hlo_graph)
+
+        #check that hlo_graph did not do an all-gather followed by a dynamic-slice
+        assert(re.search(_PATTERN, hlo_graph) is None)
+
+        # Don't know yet how to compare in multi controller setup (maybe vmap in first device?)
+        #assert jnp.allclose(ref, out, atol=1e-2, rtol=1e-2)
+
+multihost_utils.sync_global_devices("For Printing")
 
 from jax.sharding import NamedSharding
 from jax.experimental.custom_partitioning import custom_partitioning
@@ -143,7 +187,9 @@ def test_custom_partitionning_lowering():
     def partition(mesh, arg_shapes, result_shape):
         result_shardings = jax.tree_map(lambda x: x.sharding, result_shape)
         arg_shardings = jax.tree_map(lambda x: x.sharding, arg_shapes)
-        return mesh, fft,               supported_sharding(arg_shardings[0], arg_shapes[0]),               (supported_sharding(arg_shardings[0], arg_shapes[0]),)
+        return mesh, hermitian,\
+            supported_sharding(arg_shardings[0], arg_shapes[0]),\
+                  (supported_sharding(arg_shardings[0], arg_shapes[0]),)
 
     def infer_sharding_from_operands(mesh, arg_shapes, result_shape):
         arg_shardings = jax.tree_map(lambda x: x.sharding, arg_shapes)
@@ -166,3 +212,7 @@ def test_custom_partitionning_lowering():
         assert(re.search(_PATTERN, pjit_phermitian.lower(x).compile().runtime_executable().hlo_modules()[0].to_string()) is None)
         # dynamic-slice or all-gather are present in the HLO for fft
         assert(re.search(_PATTERN, pjit_hermitian.lower(x).compile().runtime_executable().hlo_modules()[0].to_string())    is not None)
+
+
+
+jax.distributed.shutdown()

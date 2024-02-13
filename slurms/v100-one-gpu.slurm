@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --account=nih@v100
-#SBATCH --job-name=V100-Multi-host    # Name of job
+#SBATCH --job-name=V100-Single-host    # Name of job
 # Other partitions are usable by activating/uncommenting
 # one of the 5 following directives:
 #SBATCH -C v100-16g                 # decommenter pour reserver uniquement des GPU V100 16 Go
@@ -8,10 +8,10 @@
 ##SBATCH --partition=gpu_p2          # decommenter pour la partition gpu_p2 (GPU V100 32 Go)
 ##SBATCH -C a100                     # decommenter pour la partition gpu_p5 (GPU A100 80 Go)
 # Ici, reservation de 8x10=80 CPU (4 taches par noeud) et de 8 GPU (4 GPU par noeud) sur 2 noeuds :
-#SBATCH --nodes=2                  # nombre de noeud
-#SBATCH --ntasks=8
-#SBATCH --ntasks-per-node=4      # nombre de tache MPI par noeud (= nombre de GPU par noeud)
-#SBATCH --gres=gpu:4               # nombre de GPU par nœud (max 8 avec gpu_p2, gpu_p4, gpu_p5)
+#SBATCH --nodes=1                  # nombre de noeud
+#SBATCH --ntasks=1
+#SBATCH --ntasks-per-node=1      # nombre de tache MPI par noeud (= nombre de GPU par noeud)
+#SBATCH --gres=gpu:1               # nombre de GPU par nœud (max 8 avec gpu_p2, gpu_p4, gpu_p5)
 
 ## this does not work
 ##SBATCH --gpus-per-task=2           # nombre de GPU par tache
@@ -27,8 +27,8 @@
 #SBATCH --hint=nomultithread         # hyperthreading desactive
 #SBATCH --time=00:04:00              # maximum execution time requested (HH:MM:SS)
 #SBATCH --qos=qos_gpu-dev            # quality of service (QOS) dev
-#SBATCH --output=v100-multi.out # name of output file
-#SBATCH --error=v100-multi.err  # name of error file 
+#SBATCH --output=v100-one-GPU.out # name of output file
+#SBATCH --error=v100-one-GPU.err  # name of error file 
 # Cleans out modules loaded in interactive and inherited by default
 module purge
 
@@ -49,4 +49,4 @@ module load nvhpc-hpcx-cuda11/23.9
 set -x
 # For the "gpu_p5" partition, the code must be compiled with the compatible modules.
 # Code execution with binding via bind_gpu.sh : 1 GPU per task
-srun python -m pytest -s $1
+srun python -m pytest $1
