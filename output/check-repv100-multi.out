@@ -1,0 +1,435 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+============================= test session starts ==============================
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+============================= test session starts ==============================
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+============================= test session starts ==============================
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+============================= test session starts ==============================
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+============================= test session starts ==============================
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+============================= test session starts ==============================
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+============================= test session starts ==============================
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+Total number of devices: 8
+Global devices names: [cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3), cuda(id=4), cuda(id=5), cuda(id=6), cuda(id=7)]
+Process 0 has 1 devices: [cuda(id=0)]
+Process 1 has 1 devices: [cuda(id=1)]
+Process 2 has 1 devices: [cuda(id=2)]
+Process 3 has 1 devices: [cuda(id=3)]
+Process 4 has 1 devices: [cuda(id=4)]
+Process 5 has 1 devices: [cuda(id=5)]
+Process 7 has 1 devices: [cuda(id=7)]
+Process 6 has 1 devices: [cuda(id=6)]
+collected 5 items
+collected 5 items
+collected 5 items
+
+collected 5 items
+collected 5 items
+collected 5 items
+collected 5 items
+
+
+collected 5 items
+
+
+
+
+
+tests/test_spmd_lowering.py .CUDA : Batch size: 1
+tests/test_spmd_lowering.py .CUDA : Batch size: 1
+tests/test_spmd_lowering.py .CUDA : Batch size: 1
+tests/test_spmd_lowering.py .CUDA : Batch size: 1
+tests/test_spmd_lowering.py .CUDA : Batch size: 1
+tests/test_spmd_lowering.py .CUDA : Batch size: 1
+tests/test_spmd_lowering.py .CUDA : Batch size: 1
+tests/test_spmd_lowering.py .CUDA : Batch size: 1
+Printing HLO Graph that was only pjitted
+HloModule pjit_hermitian, is_scheduled=true, entry_computation_layout={(c64[2,3]{1,0})->c64[3,2]{1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="ed3366f42f3d49f0e204f2e99cde9aed"}
+
+%fused_dynamic_slice (param_1: c64[3,16], param_1.1: u32[]) -> c64[3,2] {
+  %param_1 = c64[3,16]{1,0} parameter(0)
+  %constant_6 = s32[] constant(0), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %param_1.1 = u32[] parameter(1)
+  %convert.2 = s32[] convert(u32[] %param_1.1), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %constant_5 = s32[] constant(2), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %multiply.3 = s32[] multiply(s32[] %convert.2, s32[] %constant_5), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %dynamic-slice.3 = c64[3,2]{1,0} dynamic-slice(c64[3,16]{1,0} %param_1, s32[] %constant_6, s32[] %multiply.3), dynamic_slice_sizes={3,2}, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+ENTRY %main.5_spmd (param: c64[2,3]) -> c64[3,2] {
+  %param = c64[2,3]{1,0} parameter(0), sharding={devices=[8,1]<=[8]}
+  %all-gather-start = (c64[2,3]{1,0}, c64[16,3]{1,0}) all-gather-start(c64[2,3]{1,0} %param), channel_id=1, replica_groups={{0,1,2,3,4,5,6,7}}, dimensions={0}, use_global_device_ids=true, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-gather-done = c64[16,3]{1,0} all-gather-done((c64[2,3]{1,0}, c64[16,3]{1,0}) %all-gather-start), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %custom-call.0 = c64[3,16]{1,0} custom-call(c64[16,3]{1,0} %all-gather-done), custom_call_target="hermitian_operator", operand_layout_constraints={c64[16,3]{1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config="\001\000\000\000\000\000\000\000\020\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+  %partition-id = u32[] partition-id(), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %loop_dynamic_slice_fusion = c64[3,2]{1,0} fusion(c64[3,16]{1,0} %custom-call.0, u32[] %partition-id), kind=kLoop, calls=%fused_dynamic_slice, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+
+.CUDA : Batch size: 1
+.CUDA : Batch size: 1
+.CUDA : Batch size: 1
+.CUDA : Batch size: 1
+.CUDA : Batch size: 1
+.CUDA : Batch size: 1
+.CUDA : Batch size: 1
+.CUDA : Batch size: 1
+Printing HLO Graph that was xmapped and pjitted
+HloModule pjit__unnamed_wrapped_function_, is_scheduled=true, entry_computation_layout={(c64[2,3]{1,0})->c64[2,3]{1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="91efc4cbba169061be5d7e2994563d9e"}
+
+ENTRY %main.13_spmd (param: c64[2,3]) -> c64[2,3] {
+  %param = c64[2,3]{1,0} parameter(0), sharding={devices=[8,1]<=[8]}, metadata={op_name="pjit(<unnamed wrapped function>)/jit(main)/xmap(hermitian)/squeeze[dimensions=(0,)]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py" source_line=92}
+  %custom-call.0 = c64[3,2]{1,0} custom-call(c64[2,3]{1,0} %param), custom_call_target="hermitian_operator", operand_layout_constraints={c64[2,3]{1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(<unnamed wrapped function>)/jit(main)/xmap(hermitian)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config="\001\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+  ROOT %bitcast = c64[2,3]{1,0} bitcast(c64[3,2]{1,0} %custom-call.0), metadata={op_name="pjit(<unnamed wrapped function>)/jit(main)/reshape[new_sizes=(16, 3) dimensions=None]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py" source_line=93}
+}
+
+
+.Fs
+
+=================================== FAILURES ===================================
+__________________________ test_shard_mapped_lowering __________________________
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+The above exception was the direct cause of the following exception:
+
+    def test_shard_mapped_lowering():
+    
+        @partial(shard_map,mesh=mesh,in_specs=P("x", None, None),out_specs=P("x", None, None))
+        def phermitian(x):
+            return hermitian(x)
+    
+        with mesh:
+            jitted = pjit(
+                    phermitian,
+                    # Shard x by batch dimension and replicate weight on all devices.
+                    in_shardings=P("x", None, None),
+                    # Shard the output by batch dimension.
+                    out_shardings=P("x", None, None),
+            )
+    
+>           hlo_graph = jitted.lower(global_resh).compile().runtime_executable().hlo_modules()[0].to_string()
+
+tests/test_spmd_lowering.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_spmd_lowering.py:124: in phermitian
+    return hermitian(x)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = Traced<ShapedArray(complex64[1,2,3])>with<DynamicJaxprTrace(level=1/1)>
+
+    def hermitian(x) :
+        (x,) = promote_dtypes_complex(x)
+>       return phermitian_p.bind(x)
+E       NotImplementedError: No replication rule for phermitian. As a workaround, pass the `check_rep=False` argument to `shard_map`. To get this fixed, open an issue at https://github.com/google/jax/issues
+
+plinalg/hermitian.py:29: NotImplementedError
+=========================== short test summary info ============================
+FAILED tests/test_spmd_lowering.py::test_shard_mapped_lowering - NotImplement...
+==================== 1 failed, 3 passed, 1 skipped in 5.22s ====================
+.Fs
+.Fs
+.Fs
+
+.Fs
+=================================== FAILURES ===================================
+
+=================================== FAILURES ===================================
+
+=================================== FAILURES ===================================
+
+=================================== FAILURES ===================================
+__________________________ test_shard_mapped_lowering __________________________
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+The above exception was the direct cause of the following exception:
+
+__________________________ test_shard_mapped_lowering __________________________
+__________________________ test_shard_mapped_lowering __________________________
+__________________________ test_shard_mapped_lowering __________________________
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+The above exception was the direct cause of the following exception:
+
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+The above exception was the direct cause of the following exception:
+
+
+The above exception was the direct cause of the following exception:
+
+    def test_shard_mapped_lowering():
+    
+        @partial(shard_map,mesh=mesh,in_specs=P("x", None, None),out_specs=P("x", None, None))
+        def phermitian(x):
+            return hermitian(x)
+    
+        with mesh:
+            jitted = pjit(
+                    phermitian,
+                    # Shard x by batch dimension and replicate weight on all devices.
+                    in_shardings=P("x", None, None),
+    def test_shard_mapped_lowering():
+    
+    def test_shard_mapped_lowering():
+    
+        @partial(shard_map,mesh=mesh,in_specs=P("x", None, None),out_specs=P("x", None, None))
+        def phermitian(x):
+            return hermitian(x)
+    def test_shard_mapped_lowering():
+    
+        @partial(shard_map,mesh=mesh,in_specs=P("x", None, None),out_specs=P("x", None, None))
+        def phermitian(x):
+            return hermitian(x)
+    
+        with mesh:
+                    # Shard the output by batch dimension.
+                    out_shardings=P("x", None, None),
+            )
+    
+>           hlo_graph = jitted.lower(global_resh).compile().runtime_executable().hlo_modules()[0].to_string()
+
+tests/test_spmd_lowering.py:135: 
+        @partial(shard_map,mesh=mesh,in_specs=P("x", None, None),out_specs=P("x", None, None))
+        def phermitian(x):
+            return hermitian(x)
+    
+        with mesh:
+            jitted = pjit(
+                    phermitian,
+                    # Shard x by batch dimension and replicate weight on all devices.
+                    in_shardings=P("x", None, None),
+                    # Shard the output by batch dimension.
+    
+        with mesh:
+            jitted = pjit(
+                    phermitian,
+                    # Shard x by batch dimension and replicate weight on all devices.
+                    in_shardings=P("x", None, None),
+                    # Shard the output by batch dimension.
+                    out_shardings=P("x", None, None),
+            )
+    
+>           hlo_graph = jitted.lower(global_resh).compile().runtime_executable().hlo_modules()[0].to_string()
+
+            jitted = pjit(
+                    phermitian,
+                    # Shard x by batch dimension and replicate weight on all devices.
+                    in_shardings=P("x", None, None),
+                    # Shard the output by batch dimension.
+                    out_shardings=P("x", None, None),
+            )
+    
+>           hlo_graph = jitted.lower(global_resh).compile().runtime_executable().hlo_modules()[0].to_string()
+
+tests/test_spmd_lowering.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_spmd_lowering.py:124: in phermitian
+    return hermitian(x)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+                    out_shardings=P("x", None, None),
+            )
+    
+>           hlo_graph = jitted.lower(global_resh).compile().runtime_executable().hlo_modules()[0].to_string()
+
+tests/test_spmd_lowering.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_spmd_lowering.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_spmd_lowering.py:124: in phermitian
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_spmd_lowering.py:124: in phermitian
+    return hermitian(x)
+
+x = Traced<ShapedArray(complex64[1,2,3])>with<DynamicJaxprTrace(level=1/1)>
+
+    def hermitian(x) :
+        (x,) = promote_dtypes_complex(x)
+tests/test_spmd_lowering.py:124: in phermitian
+    return hermitian(x)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+    return hermitian(x)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = Traced<ShapedArray(complex64[1,2,3])>with<DynamicJaxprTrace(level=1/1)>
+>       return phermitian_p.bind(x)
+E       NotImplementedError: No replication rule for phermitian. As a workaround, pass the `check_rep=False` argument to `shard_map`. To get this fixed, open an issue at https://github.com/google/jax/issues
+
+plinalg/hermitian.py:29: NotImplementedError
+
+x = Traced<ShapedArray(complex64[1,2,3])>with<DynamicJaxprTrace(level=1/1)>
+
+    def hermitian(x) :
+x = Traced<ShapedArray(complex64[1,2,3])>with<DynamicJaxprTrace(level=1/1)>
+
+    def hermitian(x) :
+        (x,) = promote_dtypes_complex(x)
+>       return phermitian_p.bind(x)
+
+    def hermitian(x) :
+        (x,) = promote_dtypes_complex(x)
+>       return phermitian_p.bind(x)
+E       NotImplementedError: No replication rule for phermitian. As a workaround, pass the `check_rep=False` argument to `shard_map`. To get this fixed, open an issue at https://github.com/google/jax/issues
+
+        (x,) = promote_dtypes_complex(x)
+>       return phermitian_p.bind(x)
+E       NotImplementedError: No replication rule for phermitian. As a workaround, pass the `check_rep=False` argument to `shard_map`. To get this fixed, open an issue at https://github.com/google/jax/issues
+
+plinalg/hermitian.py:29: NotImplementedError
+E       NotImplementedError: No replication rule for phermitian. As a workaround, pass the `check_rep=False` argument to `shard_map`. To get this fixed, open an issue at https://github.com/google/jax/issues
+
+plinalg/hermitian.py:29: NotImplementedError
+plinalg/hermitian.py:29: NotImplementedError
+=========================== short test summary info ============================
+FAILED tests/test_spmd_lowering.py::test_shard_mapped_lowering - NotImplement...
+=========================== short test summary info ============================
+FAILED tests/test_spmd_lowering.py::test_shard_mapped_lowering - NotImplement...
+=========================== short test summary info ============================
+=========================== short test summary info ============================
+FAILED tests/test_spmd_lowering.py::test_shard_mapped_lowering - NotImplement...
+FAILED tests/test_spmd_lowering.py::test_shard_mapped_lowering - NotImplement...
+==================== 1 failed, 3 passed, 1 skipped in 5.22s ====================
+==================== 1 failed, 3 passed, 1 skipped in 5.22s ====================
+==================== 1 failed, 3 passed, 1 skipped in 5.22s ====================
+==================== 1 failed, 3 passed, 1 skipped in 5.22s ====================
+.Fs
+
+=================================== FAILURES ===================================
+__________________________ test_shard_mapped_lowering __________________________
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+The above exception was the direct cause of the following exception:
+
+    def test_shard_mapped_lowering():
+    
+        @partial(shard_map,mesh=mesh,in_specs=P("x", None, None),out_specs=P("x", None, None))
+        def phermitian(x):
+            return hermitian(x)
+    
+        with mesh:
+            jitted = pjit(
+                    phermitian,
+                    # Shard x by batch dimension and replicate weight on all devices.
+                    in_shardings=P("x", None, None),
+                    # Shard the output by batch dimension.
+                    out_shardings=P("x", None, None),
+            )
+    
+>           hlo_graph = jitted.lower(global_resh).compile().runtime_executable().hlo_modules()[0].to_string()
+
+tests/test_spmd_lowering.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_spmd_lowering.py:124: in phermitian
+.Fs
+    return hermitian(x)
+.Fs
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = Traced<ShapedArray(complex64[1,2,3])>with<DynamicJaxprTrace(level=1/1)>
+
+    def hermitian(x) :
+        (x,) = promote_dtypes_complex(x)
+>       return phermitian_p.bind(x)
+E       NotImplementedError: No replication rule for phermitian. As a workaround, pass the `check_rep=False` argument to `shard_map`. To get this fixed, open an issue at https://github.com/google/jax/issues
+
+plinalg/hermitian.py:29: NotImplementedError
+
+
+=================================== FAILURES ===================================
+=================================== FAILURES ===================================
+__________________________ test_shard_mapped_lowering __________________________
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+__________________________ test_shard_mapped_lowering __________________________
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+The above exception was the direct cause of the following exception:
+
+
+The above exception was the direct cause of the following exception:
+
+=========================== short test summary info ============================
+FAILED tests/test_spmd_lowering.py::test_shard_mapped_lowering - NotImplement...
+    def test_shard_mapped_lowering():
+    
+        @partial(shard_map,mesh=mesh,in_specs=P("x", None, None),out_specs=P("x", None, None))
+    def test_shard_mapped_lowering():
+    
+        @partial(shard_map,mesh=mesh,in_specs=P("x", None, None),out_specs=P("x", None, None))
+        def phermitian(x):
+            return hermitian(x)
+        def phermitian(x):
+            return hermitian(x)
+    
+        with mesh:
+            jitted = pjit(
+                    phermitian,
+    
+        with mesh:
+            jitted = pjit(
+                    phermitian,
+                    # Shard x by batch dimension and replicate weight on all devices.
+==================== 1 failed, 3 passed, 1 skipped in 5.22s ====================
+                    # Shard x by batch dimension and replicate weight on all devices.
+                    in_shardings=P("x", None, None),
+                    # Shard the output by batch dimension.
+                    out_shardings=P("x", None, None),
+            )
+    
+>           hlo_graph = jitted.lower(global_resh).compile().runtime_executable().hlo_modules()[0].to_string()
+                    in_shardings=P("x", None, None),
+                    # Shard the output by batch dimension.
+                    out_shardings=P("x", None, None),
+            )
+    
+>           hlo_graph = jitted.lower(global_resh).compile().runtime_executable().hlo_modules()[0].to_string()
+
+
+tests/test_spmd_lowering.py:135: 
+tests/test_spmd_lowering.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_spmd_lowering.py:124: in phermitian
+tests/test_spmd_lowering.py:124: in phermitian
+    return hermitian(x)
+    return hermitian(x)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+
+x = Traced<ShapedArray(complex64[1,2,3])>with<DynamicJaxprTrace(level=1/1)>
+
+x = Traced<ShapedArray(complex64[1,2,3])>with<DynamicJaxprTrace(level=1/1)>
+
+    def hermitian(x) :
+        (x,) = promote_dtypes_complex(x)
+    def hermitian(x) :
+        (x,) = promote_dtypes_complex(x)
+>       return phermitian_p.bind(x)
+E       NotImplementedError: No replication rule for phermitian. As a workaround, pass the `check_rep=False` argument to `shard_map`. To get this fixed, open an issue at https://github.com/google/jax/issues
+>       return phermitian_p.bind(x)
+E       NotImplementedError: No replication rule for phermitian. As a workaround, pass the `check_rep=False` argument to `shard_map`. To get this fixed, open an issue at https://github.com/google/jax/issues
+
+
+plinalg/hermitian.py:29: NotImplementedError
+plinalg/hermitian.py:29: NotImplementedError
+=========================== short test summary info ============================
+=========================== short test summary info ============================
+FAILED tests/test_spmd_lowering.py::test_shard_mapped_lowering - NotImplement...
+FAILED tests/test_spmd_lowering.py::test_shard_mapped_lowering - NotImplement...
+==================== 1 failed, 3 passed, 1 skipped in 5.22s ====================
+==================== 1 failed, 3 passed, 1 skipped in 5.22s ====================

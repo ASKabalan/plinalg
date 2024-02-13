@@ -1,0 +1,3 @@
+Loading nvhpc-hpcx-cuda11/23.9
+  Loading requirement: hpcx
++ srun python -m pytest -s tests/test_spmd_lowering.py

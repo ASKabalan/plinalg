@@ -1,0 +1,5 @@
+Loading nvhpc-hpcx-cuda11/23.9
+  Loading requirement: hpcx
++ export VERBOSE=1
++ VERBOSE=1
++ srun python -m pytest -s tests/test_primitive.py
