@@ -167,11 +167,15 @@ jax.config.update("experimental_xmap_spmd_lowering", True)
 jax.config.update("experimental_xmap_spmd_lowering_manual", True)
 
 def phermitian(x, *, device_count):
+    # only batched matrices allowed
+    if x.ndim < 3:
+        raise ValueError("Input to phermitian must be a batched matrices with 2 dimensions")
+
     reshaped = x.reshape(device_count, x.shape[0] // device_count, *x.shape[1:])
     xmapped = xmap(
         rms_norm,
-        in_axes=("x", None, None, None),
-        out_axes=("x", None, None, None),
+        in_axes=("x", None, None),
+        out_axes=("x", None, None),
         axis_resources={"x": "x"},
     )
     reshaped_out = xmapped(reshaped, weight)

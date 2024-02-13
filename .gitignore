@@ -34,3 +34,6 @@ out/
 
 # neovim
 *.vim
+
+# outputs
+output
