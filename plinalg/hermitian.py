@@ -1,5 +1,5 @@
 from plinalglib import _pHermitian
-
+from plinalg import utils
 import jax
 import jax.numpy as jnp
 from jax.interpreters import mlir
@@ -14,25 +14,6 @@ from jaxlib.hlo_helpers import custom_call
 import json
 from functools import partial
 
-def get_attribute_values(obj):
-    attribute_values = {}
-    attributes = dir(obj)
-    for attr in attributes:
-        try:
-            attribute_values[attr] = str(getattr(obj, attr))
-        except Exception as e:
-            attribute_values[attr] = str(e)
-    return attribute_values
-
-def pretty_print(attributes_values):
-    print(json.dumps(attributes_values, indent=4))
-
-def inspect_attr(var, var_name, name):
-    print("{0}{2} - {3}{1}".format("*"*77,"*"*77,name,var_name))
-    print(f"{name} => {var_name} : {var} \n")
-    print(f"{name} => {var_name} Type : {type(var)} \n")
-    pretty_print(get_attribute_values(var))
-    print("\n")
 
 ####################
 # Declare Primitive #
@@ -59,8 +40,8 @@ def default_layouts(*shapes):
 
 def _phermitation_lowering(ctx,x):
 
-    inspect_attr(ctx,"Context","_phermitation_lowering")
-    inspect_attr(x,"Operand","_phermitation_lowering")
+    utils.inspect_attr(ctx,"Context","_phermitation_lowering")
+    utils.inspect_attr(x,"Operand","_phermitation_lowering")
 
     """Lower the Hermitian operator to CUDA via MLIR, ensuring output is complex and transposed."""
     x_type = ir.RankedTensorType(x.type)
@@ -68,7 +49,7 @@ def _phermitation_lowering(ctx,x):
     
     dims = x_type.shape
     batch_size = dims[0] if len(dims) > 2 else 1
-    inspect_attr(batch_size, "batch_size", "phermitation_lowering")
+    utils.inspect_attr(batch_size, "batch_size", "phermitation_lowering")
 
     # Adjust for the transposed shape of the output.
     if len(dims) == 2:
@@ -137,8 +118,8 @@ phermitian_p.def_abstract_eval(phermitian_abstract_eval)
 # Top-level interface Automatic Diff #
 #######################################
 
-def _phermitian_transpose_rule(t, x):
-    return (hermitian(cotangent),)  
+def _phermitian_transpose_rule(ct, x):
+    return (hermitian(ct),)  
 
 ad.deflinear2(phermitian_p, _phermitian_transpose_rule)
 

@@ -25,7 +25,8 @@
 ##SBATCH --cpus-per-task=8           # nombre de CPU par tache pour gpu_p5 (1/8 du noeud 8-GPU)
 # /!\ Attention, "multithread" fait reference a l'hyperthreading dans la terminologie Slurm
 #SBATCH --hint=nomultithread         # hyperthreading desactive
-#SBATCH --time=00:10:00              # maximum execution time requested (HH:MM:SS)
+#SBATCH --time=00:04:00              # maximum execution time requested (HH:MM:SS)
+#SBATCH --qos=qos_gpu-dev            # quality of service (QOS) dev
 #SBATCH --output=a100-single.out # name of output file
 #SBATCH --error=a100-single.err  # name of error file 
 # Cleans out modules loaded in interactive and inherited by default
@@ -39,8 +40,10 @@ module purge
 module load python/3.10.4
 source venv/bin/activate
 
+module load cuda/11.8.0  cudnn/8.9.7.29-cuda cmake nvidia-compilers/23.9
+export MODULEPATH=$NVHPC/modulefiles:$MODULEPATH
+module load nvhpc-hpcx-cuda11/23.9
 
-module load cuda/11.8.0  cmake cudnn/8.9.7.29-cuda nvidia-compilers/23.9 openmpi/4.1.5-cuda
 # Echo of launched commands
 
 set -x
