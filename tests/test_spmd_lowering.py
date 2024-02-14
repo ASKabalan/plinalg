@@ -219,6 +219,96 @@ def test_custom_partitionning_lowering():
         # dynamic-slice or all-gather are present in the HLO for fft
         assert(re.search(_PATTERN, pjit_hermitian.lower(x).compile().runtime_executable().hlo_modules()[0].to_string())    is not None)
 
+from jaxlib.hlo_helpers import custom_call
+from plinalg import _pHermitian
+import jaxlib.mlir.ir as ir
+
+@pytest.mark.skip(reason="Still not sure yet what I am doing")
+def test_custom_partitionning_lowering():
+    # For an N-D input, keeps sharding along the first N-1 dimensions
+    # but replicate along the last dimension
+    def supported_sharding(sharding, shape):
+        rank = len(shape.shape)
+        max_shared_dims = min(len(sharding.spec), rank-1)
+        names = tuple(sharding.spec[:max_shared_dims]) + tuple(None for _ in range(rank - max_shared_dims))
+        return NamedSharding(sharding.mesh, P(*names))
+    
+    def default_layouts(*shapes):
+        return [range(len(shape) - 1, -1, -1) for shape in shapes]
+
+
+    def partition(mesh, arg_shapes, result_shape):
+
+        def _phermitation_lowering(ctx,x):
+
+            # I have access to sharding here because I am using custom_partitioning
+            """Lower the Hermitian operator to CUDA via MLIR, ensuring output is complex and transposed."""
+            x_type = ir.RankedTensorType(x.type)
+            x_shape = x_type.shape
+            
+            dims = x_type.shape
+            batch_size = dims[0] if len(dims) > 2 else 1
+
+            # Adjust for the transposed shape of the output.
+            if len(dims) == 2:
+                result_shape = (x_shape[-1], x_shape[-2])  # For 2D input
+            elif len(dims) == 3:
+                result_shape = (batch_size, x_shape[-1], x_shape[-2])  # For 3D input
+
+            result_type = ir.RankedTensorType.get(result_shape, x_type.element_type)
+
+            # Create the descriptor with batch size, matrix length (m), and matrix width (n).
+            m, n = x_shape[-2], x_shape[-1]  # Assuming the last two dimensions are matrix dimensions.
+            opaque = _pHermitian.build_hermitian_descriptor(batch_size, m, n)
+
+            # The custom call to the GPU operation.
+            out = custom_call(
+                b'hermitian_operator',
+                result_types=[result_type],
+                operands=[x],
+                backend_config=opaque,
+                operand_layouts=default_layouts(x_shape),
+                result_layouts=default_layouts(result_shape),
+            ).results
+
+            return out
+        
+        result_shardings = jax.tree_map(lambda x: x.sharding, result_shape)
+        arg_shardings = jax.tree_map(lambda x: x.sharding, arg_shapes)
+        # result_sharding and arg_shardings may optionally be modified and the
+        # partitioner will insert collectives to reshape.
+        return mesh, _phermitation_lowering, result_shardings, arg_shardings
+
+
+    def partition(mesh, arg_shapes, result_shape):
+        result_shardings = jax.tree_map(lambda x: x.sharding, result_shape)
+        arg_shardings = jax.tree_map(lambda x: x.sharding, arg_shapes)
+        return mesh, hermitian,\
+            supported_sharding(arg_shardings[0], arg_shapes[0]),\
+                  (supported_sharding(arg_shardings[0], arg_shapes[0]),)
+
+    def infer_sharding_from_operands(mesh, arg_shapes, result_shape):
+        arg_shardings = jax.tree_map(lambda x: x.sharding, arg_shapes)
+        return supported_sharding(arg_shardings[0], arg_shapes[0])
+
+    @custom_partitioning
+    def phermitian(x):
+        return hermitian(x)
+
+    phermitian.def_partition(
+        infer_sharding_from_operands=infer_sharding_from_operands,
+        partition=partition)
+    
+    with mesh:
+        pjit_phermitian = pjit(phermitian, in_shardings=P('x'), out_shardings=P('x'))
+        pjit_hermitian    = pjit(hermitian,    in_shardings=P('x'), out_shardings=P('x'))
+        print(pjit_phermitian(global_array))
+        print(pjit_hermitian(global_array))
+        # dynamic-slice or all-gather are not present in the HLO for my_fft, because x is a 2D array
+        assert(re.search(_PATTERN, pjit_phermitian.lower(x).compile().runtime_executable().hlo_modules()[0].to_string()) is None)
+        # dynamic-slice or all-gather are present in the HLO for fft
+        assert(re.search(_PATTERN, pjit_hermitian.lower(x).compile().runtime_executable().hlo_modules()[0].to_string())    is not None)
+
 
 
 jax.distributed.shutdown()
