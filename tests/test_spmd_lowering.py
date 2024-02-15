@@ -180,25 +180,45 @@ multihost_utils.sync_global_devices("For Printing")
 from jax.sharding import NamedSharding
 from jax.experimental.custom_partitioning import custom_partitioning
 
-@pytest.mark.skip(reason="I am not sure yet what I am doing")
-def test_custom_partitionning_lowering():
+#@pytest.mark.skip(reason="I am not sure yet what I am doing")
+def test_custom_partitionning():
     # For an N-D input, keeps sharding along the first N-1 dimensions
     # but replicate along the last dimension
     def supported_sharding(sharding, shape):
+
+        inspect_attr(sharding,"Sharding" , "supported_sharding")
+        inspect_attr(shape,"Shape" , "supported_sharding")
+
         rank = len(shape.shape)
         max_shared_dims = min(len(sharding.spec), rank-1)
         names = tuple(sharding.spec[:max_shared_dims]) + tuple(None for _ in range(rank - max_shared_dims))
         return NamedSharding(sharding.mesh, P(*names))
 
     def partition(mesh, arg_shapes, result_shape):
+
+        inspect_attr(mesh,"Mesh" , "partition")
+        inspect_attr(arg_shapes,"Arg Shapes" , "partial")
+        inspect_attr(result_shape,"Result Shape" , "partial")
+
         result_shardings = jax.tree_map(lambda x: x.sharding, result_shape)
         arg_shardings = jax.tree_map(lambda x: x.sharding, arg_shapes)
         return mesh, hermitian,\
             supported_sharding(arg_shardings[0], arg_shapes[0]),\
-                  (supported_sharding(arg_shardings[0], arg_shapes[0]),)
+                  (supported_sharding(result_shardings[0], result_shape[0]),)
 
     def infer_sharding_from_operands(mesh, arg_shapes, result_shape):
+
+        inspect_attr(mesh,"Mesh" , "infer_sharding_from_operands")
+        inspect_attr(arg_shapes,"Arg Shapes" , "infer_sharding_from_operands")
+        inspect_attr(result_shape,"Result Shape" , "infer_sharding_from_operands")
+
         arg_shardings = jax.tree_map(lambda x: x.sharding, arg_shapes)
+
+        inspect_attr(arg_shardings,"Arg Shardings" , "infer_sharding_from_operands")
+        inspect_attr(arg_shardings[0],"Arg Shardings 0" , "infer_sharding_from_operands")
+        inspect_attr(arg_shapes[0],"Arg Shapes 0" , "infer_sharding_from_operands")
+
+
         return supported_sharding(arg_shardings[0], arg_shapes[0])
 
     @custom_partitioning

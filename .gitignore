@@ -12,6 +12,9 @@ CMakeFiles/
 CMakeCache.txt
 build/
 
+.clangd
+compile_commands.json
+
 # Python    
 __pycache__/
 *.pyc
@@ -37,3 +40,4 @@ out/
 
 # outputs
 #output
+

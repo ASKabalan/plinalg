@@ -1,30 +1,70 @@
 import json
 import os
-def get_attribute_values(obj):
+
+
+def pretty_print(attribute_values):
+    return json.dumps(attribute_values, indent=4)
+
+def expand_dict(d):
+    assert isinstance(d, dict)
+
+    serializable_dict = {}
+    for k, v in d.items():
+        if isinstance(v, dict):
+            serializable_dict[str(k)] = expand_dict(v)
+        else:
+            serializable_dict[str(k)] = str(v)
+
+    return serializable_dict
+
+def get_attribute_values(obj, item_count=10):
     attribute_values = {}
     attributes = dir(obj)
     for attr in attributes:
+        if attr.startswith("__"):
+            continue  # Optionally skip magic methods
         try:
-            attribute_values[attr] = str(getattr(obj, attr))
+            value = getattr(obj, attr)
+            # too verbose
+            if attr == "traceback":
+                pass
+            elif hasattr(value,"__code__"):
+                function_dict = {}
+                function_dict['Function name'] = f"{value.__module__}.{value.__name__}]"
+                function_dict['arguments'] = str(value.__code__.co_varnames)
+                attribute_values[f"{attr} - {type(value)}"] = function_dict
+            elif isinstance(value, (list, tuple, set)):
+                container_dict = {}
+                for i,v in enumerate(value[:item_count]):
+                    container_dict[f"{i} - {type(v)}"] = str(v)
+                
+                attribute_values[f"{attr} - {type(value)}"]  = container_dict
+            elif isinstance(value, dict):
+                attribute_values[f"{attr} - {type(value)}"] = expand_dict(value)
+            else:
+                attribute_values[f"{attr} - {type(value)}"] = str(value)
+
         except Exception as e:
-            attribute_values[attr] = str(e)
+            attribute_values[f"{attr} - {type(value)}"]  = str(e)
     return attribute_values
 
-def pretty_print(attributes_values):
-    print(json.dumps(attributes_values, indent=4))
-
-def inspect_attr(var, var_name, name):
-
+def inspect_attr(var, var_name, name, item_count=10):
     if os.environ.get("VERBOSE") is None:
         return
-
-    print("{0}{2} - {3}{1}".format("*"*77,"*"*77,name,var_name))
-    # check if var has an attribute called is_fully_addressable and if it is True print its value
+    # if not addressable then don't print
     if hasattr(var, "is_fully_addressable") and not var.is_fully_addressable:
         pass
     else:
         print(f"{name} => {var_name} : {var} \n")
 
+    attribute_values = get_attribute_values(var, item_count)
+    #pretty_print(attribute_values)
     print(f"{name} => {var_name} Type : {type(var)} \n")
-    pretty_print(get_attribute_values(var))
-    print("\n")
+    print(f"{name} => {var_name} Json attribute dump: {pretty_print(attribute_values)}")
+
+
+import jax.numpy as jnp
+
+a = jnp.array([1, 2, 3])
+
+inspect_attr(a, "a", "Array")
