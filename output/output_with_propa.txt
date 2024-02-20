@@ -1,0 +1,966 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+============================= test session starts ==============================
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+============================= test session starts ==============================
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+============================= test session starts ==============================
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+============================= test session starts ==============================
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+============================= test session starts ==============================
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+============================= test session starts ==============================
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+============================= test session starts ==============================
+platform linux -- Python 3.10.4, pytest-8.0.0, pluggy-1.4.0
+rootdir: /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg
+Array => a : [1 2 3] 
+
+Process 2 has 1 devices: [cuda(id=2)]
+Process 3 has 1 devices: [cuda(id=3)]
+Process 1 has 1 devices: [cuda(id=1)]
+Process 4 has 1 devices: [cuda(id=4)]
+Process 5 has 1 devices: [cuda(id=5)]
+Process 6 has 1 devices: [cuda(id=6)]
+Process 7 has 1 devices: [cuda(id=7)]
+Array => a Type : <class 'jaxlib.xla_extension.ArrayImpl'> 
+
+Array => a Json attribute dump: {
+    "T - <class 'jaxlib.xla_extension.ArrayImpl'>": "[1 2 3]",
+    "_abc_impl - <class '_abc._abc_data'>": "<_abc._abc_data object at 0x149f0d39ce80>",
+    "_arrays - <class 'list'>": {
+        "0 - <class 'jaxlib.xla_extension.ArrayImpl'>": "[1 2 3]"
+    },
+    "_check_and_rearrange - <class 'method'>": {
+        "Function name": "jax._src.array._check_and_rearrange]",
+        "arguments": "('self', 'db', 'addressable_dev', 'array_device_ids', 'addressable_device_ids', 'diff', 'dev_in_sharding_not_in_arrays', 'dev_in_arrays_not_in_sharding', 'err_msg', 'ss', 'addressable_da')"
+    },
+    "_check_if_deleted - <class 'method'>": {
+        "Function name": "jax._src.array._check_if_deleted]",
+        "arguments": "('self',)"
+    },
+    "_chunk_iter - <class 'method'>": {
+        "Function name": "jax._src.numpy.array_methods._chunk_iter]",
+        "arguments": "('x', 'size', 'num_chunks', 'tail', 'i')"
+    },
+    "_committed - <class 'bool'>": "False",
+    "_copy_single_device_array_to_host_async - <class 'method'>": "<bound method PyCapsule. of Array([1, 2, 3], dtype=int32)>",
+    "_fully_replicated_shard - <class 'method'>": "<bound method PyCapsule. of Array([1, 2, 3], dtype=int32)>",
+    "_init_with_fastpath_disabled - <class 'method'>": "<bound method PyCapsule. of Array([1, 2, 3], dtype=int32)>",
+    "_multi_slice - <class 'method'>": {
+        "Function name": "jax._src.numpy.array_methods._multi_slice]",
+        "arguments": "('args', 'kwds')"
+    },
+    "_npy_value - <class 'numpy.ndarray'>": "[1 2 3]",
+    "_original_py_fns - <class 'dict'>": {
+        "__init__": "<function ArrayImpl.__init__ at 0x149f0947a950>",
+        "unsafe_buffer_pointer": "<function ArrayImpl.unsafe_buffer_pointer at 0x149f0947b9a0>",
+        "__cuda_array_interface__": "<property object at 0x149f0947d5d0>",
+        "on_device_size_in_bytes": "<function ArrayImpl.on_device_size_in_bytes at 0x149f0947bac0>",
+        "delete": "<function ArrayImpl.delete at 0x149f0947bf40>",
+        "is_deleted": "<function ArrayImpl.is_deleted at 0x149f09480040>",
+        "block_until_ready": "<function ArrayImpl.block_until_ready at 0x149f09480160>",
+        "_single_device_array_to_np_array": "<function ArrayImpl._single_device_array_to_np_array at 0x149f094801f0>",
+        "_copy_single_device_array_to_host_async": "<function ArrayImpl._copy_single_device_array_to_host_async at 0x149f09480280>"
+    },
+    "_sharding - <class 'jaxlib.xla_extension.SingleDeviceSharding'>": "SingleDeviceSharding(device=cuda(id=0))",
+    "_single_device_array_to_np_array - <class 'method'>": "<bound method PyCapsule. of Array([1, 2, 3], dtype=int32)>",
+    "_split - <class 'method'>": {
+        "Function name": "jax._src.numpy.lax_numpy.split]",
+        "arguments": "('ary', 'indices_or_sections', 'axis')"
+    },
+    "_unstack - <class 'method'>": "<bound method _unstack of Array([1, 2, 3], dtype=int32)>",
+    "_value - <class 'numpy.ndarray'>": "[1 2 3]",
+    "addressable_data - <class 'method'>": {
+        "Function name": "jax._src.array.addressable_data]",
+        "arguments": "('self', 'index')"
+    },
+    "addressable_shards - <class 'list'>": {
+        "0 - <class 'jax._src.array.Shard'>": "Shard(device=cuda(id=0), index=(slice(None, None, None),), replica_id=0, data=[1 2 3])"
+    },
+    "all - <class 'method'>": {
+        "Function name": "jax._src.numpy.reductions.all]",
+        "arguments": "('a', 'axis', 'out', 'keepdims', 'where')"
+    },
+    "any - <class 'method'>": {
+        "Function name": "jax._src.numpy.reductions.any]",
+        "arguments": "('a', 'axis', 'out', 'keepdims', 'where')"
+    },
+    "argmax - <class 'method'>": {
+        "Function name": "jax._src.numpy.lax_numpy.argmax]",
+        "arguments": "('a', 'axis', 'out', 'keepdims')"
+    },
+    "argmin - <class 'method'>": {
+        "Function name": "jax._src.numpy.lax_numpy.argmin]",
+        "arguments": "('a', 'axis', 'out', 'keepdims')"
+    },
+    "argpartition - <class 'method'>": "<bound method argpartition of Array([1, 2, 3], dtype=int32)>",
+    "argsort - <class 'method'>": "<bound method argsort of Array([1, 2, 3], dtype=int32)>",
+    "astype - <class 'method'>": {
+        "Function name": "jax._src.numpy.array_methods._astype]",
+        "arguments": "('arr', 'dtype')"
+    },
+    "at - <class 'jax._src.numpy.array_methods._IndexUpdateHelper'>": "_IndexUpdateHelper(Array([1, 2, 3], dtype=int32))",
+    "aval - <class 'jax._src.core.ShapedArray'>": "ShapedArray(int32[3])",
+    "block_until_ready - <class 'method'>": "<bound method PyCapsule. of Array([1, 2, 3], dtype=int32)>",
+    "choose - <class 'method'>": {
+        "Function name": "jax._src.numpy.lax_numpy.choose]",
+        "arguments": "('a', 'choices', 'out', 'mode', 'N', 'arr')"
+    },
+    "clip - <class 'method'>": {
+        "Function name": "jax._src.numpy.array_methods._clip]",
+        "arguments": "('number', 'min', 'max', 'out')"
+    },
+    "clone - <class 'method'>": "<bound method PyCapsule. of Array([1, 2, 3], dtype=int32)>",
+    "compress - <class 'method'>": {
+        "Function name": "jax._src.numpy.array_methods._compress_method]",
+        "arguments": "('a', 'condition', 'axis', 'out')"
+    },
+    "conj - <class 'method'>": "<bound method conjugate of Array([1, 2, 3], dtype=int32)>",
+    "conjugate - <class 'method'>": "<bound method conjugate of Array([1, 2, 3], dtype=int32)>",
+    "copy - <class 'method'>": {
+        "Function name": "jax._src.numpy.lax_numpy.copy]",
+        "arguments": "('a', 'order')"
+    },
+    "copy_to_host_async - <class 'method'>": {
+        "Function name": "jax._src.array.copy_to_host_async]",
+        "arguments": "('args', 'kwargs')"
+    },
+    "cumprod - <class 'method'>": {
+        "Function name": "jax._src.numpy.reductions.cumprod]",
+        "arguments": "('a', 'axis', 'dtype', 'out')"
+    },
+    "cumsum - <class 'method'>": {
+        "Function name": "jax._src.numpy.reductions.cumsum]",
+        "arguments": "('a', 'axis', 'dtype', 'out')"
+    },
+    "delete - <class 'method'>": "<bound method PyCapsule. of Array([1, 2, 3], dtype=int32)>",
+    "device - <class 'method'>": {
+        "Function name": "jax._src.array.device]",
+        "arguments": "('self', 'device_set', 'single_device')"
+    },
+    "device_buffer - <class 'jaxlib.xla_extension.ArrayImpl'>": "[1 2 3]",
+    "device_buffers - <class 'list'>": {
+        "0 - <class 'jaxlib.xla_extension.ArrayImpl'>": "[1 2 3]"
+    },
+    "devices - <class 'method'>": {
+        "Function name": "jax._src.array.devices]",
+        "arguments": "('self',)"
+    },
+    "diagonal - <class 'method'>": "<bound method diagonal of Array([1, 2, 3], dtype=int32)>",
+    "dot - <class 'method'>": "<bound method dot of Array([1, 2, 3], dtype=int32)>",
+    "dtype - <class 'numpy.dtypes.Int32DType'>": "int32",
+    "flat - <class 'numpy.dtypes.Int32DType'>": "JAX Arrays do not implement the arr.flat property: consider arr.flatten() instead.",
+    "flatten - <class 'method'>": "<bound method ravel of Array([1, 2, 3], dtype=int32)>",
+    "global_shards - <class 'list'>": {
+        "0 - <class 'jax._src.array.Shard'>": "Shard(device=cuda(id=0), index=(slice(None, None, None),), replica_id=0, data=[1 2 3])"
+    },
+    "imag - <class 'jaxlib.xla_extension.ArrayImpl'>": "[0 0 0]",
+    "is_deleted - <class 'method'>": "<bound method PyCapsule. of Array([1, 2, 3], dtype=int32)>",
+    "is_fully_addressable - <class 'bool'>": "True",
+    "is_fully_replicated - <class 'bool'>": "True",
+    "is_ready - <class 'method'>": "<bound method PyCapsule. of Array([1, 2, 3], dtype=int32)>",
+    "item - <class 'method'>": {
+        "Function name": "jax._src.numpy.array_methods._item]",
+        "arguments": "('a', 'args', 'arr')"
+    },
+    "itemsize - <class 'int'>": "4",
+    "mT - <class 'int'>": "x must be at least two-dimensional for matrix_transpose; got ndim=1",
+    "max - <class 'method'>": {
+        "Function name": "jax._src.numpy.reductions.max]",
+        "arguments": "('a', 'axis', 'out', 'keepdims', 'initial', 'where')"
+    },
+    "mean - <class 'method'>": {
+        "Function name": "jax._src.numpy.reductions.mean]",
+        "arguments": "('a', 'axis', 'dtype', 'out', 'keepdims', 'where')"
+    },
+    "min - <class 'method'>": {
+        "Function name": "jax._src.numpy.reductions.min]",
+        "arguments": "('a', 'axis', 'out', 'keepdims', 'initial', 'where')"
+    },
+    "nbytes - <class 'int'>": "12",
+    "ndim - <class 'int'>": "1",
+    "nonzero - <class 'method'>": {
+        "Function name": "jax._src.numpy.lax_numpy.nonzero]",
+        "arguments": "('a', 'size', 'fill_value', 'arr', 'mask', 'strides', 'out', 'fill_value_tup')"
+    },
+    "on_device_size_in_bytes - <class 'method'>": "<bound method PyCapsule. of Array([1, 2, 3], dtype=int32)>",
+    "platform - <class 'method'>": "<bound method PyCapsule. of Array([1, 2, 3], dtype=int32)>",
+    "prod - <class 'method'>": {
+        "Function name": "jax._src.numpy.reductions.prod]",
+        "arguments": "('a', 'axis', 'dtype', 'out', 'keepdims', 'initial', 'where', 'promote_integers')"
+    },
+    "ptp - <class 'method'>": {
+        "Function name": "jax._src.numpy.reductions.ptp]",
+        "arguments": "('a', 'axis', 'out', 'keepdims')"
+    },
+    "ravel - <class 'method'>": "<bound method ravel of Array([1, 2, 3], dtype=int32)>",
+    "real - <class 'jaxlib.xla_extension.ArrayImpl'>": "[1 2 3]",
+    "repeat - <class 'method'>": {
+        "Function name": "jax._src.numpy.lax_numpy.repeat]",
+        "arguments": "('a', 'repeats', 'axis', 'total_repeat_length', 'input_shape', 'aux_axis', 'reps', 'result_shape', 'exclusive_repeats', 'scatter_indices', 'block_split_indicators', 'gather_indices')"
+    },
+    "reshape - <class 'method'>": {
+        "Function name": "jax._src.numpy.array_methods._reshape]",
+        "arguments": "('a', 'order', 'args', '__tracebackhide__', 'newshape', 'dims')"
+    },
+    "round - <class 'method'>": "<bound method around of Array([1, 2, 3], dtype=int32)>",
+    "searchsorted - <class 'method'>": "<bound method searchsorted of Array([1, 2, 3], dtype=int32)>",
+    "shape - <class 'tuple'>": {
+        "0 - <class 'int'>": "3"
+    },
+    "sharding - <class 'jaxlib.xla_extension.SingleDeviceSharding'>": "SingleDeviceSharding(device=cuda(id=0))",
+    "size - <class 'int'>": "3",
+    "sort - <class 'method'>": "<bound method sort of Array([1, 2, 3], dtype=int32)>",
+    "squeeze - <class 'method'>": {
+        "Function name": "jax._src.numpy.lax_numpy.squeeze]",
+        "arguments": "('a', 'axis')"
+    },
+    "std - <class 'method'>": {
+        "Function name": "jax._src.numpy.reductions.std]",
+        "arguments": "('a', 'axis', 'dtype', 'out', 'ddof', 'keepdims', 'where')"
+    },
+    "sum - <class 'method'>": {
+        "Function name": "jax._src.numpy.reductions.sum]",
+        "arguments": "('a', 'axis', 'dtype', 'out', 'keepdims', 'initial', 'where', 'promote_integers')"
+    },
+    "swapaxes - <class 'method'>": "<bound method swapaxes of Array([1, 2, 3], dtype=int32)>",
+    "take - <class 'method'>": {
+        "Function name": "jax._src.numpy.lax_numpy.take]",
+        "arguments": "('a', 'indices', 'axis', 'out', 'mode', 'unique_indices', 'indices_are_sorted', 'fill_value')"
+    },
+    "tobytes - <class 'method'>": {
+        "Function name": "jax._src.array.tobytes]",
+        "arguments": "('self', 'order')"
+    },
+    "tolist - <class 'method'>": {
+        "Function name": "jax._src.array.tolist]",
+        "arguments": "('self',)"
+    },
+    "trace - <class 'method'>": "<bound method trace of Array([1, 2, 3], dtype=int32)>",
+    "transpose - <class 'method'>": {
+        "Function name": "jax._src.numpy.array_methods._transpose]",
+        "arguments": "('a', 'args', 'axis')"
+    },
+    "unsafe_buffer_pointer - <class 'method'>": "<bound method PyCapsule. of Array([1, 2, 3], dtype=int32)>",
+    "var - <class 'method'>": {
+        "Function name": "jax._src.numpy.reductions.var]",
+        "arguments": "('a', 'axis', 'dtype', 'out', 'ddof', 'keepdims', 'where')"
+    },
+    "view - <class 'method'>": {
+        "Function name": "jax._src.numpy.array_methods._view]",
+        "arguments": "('arr', 'dtype', 'type', 'new_shape', 'new_dtype', 'out', 'factor')"
+    },
+    "weak_type - <class 'bool'>": "False"
+}
+Total number of devices: 8
+Global devices names: [cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3), cuda(id=4), cuda(id=5), cuda(id=6), cuda(id=7)]
+Process 0 has 1 devices: [cuda(id=0)]
+_phermitation_lowering => Context : LoweringRuleContext(module_context=ModuleContext(context=<jaxlib.mlir._mlir_libs._site_initialize.<locals>.Context object at 0x149e8003cfe0>, module=<jaxlib.mlir._mlir_libs._mlir.ir.Module object at 0x149e80045930>, ip=<jaxlib.mlir._mlir_libs._mlir.ir.InsertionPoint object at 0x149e80045c30>, symbol_table=<jaxlib.mlir._mlir_libs._mlir.ir.SymbolTable object at 0x149e80045bf0>, backend_or_name=<jaxlib.xla_extension.Client object at 0x149f0d3ad0b0>, platforms=('cuda',), axis_context=ShardingContext(num_devices=1, device_assignment=None), name_stack=NameStack(stack=(Scope(name='jit(phermitian)'), Scope(name='jit(main)'))), keepalives=[], channel_iterator=count(1), host_callbacks=[], shape_poly_state=<jax._src.interpreters.mlir.ShapePolyLoweringState object at 0x149e80041630>, cached_primitive_lowerings={}, traceback_caches=TracebackCaches(canonical_name_cache={'/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/assertion/rewrite.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/assertion/rewrite.py', '<frozen importlib._bootstrap>': '<frozen importlib._bootstrap>', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/pathlib.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/pathlib.py'}, is_user_file_cache={'/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/source_info_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/partial_eval.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/core.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/dispatch.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/linear_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/profiler.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/pjit.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/api.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/traceback_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/batching.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/assertion/rewrite.py': True, '<frozen importlib._bootstrap>': True, '/gpfslocalsup/pub/anaconda-py3/2021.05/envs/python-3.10.4/lib/python3.10/importlib/__init__.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/pathlib.py': True}, raw_frame_to_frame_cache={('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', 16): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', function_name='hermitian', start_line=29, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', 52): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', function_name='phermitian_batching_rule', start_line=138, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', 504): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', function_name='<module>', start_line=45, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/assertion/rewrite.py', 268): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/assertion/rewrite.py', function_name='exec_module', start_line=175, start_column=0, end_line=0, end_column=0), ('<frozen importlib._bootstrap>', 132): Frame(file_name='<frozen importlib._bootstrap>', function_name='_load_unlocked', start_line=688, start_column=0, end_line=0, end_column=0), ('<frozen importlib._bootstrap>', 168): Frame(file_name='<frozen importlib._bootstrap>', function_name='_find_and_load_unlocked', start_line=1006, start_column=0, end_line=0, end_column=0), ('<frozen importlib._bootstrap>', 38): Frame(file_name='<frozen importlib._bootstrap>', function_name='_find_and_load', start_line=1027, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/pathlib.py', 436): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/pathlib.py', function_name='import_path', start_line=567, start_column=0, end_line=0, end_column=0)}), lowering_parameters=LoweringParameters(override_lowering_rules=None, platforms=None, global_constant_computation=False, replace_tokens_with_dummy=True)), primitive=phermitian, avals_in=[ShapedArray(complex64[8,2,3])], avals_out=[ShapedArray(complex64[8,3,2])], tokens_in=<jax._src.interpreters.mlir.TokenSet object at 0x149e80041ba0>, tokens_out=None, axis_size_env=None, dim_var_values=[]) 
+
+_phermitation_lowering => Context Type : <class 'jax._src.interpreters.mlir.LoweringRuleContext'> 
+
+_phermitation_lowering => Context Json attribute dump: {
+    "avals_in - <class 'list'>": {
+        "0 - <class 'jax._src.core.ShapedArray'>": "ShapedArray(complex64[8,2,3])"
+    },
+    "avals_out - <class 'list'>": {
+        "0 - <class 'jax._src.core.ShapedArray'>": "ShapedArray(complex64[8,3,2])"
+    },
+    "axis_size_env - <class 'NoneType'>": "None",
+    "dim_var_values - <class 'list'>": {},
+    "module_context - <class 'jax._src.interpreters.mlir.ModuleContext'>": "ModuleContext(context=<jaxlib.mlir._mlir_libs._site_initialize.<locals>.Context object at 0x149e8003cfe0>, module=<jaxlib.mlir._mlir_libs._mlir.ir.Module object at 0x149e80045930>, ip=<jaxlib.mlir._mlir_libs._mlir.ir.InsertionPoint object at 0x149e80045c30>, symbol_table=<jaxlib.mlir._mlir_libs._mlir.ir.SymbolTable object at 0x149e80045bf0>, backend_or_name=<jaxlib.xla_extension.Client object at 0x149f0d3ad0b0>, platforms=('cuda',), axis_context=ShardingContext(num_devices=1, device_assignment=None), name_stack=NameStack(stack=(Scope(name='jit(phermitian)'), Scope(name='jit(main)'))), keepalives=[], channel_iterator=count(1), host_callbacks=[], shape_poly_state=<jax._src.interpreters.mlir.ShapePolyLoweringState object at 0x149e80041630>, cached_primitive_lowerings={}, traceback_caches=TracebackCaches(canonical_name_cache={'/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/assertion/rewrite.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/assertion/rewrite.py', '<frozen importlib._bootstrap>': '<frozen importlib._bootstrap>', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/pathlib.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/pathlib.py'}, is_user_file_cache={'/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/source_info_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/partial_eval.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/core.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/dispatch.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/linear_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/profiler.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/pjit.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/api.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/traceback_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/batching.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/assertion/rewrite.py': True, '<frozen importlib._bootstrap>': True, '/gpfslocalsup/pub/anaconda-py3/2021.05/envs/python-3.10.4/lib/python3.10/importlib/__init__.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/pathlib.py': True}, raw_frame_to_frame_cache={('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', 16): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', function_name='hermitian', start_line=29, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', 52): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', function_name='phermitian_batching_rule', start_line=138, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', 504): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', function_name='<module>', start_line=45, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/assertion/rewrite.py', 268): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/assertion/rewrite.py', function_name='exec_module', start_line=175, start_column=0, end_line=0, end_column=0), ('<frozen importlib._bootstrap>', 132): Frame(file_name='<frozen importlib._bootstrap>', function_name='_load_unlocked', start_line=688, start_column=0, end_line=0, end_column=0), ('<frozen importlib._bootstrap>', 168): Frame(file_name='<frozen importlib._bootstrap>', function_name='_find_and_load_unlocked', start_line=1006, start_column=0, end_line=0, end_column=0), ('<frozen importlib._bootstrap>', 38): Frame(file_name='<frozen importlib._bootstrap>', function_name='_find_and_load', start_line=1027, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/pathlib.py', 436): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/pathlib.py', function_name='import_path', start_line=567, start_column=0, end_line=0, end_column=0)}), lowering_parameters=LoweringParameters(override_lowering_rules=None, platforms=None, global_constant_computation=False, replace_tokens_with_dummy=True))",
+    "primitive - <class 'jax._src.core.Primitive'>": "phermitian",
+    "replace - <class 'method'>": {
+        "Function name": "jax._src.interpreters.mlir.replace]",
+        "arguments": "('self', 'kw')"
+    },
+    "set_tokens_out - <class 'method'>": {
+        "Function name": "jax._src.interpreters.mlir.set_tokens_out]",
+        "arguments": "('self', 'tokens_out')"
+    },
+    "tokens_in - <class 'jax._src.interpreters.mlir.TokenSet'>": "<jax._src.interpreters.mlir.TokenSet object at 0x149e80041ba0>",
+    "tokens_out - <class 'NoneType'>": "None"
+}
+_phermitation_lowering => Operand : Value(<block argument> of type 'tensor<8x2x3xcomplex<f32>>' at index: 0) 
+
+_phermitation_lowering => Operand Type : <class 'jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument'> 
+
+_phermitation_lowering => Operand Json attribute dump: {
+    "_CAPICreate - <class 'method'>": "<bound method PyCapsule._CAPICreate of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e80046830>>",
+    "_CAPIPtr - <class 'PyCapsule'>": "<capsule object \"jaxlib.mlir.ir.Value._CAPIPtr\" at 0x149e800420a0>",
+    "arg_number - <class 'int'>": "0",
+    "context - <class 'int'>": "Unable to convert function return value to a Python type! The signature was\n\t(arg0: jaxlib.mlir._mlir_libs._mlir.ir.Value) -> mlir::python::PyObjectRef<mlir::python::PyMlirContext>",
+    "dump - <class 'method'>": "<bound method PyCapsule.dump of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e80046830>>",
+    "get_name - <class 'method'>": "<bound method PyCapsule.get_name of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e80046830>>",
+    "isinstance - <class 'builtin_function_or_method'>": "<built-in method isinstance of PyCapsule object at 0x149f0d386010>",
+    "maybe_downcast - <class 'method'>": "<bound method PyCapsule.maybe_downcast of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e80046830>>",
+    "owner - <class 'jaxlib.mlir._mlir_libs._mlir.ir.Block'>": "^bb0(%arg0: tensor<8x2x3xcomplex<f32>>):\n",
+    "replace_all_uses_with - <class 'method'>": "<bound method PyCapsule.replace_all_uses_with of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e80046830>>",
+    "set_type - <class 'method'>": "<bound method PyCapsule.set_type of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e80046830>>",
+    "type - <class 'jaxlib.mlir._mlir_libs._mlir.ir.RankedTensorType'>": "tensor<8x2x3xcomplex<f32>>",
+    "uses - <class 'jaxlib.mlir._mlir_libs._mlir.ir.OpOperandIterator'>": "<jaxlib.mlir._mlir_libs._mlir.ir.OpOperandIterator object at 0x149f0b3d16f0>"
+}
+phermitation_lowering => batch_size : 8 
+
+phermitation_lowering => batch_size Type : <class 'int'> 
+
+phermitation_lowering => batch_size Json attribute dump: {
+    "as_integer_ratio - <class 'builtin_function_or_method'>": "<built-in method as_integer_ratio of int object at 0x149f36e801d0>",
+    "bit_count - <class 'builtin_function_or_method'>": "<built-in method bit_count of int object at 0x149f36e801d0>",
+    "bit_length - <class 'builtin_function_or_method'>": "<built-in method bit_length of int object at 0x149f36e801d0>",
+    "conjugate - <class 'builtin_function_or_method'>": "<built-in method conjugate of int object at 0x149f36e801d0>",
+    "denominator - <class 'int'>": "1",
+    "from_bytes - <class 'builtin_function_or_method'>": "<built-in method from_bytes of type object at 0x55a07c84d500>",
+    "imag - <class 'int'>": "0",
+    "numerator - <class 'int'>": "8",
+    "real - <class 'int'>": "8",
+    "to_bytes - <class 'builtin_function_or_method'>": "<built-in method to_bytes of int object at 0x149f36e801d0>"
+}
+CUDA : Batch size: 8
+collected 1 item
+collected 1 item
+collected 1 item
+collected 1 item
+collected 1 item
+collected 1 item
+collected 1 item
+
+
+
+
+
+
+
+collected 1 item
+
+tests/test_spmd_lowering.py _phermitation_lowering => Context : LoweringRuleContext(module_context=ModuleContext(context=<jaxlib.mlir._mlir_libs._site_initialize.<locals>.Context object at 0x149f352fd670>, module=<jaxlib.mlir._mlir_libs._mlir.ir.Module object at 0x149e80055270>, ip=<jaxlib.mlir._mlir_libs._mlir.ir.InsertionPoint object at 0x149e800551b0>, symbol_table=<jaxlib.mlir._mlir_libs._mlir.ir.SymbolTable object at 0x149e80055230>, backend_or_name=<jaxlib.xla_extension.Client object at 0x149f0d3ad0b0>, platforms=('cuda',), axis_context=ShardingContext(num_devices=8, device_assignment=None), name_stack=NameStack(stack=(Scope(name='pjit(hermitian)'), Scope(name='jit(main)'))), keepalives=[], channel_iterator=count(1), host_callbacks=[], shape_poly_state=<jax._src.interpreters.mlir.ShapePolyLoweringState object at 0x149e8005c040>, cached_primitive_lowerings={}, traceback_caches=TracebackCaches(canonical_name_cache={'/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py'}, is_user_file_cache={'/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/source_info_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/partial_eval.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/core.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/linear_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/profiler.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/pjit.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/traceback_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py': True}, raw_frame_to_frame_cache={('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', 16): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', function_name='hermitian', start_line=29, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', 144): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', function_name='test_custom_partitionning', start_line=252, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', 62): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', function_name='pytest_pyfunc_call', start_line=193, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py', 310): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py', function_name='_multicall', start_line=102, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py', 12): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py', function_name='_hookexec', start_line=119, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py', 72): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py', function_name='__call__', start_line=501, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', 10): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', function_name='runtest', start_line=1836, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py', 52): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py', function_name='pytest_runtest_call', start_line=173, start_column=0, end_line=0, end_column=0)}), lowering_parameters=LoweringParameters(override_lowering_rules=None, platforms=None, global_constant_computation=False, replace_tokens_with_dummy=True)), primitive=phermitian, avals_in=[ShapedArray(complex64[8,2,3])], avals_out=[ShapedArray(complex64[8,3,2])], tokens_in=<jax._src.interpreters.mlir.TokenSet object at 0x149e8005d960>, tokens_out=None, axis_size_env=None, dim_var_values=[]) 
+
+_phermitation_lowering => Context Type : <class 'jax._src.interpreters.mlir.LoweringRuleContext'> 
+
+_phermitation_lowering => Context Json attribute dump: {
+    "avals_in - <class 'list'>": {
+        "0 - <class 'jax._src.core.ShapedArray'>": "ShapedArray(complex64[8,2,3])"
+    },
+    "avals_out - <class 'list'>": {
+        "0 - <class 'jax._src.core.ShapedArray'>": "ShapedArray(complex64[8,3,2])"
+    },
+    "axis_size_env - <class 'NoneType'>": "None",
+    "dim_var_values - <class 'list'>": {},
+    "module_context - <class 'jax._src.interpreters.mlir.ModuleContext'>": "ModuleContext(context=<jaxlib.mlir._mlir_libs._site_initialize.<locals>.Context object at 0x149f352fd670>, module=<jaxlib.mlir._mlir_libs._mlir.ir.Module object at 0x149e80055270>, ip=<jaxlib.mlir._mlir_libs._mlir.ir.InsertionPoint object at 0x149e800551b0>, symbol_table=<jaxlib.mlir._mlir_libs._mlir.ir.SymbolTable object at 0x149e80055230>, backend_or_name=<jaxlib.xla_extension.Client object at 0x149f0d3ad0b0>, platforms=('cuda',), axis_context=ShardingContext(num_devices=8, device_assignment=None), name_stack=NameStack(stack=(Scope(name='pjit(hermitian)'), Scope(name='jit(main)'))), keepalives=[], channel_iterator=count(1), host_callbacks=[], shape_poly_state=<jax._src.interpreters.mlir.ShapePolyLoweringState object at 0x149e8005c040>, cached_primitive_lowerings={}, traceback_caches=TracebackCaches(canonical_name_cache={'/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py'}, is_user_file_cache={'/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/source_info_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/partial_eval.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/core.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/linear_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/profiler.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/pjit.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/traceback_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py': True}, raw_frame_to_frame_cache={('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', 16): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', function_name='hermitian', start_line=29, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', 144): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', function_name='test_custom_partitionning', start_line=252, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', 62): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', function_name='pytest_pyfunc_call', start_line=193, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py', 310): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py', function_name='_multicall', start_line=102, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py', 12): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py', function_name='_hookexec', start_line=119, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py', 72): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py', function_name='__call__', start_line=501, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', 10): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', function_name='runtest', start_line=1836, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py', 52): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py', function_name='pytest_runtest_call', start_line=173, start_column=0, end_line=0, end_column=0)}), lowering_parameters=LoweringParameters(override_lowering_rules=None, platforms=None, global_constant_computation=False, replace_tokens_with_dummy=True))",
+    "primitive - <class 'jax._src.core.Primitive'>": "phermitian",
+    "replace - <class 'method'>": {
+        "Function name": "jax._src.interpreters.mlir.replace]",
+        "arguments": "('self', 'kw')"
+    },
+    "set_tokens_out - <class 'method'>": {
+        "Function name": "jax._src.interpreters.mlir.set_tokens_out]",
+        "arguments": "('self', 'tokens_out')"
+    },
+    "tokens_in - <class 'jax._src.interpreters.mlir.TokenSet'>": "<jax._src.interpreters.mlir.TokenSet object at 0x149e8005d960>",
+    "tokens_out - <class 'NoneType'>": "None"
+}
+_phermitation_lowering => Operand : Value(<block argument> of type 'tensor<8x2x3xcomplex<f32>>' at index: 0) 
+
+_phermitation_lowering => Operand Type : <class 'jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument'> 
+
+_phermitation_lowering => Operand Json attribute dump: {
+    "_CAPICreate - <class 'method'>": "<bound method PyCapsule._CAPICreate of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e80055c30>>",
+    "_CAPIPtr - <class 'PyCapsule'>": "<capsule object \"jaxlib.mlir.ir.Value._CAPIPtr\" at 0x149e8005de60>",
+    "arg_number - <class 'int'>": "0",
+    "context - <class 'int'>": "Unable to convert function return value to a Python type! The signature was\n\t(arg0: jaxlib.mlir._mlir_libs._mlir.ir.Value) -> mlir::python::PyObjectRef<mlir::python::PyMlirContext>",
+    "dump - <class 'method'>": "<bound method PyCapsule.dump of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e80055c30>>",
+    "get_name - <class 'method'>": "<bound method PyCapsule.get_name of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e80055c30>>",
+    "isinstance - <class 'builtin_function_or_method'>": "<built-in method isinstance of PyCapsule object at 0x149f0d386010>",
+    "maybe_downcast - <class 'method'>": "<bound method PyCapsule.maybe_downcast of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e80055c30>>",
+    "owner - <class 'jaxlib.mlir._mlir_libs._mlir.ir.Block'>": "^bb0(%arg0: tensor<8x2x3xcomplex<f32>>):\n",
+    "replace_all_uses_with - <class 'method'>": "<bound method PyCapsule.replace_all_uses_with of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e80055c30>>",
+    "set_type - <class 'method'>": "<bound method PyCapsule.set_type of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e80055c30>>",
+    "type - <class 'jaxlib.mlir._mlir_libs._mlir.ir.RankedTensorType'>": "tensor<8x2x3xcomplex<f32>>",
+    "uses - <class 'jaxlib.mlir._mlir_libs._mlir.ir.OpOperandIterator'>": "<jaxlib.mlir._mlir_libs._mlir.ir.OpOperandIterator object at 0x149f08163d30>"
+}
+phermitation_lowering => batch_size : 8 
+
+phermitation_lowering => batch_size Type : <class 'int'> 
+
+phermitation_lowering => batch_size Json attribute dump: {
+    "as_integer_ratio - <class 'builtin_function_or_method'>": "<built-in method as_integer_ratio of int object at 0x149f36e801d0>",
+    "bit_count - <class 'builtin_function_or_method'>": "<built-in method bit_count of int object at 0x149f36e801d0>",
+    "bit_length - <class 'builtin_function_or_method'>": "<built-in method bit_length of int object at 0x149f36e801d0>",
+    "conjugate - <class 'builtin_function_or_method'>": "<built-in method conjugate of int object at 0x149f36e801d0>",
+    "denominator - <class 'int'>": "1",
+    "from_bytes - <class 'builtin_function_or_method'>": "<built-in method from_bytes of type object at 0x55a07c84d500>",
+    "imag - <class 'int'>": "0",
+    "numerator - <class 'int'>": "8",
+    "real - <class 'int'>": "8",
+    "to_bytes - <class 'builtin_function_or_method'>": "<built-in method to_bytes of int object at 0x149f36e801d0>"
+}
+HLO graph hermitian HloModule pjit_hermitian, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="95fe5c3fb3101c98b3006a7f647acd6e"}
+
+%fused_dynamic_slice (param_1: c64[8,3,2], param_1.2: u32[]) -> c64[1,3,2] {
+  %param_1 = c64[8,3,2]{2,1,0} parameter(0)
+  %param_1.2 = u32[] parameter(1)
+  %convert.2 = s32[] convert(u32[] %param_1.2), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %constant_5 = s32[] constant(0), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %dynamic-slice.3 = c64[1,3,2]{2,1,0} dynamic-slice(c64[8,3,2]{2,1,0} %param_1, s32[] %convert.2, s32[] %constant_5, s32[] %constant_5), dynamic_slice_sizes={1,3,2}, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  %all-gather-start = (c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) all-gather-start(c64[1,2,3]{2,1,0} %param), channel_id=1, replica_groups={{0,1,2,3,4,5,6,7}}, dimensions={0}, use_global_device_ids=true, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-gather-done = c64[8,2,3]{2,1,0} all-gather-done((c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) %all-gather-start), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %custom-call.0 = c64[8,3,2]{2,1,0} custom-call(c64[8,2,3]{2,1,0} %all-gather-done), custom_call_target="hermitian_operator", operand_layout_constraints={c64[8,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config="\010\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+  %partition-id = u32[] partition-id(), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %loop_dynamic_slice_fusion = c64[1,3,2]{2,1,0} fusion(c64[8,3,2]{2,1,0} %custom-call.0, u32[] %partition-id), kind=kLoop, calls=%fused_dynamic_slice, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+
+tests/test_spmd_lowering.py HLO graph hermitian HloModule pjit_hermitian, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="95fe5c3fb3101c98b3006a7f647acd6e"}
+
+%fused_dynamic_slice (param_1: c64[8,3,2], param_1.2: u32[]) -> c64[1,3,2] {
+  %param_1 = c64[8,3,2]{2,1,0} parameter(0)
+  %param_1.2 = u32[] parameter(1)
+  %convert.2 = s32[] convert(u32[] %param_1.2), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %constant_5 = s32[] constant(0), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %dynamic-slice.3 = c64[1,3,2]{2,1,0} dynamic-slice(c64[8,3,2]{2,1,0} %param_1, s32[] %convert.2, s32[] %constant_5, s32[] %constant_5), dynamic_slice_sizes={1,3,2}, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  %all-gather-start = (c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) all-gather-start(c64[1,2,3]{2,1,0} %param), channel_id=1, replica_groups={{0,1,2,3,4,5,6,7}}, dimensions={0}, use_global_device_ids=true, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-gather-done = c64[8,2,3]{2,1,0} all-gather-done((c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) %all-gather-start), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %custom-call.0 = c64[8,3,2]{2,1,0} custom-call(c64[8,2,3]{2,1,0} %all-gather-done), custom_call_target="hermitian_operator", operand_layout_constraints={c64[8,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config="\010\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+  %partition-id = u32[] partition-id(), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %loop_dynamic_slice_fusion = c64[1,3,2]{2,1,0} fusion(c64[8,3,2]{2,1,0} %custom-call.0, u32[] %partition-id), kind=kLoop, calls=%fused_dynamic_slice, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+
+tests/test_spmd_lowering.py HLO graph hermitian HloModule pjit_hermitian, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="95fe5c3fb3101c98b3006a7f647acd6e"}
+
+%fused_dynamic_slice (param_1: c64[8,3,2], param_1.2: u32[]) -> c64[1,3,2] {
+  %param_1 = c64[8,3,2]{2,1,0} parameter(0)
+  %param_1.2 = u32[] parameter(1)
+  %convert.2 = s32[] convert(u32[] %param_1.2), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %constant_5 = s32[] constant(0), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+tests/test_spmd_lowering.py HLO graph hermitian HloModule pjit_hermitian, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="95fe5c3fb3101c98b3006a7f647acd6e"}
+
+%fused_dynamic_slice (param_1: c64[8,3,2], param_1.2: u32[]) -> c64[1,3,2] {
+  %param_1 = c64[8,3,2]{2,1,0} parameter(0)
+  %param_1.2 = u32[] parameter(1)
+  %convert.2 = s32[] convert(u32[] %param_1.2), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %constant_5 = s32[] constant(0), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %dynamic-slice.3 = c64[1,3,2]{2,1,0} dynamic-slice(c64[8,3,2]{2,1,0} %param_1, s32[] %convert.2, s32[] %constant_5, s32[] %constant_5), dynamic_slice_sizes={1,3,2}, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  %all-gather-start = (c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) all-gather-start(c64[1,2,3]{2,1,0} %param), channel_id=1, replica_groups={{0,1,2,3,4,5,6,7}}, dimensions={0}, use_global_device_ids=true, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  ROOT %dynamic-slice.3 = c64[1,3,2]{2,1,0} dynamic-slice(c64[8,3,2]{2,1,0} %param_1, s32[] %convert.2, s32[] %constant_5, s32[] %constant_5), dynamic_slice_sizes={1,3,2}, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  %all-gather-start = (c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) all-gather-start(c64[1,2,3]{2,1,0} %param), channel_id=1, replica_groups={{0,1,2,3,4,5,6,7}}, dimensions={0}, use_global_device_ids=true, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-gather-done = c64[8,2,3]{2,1,0} all-gather-done((c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) %all-gather-start), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %custom-call.0 = c64[8,3,2]{2,1,0} custom-call(c64[8,2,3]{2,1,0} %all-gather-done), custom_call_target="hermitian_operator", operand_layout_constraints={c64[8,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config="\010\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+  %partition-id = u32[] partition-id(), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %all-gather-done = c64[8,2,3]{2,1,0} all-gather-done((c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) %all-gather-start), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %custom-call.0 = c64[8,3,2]{2,1,0} custom-call(c64[8,2,3]{2,1,0} %all-gather-done), custom_call_target="hermitian_operator", operand_layout_constraints={c64[8,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config="\010\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+  %partition-id = u32[] partition-id(), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %loop_dynamic_slice_fusion = c64[1,3,2]{2,1,0} fusion(c64[8,3,2]{2,1,0} %custom-call.0, u32[] %partition-id), kind=kLoop, calls=%fused_dynamic_slice, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+
+  ROOT %loop_dynamic_slice_fusion = c64[1,3,2]{2,1,0} fusion(c64[8,3,2]{2,1,0} %custom-call.0, u32[] %partition-id), kind=kLoop, calls=%fused_dynamic_slice, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+
+tests/test_spmd_lowering.py HLO graph hermitian HloModule pjit_hermitian, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="95fe5c3fb3101c98b3006a7f647acd6e"}
+
+%fused_dynamic_slice (param_1: c64[8,3,2], param_1.2: u32[]) -> c64[1,3,2] {
+  %param_1 = c64[8,3,2]{2,1,0} parameter(0)
+  %param_1.2 = u32[] parameter(1)
+  %convert.2 = s32[] convert(u32[] %param_1.2), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %constant_5 = s32[] constant(0), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %dynamic-slice.3 = c64[1,3,2]{2,1,0} dynamic-slice(c64[8,3,2]{2,1,0} %param_1, s32[] %convert.2, s32[] %constant_5, s32[] %constant_5), dynamic_slice_sizes={1,3,2}, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  %all-gather-start = (c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) all-gather-start(c64[1,2,3]{2,1,0} %param), channel_id=1, replica_groups={{0,1,2,3,4,5,6,7}}, dimensions={0}, use_global_device_ids=true, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-gather-done = c64[8,2,3]{2,1,0} all-gather-done((c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) %all-gather-start), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %custom-call.0 = c64[8,3,2]{2,1,0} custom-call(c64[8,2,3]{2,1,0} %all-gather-done), custom_call_target="hermitian_operator", operand_layout_constraints={c64[8,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config="\010\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+  %partition-id = u32[] partition-id(), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %loop_dynamic_slice_fusion = c64[1,3,2]{2,1,0} fusion(c64[8,3,2]{2,1,0} %custom-call.0, u32[] %partition-id), kind=kLoop, calls=%fused_dynamic_slice, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+
+tests/test_spmd_lowering.py HLO graph hermitian HloModule pjit_hermitian, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="95fe5c3fb3101c98b3006a7f647acd6e"}
+
+%fused_dynamic_slice (param_1: c64[8,3,2], param_1.2: u32[]) -> c64[1,3,2] {
+  %param_1 = c64[8,3,2]{2,1,0} parameter(0)
+  %param_1.2 = u32[] parameter(1)
+  %convert.2 = s32[] convert(u32[] %param_1.2), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %constant_5 = s32[] constant(0), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %dynamic-slice.3 = c64[1,3,2]{2,1,0} dynamic-slice(c64[8,3,2]{2,1,0} %param_1, s32[] %convert.2, s32[] %constant_5, s32[] %constant_5), dynamic_slice_sizes={1,3,2}, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  %all-gather-start = (c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) all-gather-start(c64[1,2,3]{2,1,0} %param), channel_id=1, replica_groups={{0,1,2,3,4,5,6,7}}, dimensions={0}, use_global_device_ids=true, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-gather-done = c64[8,2,3]{2,1,0} all-gather-done((c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) %all-gather-start), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %custom-call.0 = c64[8,3,2]{2,1,0} custom-call(c64[8,2,3]{2,1,0} %all-gather-done), custom_call_target="hermitian_operator", operand_layout_constraints={c64[8,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config="\010\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+  %partition-id = u32[] partition-id(), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %loop_dynamic_slice_fusion = c64[1,3,2]{2,1,0} fusion(c64[8,3,2]{2,1,0} %custom-call.0, u32[] %partition-id), kind=kLoop, calls=%fused_dynamic_slice, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+
+tests/test_spmd_lowering.py HLO graph hermitian HloModule pjit_hermitian, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="95fe5c3fb3101c98b3006a7f647acd6e"}
+
+%fused_dynamic_slice (param_1: c64[8,3,2], param_1.2: u32[]) -> c64[1,3,2] {
+  %param_1 = c64[8,3,2]{2,1,0} parameter(0)
+  %param_1.2 = u32[] parameter(1)
+  %convert.2 = s32[] convert(u32[] %param_1.2), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %constant_5 = s32[] constant(0), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %dynamic-slice.3 = c64[1,3,2]{2,1,0} dynamic-slice(c64[8,3,2]{2,1,0} %param_1, s32[] %convert.2, s32[] %constant_5, s32[] %constant_5), dynamic_slice_sizes={1,3,2}, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  %all-gather-start = (c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) all-gather-start(c64[1,2,3]{2,1,0} %param), channel_id=1, replica_groups={{0,1,2,3,4,5,6,7}}, dimensions={0}, use_global_device_ids=true, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-gather-done = c64[8,2,3]{2,1,0} all-gather-done((c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) %all-gather-start), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %custom-call.0 = c64[8,3,2]{2,1,0} custom-call(c64[8,2,3]{2,1,0} %all-gather-done), custom_call_target="hermitian_operator", operand_layout_constraints={c64[8,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config="\010\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+  %partition-id = u32[] partition-id(), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %loop_dynamic_slice_fusion = c64[1,3,2]{2,1,0} fusion(c64[8,3,2]{2,1,0} %custom-call.0, u32[] %partition-id), kind=kLoop, calls=%fused_dynamic_slice, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+
+tests/test_spmd_lowering.py HLO graph hermitian HloModule pjit_hermitian, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="95fe5c3fb3101c98b3006a7f647acd6e"}
+
+%fused_dynamic_slice (param_1: c64[8,3,2], param_1.2: u32[]) -> c64[1,3,2] {
+  %param_1 = c64[8,3,2]{2,1,0} parameter(0)
+  %param_1.2 = u32[] parameter(1)
+  %convert.2 = s32[] convert(u32[] %param_1.2), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %constant_5 = s32[] constant(0), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %dynamic-slice.3 = c64[1,3,2]{2,1,0} dynamic-slice(c64[8,3,2]{2,1,0} %param_1, s32[] %convert.2, s32[] %constant_5, s32[] %constant_5), dynamic_slice_sizes={1,3,2}, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  %all-gather-start = (c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) all-gather-start(c64[1,2,3]{2,1,0} %param), channel_id=1, replica_groups={{0,1,2,3,4,5,6,7}}, dimensions={0}, use_global_device_ids=true, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-gather-done = c64[8,2,3]{2,1,0} all-gather-done((c64[1,2,3]{2,1,0}, c64[8,2,3]{2,1,0}) %all-gather-start), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  %custom-call.0 = c64[8,3,2]{2,1,0} custom-call(c64[8,2,3]{2,1,0} %all-gather-done), custom_call_target="hermitian_operator", operand_layout_constraints={c64[8,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}, backend_config="\010\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+  %partition-id = u32[] partition-id(), metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+  ROOT %loop_dynamic_slice_fusion = c64[1,3,2]{2,1,0} fusion(c64[8,3,2]{2,1,0} %custom-call.0, u32[] %partition-id), kind=kLoop, calls=%fused_dynamic_slice, metadata={op_name="pjit(hermitian)/jit(main)/phermitian" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py" source_line=29}
+}
+
+
+TRACING-WKN3 partition => Mesh : Mesh('x': 8) 
+
+TRACING-WKN3 partition => Mesh Type : <class 'jax._src.mesh.Mesh'> 
+
+TRACING-WKN3 partition => Mesh Json attribute dump: {
+    "_flat_devices_set - <class 'set'>": "'set' object is not subscriptable",
+    "_flat_devices_tuple - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3",
+        "4 - <class 'jaxlib.xla_extension.Device'>": "cuda:4",
+        "5 - <class 'jaxlib.xla_extension.Device'>": "cuda:5",
+        "6 - <class 'jaxlib.xla_extension.Device'>": "cuda:6",
+        "7 - <class 'jaxlib.xla_extension.Device'>": "cuda:7"
+    },
+    "_hash - <class 'int'>": "5319079041327574428",
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3), cuda(id=4), cuda(id=5), cuda(id=6), cuda(id=7))",
+    "_local_devices_set - <class 'set'>": "'set' object is not subscriptable",
+    "_local_mesh - <class 'method'>": {
+        "Function name": "jax._src.mesh._local_mesh]",
+        "arguments": "('self', 'process_index')"
+    },
+    "_recreate_cm - <class 'method'>": {
+        "Function name": "contextlib._recreate_cm]",
+        "arguments": "('self',)"
+    },
+    "_repr - <class 'str'>": "Mesh(device_ids=array([0, 1, 2, 3, 4, 5, 6, 7]), axis_names=('x',))",
+    "axis_names - <class 'tuple'>": {
+        "0 - <class 'str'>": "x"
+    },
+    "device_ids - <class 'numpy.ndarray'>": "[0 1 2 3 4 5 6 7]",
+    "devices - <class 'numpy.ndarray'>": "[cuda(id=0) cuda(id=1) cuda(id=2) cuda(id=3) cuda(id=4) cuda(id=5)\n cuda(id=6) cuda(id=7)]",
+    "empty - <class 'bool'>": "False",
+    "is_multi_process - <class 'bool'>": "True",
+    "local_devices - <class 'list'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0"
+    },
+    "local_mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 1)",
+    "shape - <class 'collections.OrderedDict'>": {
+        "x": "8"
+    },
+    "size - <class 'int'>": "8"
+}
+TRACING-WKN3 partial => Arg Shapes : (ShapeDtypeStruct(shape=(8, 2, 3), dtype=complex64, sharding=NamedSharding(mesh=Mesh('x': 8), spec=PartitionSpec('x', None, None))),) 
+
+TRACING-WKN3 partial => Arg Shapes Type : <class 'tuple'> 
+
+TRACING-WKN3 partial => Arg Shapes Json attribute dump: {
+    "count - <class 'builtin_function_or_method'>": "<built-in method count of tuple object at 0x149e80043550>",
+    "index - <class 'builtin_function_or_method'>": "<built-in method index of tuple object at 0x149e80043550>"
+}
+TRACING-WKN3 partial => Result Shape : ShapeDtypeStruct(shape=(8, 3, 2), dtype=complex64, sharding=NamedSharding(mesh=Mesh('x': 8), spec=PartitionSpec('x', None, None))) 
+
+TRACING-WKN3 partial => Result Shape Type : <class 'jax._src.api.ShapeDtypeStruct'> 
+
+TRACING-WKN3 partial => Result Shape Json attribute dump: {
+    "dtype - <class 'numpy.dtypes.Complex64DType'>": "complex64",
+    "named_shape - <class 'dict'>": {},
+    "ndim - <class 'int'>": "3",
+    "shape - <class 'tuple'>": {
+        "0 - <class 'int'>": "8",
+        "1 - <class 'int'>": "3",
+        "2 - <class 'int'>": "2"
+    },
+    "sharding - <class 'jaxlib.xla_extension.NamedSharding'>": "NamedSharding(mesh=Mesh('x': 8), spec=PartitionSpec('x', None, None))",
+    "size - <class 'int'>": "48"
+}
+TRACING-WKN3 supported_sharding => Sharding Type : <class 'jaxlib.xla_extension.NamedSharding'> 
+
+TRACING-WKN3 supported_sharding => Sharding Json attribute dump: {
+    "_addressable_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0"
+    },
+    "_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3",
+        "4 - <class 'jaxlib.xla_extension.Device'>": "cuda:4",
+        "5 - <class 'jaxlib.xla_extension.Device'>": "cuda:5",
+        "6 - <class 'jaxlib.xla_extension.Device'>": "cuda:6",
+        "7 - <class 'jaxlib.xla_extension.Device'>": "cuda:7"
+    },
+    "_from_parsed_pspec - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._from_parsed_pspec]",
+        "arguments": "('cls', 'mesh', 'parsed_pspec', 'memory_kind', '_manual_axes')"
+    },
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3), cuda(id=4), cuda(id=5), cuda(id=6), cuda(id=7))",
+    "_manual_axes - <class 'frozenset'>": "frozenset()",
+    "_memory_kind - <class 'NoneType'>": "None",
+    "_original_py_fns - <class 'dict'>": {
+        "__init__": "<function NamedSharding.__init__ at 0x149f097e6440>"
+    },
+    "_parsed_pspec - <class 'jax._src.sharding_impls.ParsedPartitionSpec'>": "ParsedPartitionSpec(partitions=(('x',), (), ()), unsafe_user_spec=PartitionSpec('x', None, None), sync=2)",
+    "_preprocess - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._preprocess]",
+        "arguments": "('self', '_')"
+    },
+    "_to_xla_hlo_sharding - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._to_xla_hlo_sharding]",
+        "arguments": "('self', 'num_dimensions')"
+    },
+    "addressable_devices - <class 'set'>": "'set' object is not subscriptable",
+    "addressable_devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding.addressable_devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "device_set - <class 'set'>": "'set' object is not subscriptable",
+    "devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "is_compatible_aval - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_compatible_aval]",
+        "arguments": "('self', 'aval_shape', 'extra_msg')"
+    },
+    "is_equivalent_to - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_equivalent_to]",
+        "arguments": "('self', 'other', 'ndim')"
+    },
+    "is_fully_addressable - <class 'bool'>": "False",
+    "is_fully_replicated - <class 'bool'>": "False",
+    "memory_kind - <class 'NoneType'>": "None",
+    "mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 8)",
+    "shard_shape - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.shard_shape]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "spec - <class 'jax._src.partition_spec.PartitionSpec'>": {
+        "0 - <class 'str'>": "x",
+        "1 - <class 'NoneType'>": "None",
+        "2 - <class 'NoneType'>": "None"
+    },
+    "with_memory_kind - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.with_memory_kind]",
+        "arguments": "('self', 'kind')"
+    }
+}
+TRACING-WKN3 supported_sharding => Shape : ShapeDtypeStruct(shape=(8, 2, 3), dtype=complex64, sharding=NamedSharding(mesh=Mesh('x': 8), spec=PartitionSpec('x', None, None))) 
+
+TRACING-WKN3 supported_sharding => Shape Type : <class 'jax._src.api.ShapeDtypeStruct'> 
+
+TRACING-WKN3 supported_sharding => Shape Json attribute dump: {
+    "dtype - <class 'numpy.dtypes.Complex64DType'>": "complex64",
+    "named_shape - <class 'dict'>": {},
+    "ndim - <class 'int'>": "3",
+    "shape - <class 'tuple'>": {
+        "0 - <class 'int'>": "8",
+        "1 - <class 'int'>": "2",
+        "2 - <class 'int'>": "3"
+    },
+    "sharding - <class 'jaxlib.xla_extension.NamedSharding'>": "NamedSharding(mesh=Mesh('x': 8), spec=PartitionSpec('x', None, None))",
+    "size - <class 'int'>": "48"
+}
+TRACING-WKN3 supported_sharding => Sharding Type : <class 'jaxlib.xla_extension.NamedSharding'> 
+
+TRACING-WKN3 supported_sharding => Sharding Json attribute dump: {
+    "_addressable_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0"
+    },
+    "_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3",
+        "4 - <class 'jaxlib.xla_extension.Device'>": "cuda:4",
+        "5 - <class 'jaxlib.xla_extension.Device'>": "cuda:5",
+        "6 - <class 'jaxlib.xla_extension.Device'>": "cuda:6",
+        "7 - <class 'jaxlib.xla_extension.Device'>": "cuda:7"
+    },
+    "_from_parsed_pspec - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._from_parsed_pspec]",
+        "arguments": "('cls', 'mesh', 'parsed_pspec', 'memory_kind', '_manual_axes')"
+    },
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3), cuda(id=4), cuda(id=5), cuda(id=6), cuda(id=7))",
+    "_manual_axes - <class 'frozenset'>": "frozenset()",
+    "_memory_kind - <class 'NoneType'>": "None",
+    "_original_py_fns - <class 'dict'>": {
+        "__init__": "<function NamedSharding.__init__ at 0x149f097e6440>"
+    },
+    "_parsed_pspec - <class 'jax._src.sharding_impls.ParsedPartitionSpec'>": "ParsedPartitionSpec(partitions=(('x',), (), ()), unsafe_user_spec=PartitionSpec('x', None, None), sync=2)",
+    "_preprocess - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._preprocess]",
+        "arguments": "('self', '_')"
+    },
+    "_to_xla_hlo_sharding - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._to_xla_hlo_sharding]",
+        "arguments": "('self', 'num_dimensions')"
+    },
+    "addressable_devices - <class 'set'>": "'set' object is not subscriptable",
+    "addressable_devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding.addressable_devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "device_set - <class 'set'>": "'set' object is not subscriptable",
+    "devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "is_compatible_aval - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_compatible_aval]",
+        "arguments": "('self', 'aval_shape', 'extra_msg')"
+    },
+    "is_equivalent_to - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_equivalent_to]",
+        "arguments": "('self', 'other', 'ndim')"
+    },
+    "is_fully_addressable - <class 'bool'>": "False",
+    "is_fully_replicated - <class 'bool'>": "False",
+    "memory_kind - <class 'NoneType'>": "None",
+    "mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 8)",
+    "shard_shape - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.shard_shape]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "spec - <class 'jax._src.partition_spec.PartitionSpec'>": {
+        "0 - <class 'str'>": "x",
+        "1 - <class 'NoneType'>": "None",
+        "2 - <class 'NoneType'>": "None"
+    },
+    "with_memory_kind - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.with_memory_kind]",
+        "arguments": "('self', 'kind')"
+    }
+}
+TRACING-WKN3 supported_sharding => Shape : ShapeDtypeStruct(shape=(8, 2, 3), dtype=complex64, sharding=NamedSharding(mesh=Mesh('x': 8), spec=PartitionSpec('x', None, None))) 
+
+TRACING-WKN3 supported_sharding => Shape Type : <class 'jax._src.api.ShapeDtypeStruct'> 
+
+TRACING-WKN3 supported_sharding => Shape Json attribute dump: {
+    "dtype - <class 'numpy.dtypes.Complex64DType'>": "complex64",
+    "named_shape - <class 'dict'>": {},
+    "ndim - <class 'int'>": "3",
+    "shape - <class 'tuple'>": {
+        "0 - <class 'int'>": "8",
+        "1 - <class 'int'>": "2",
+        "2 - <class 'int'>": "3"
+    },
+    "sharding - <class 'jaxlib.xla_extension.NamedSharding'>": "NamedSharding(mesh=Mesh('x': 8), spec=PartitionSpec('x', None, None))",
+    "size - <class 'int'>": "48"
+}
+_phermitation_lowering => Context : LoweringRuleContext(module_context=ModuleContext(context=<jaxlib.mlir._mlir_libs._site_initialize.<locals>.Context object at 0x149f352fe110>, module=<jaxlib.mlir._mlir_libs._mlir.ir.Module object at 0x149e80057a30>, ip=<jaxlib.mlir._mlir_libs._mlir.ir.InsertionPoint object at 0x149f0816b7f0>, symbol_table=<jaxlib.mlir._mlir_libs._mlir.ir.SymbolTable object at 0x149e800566b0>, backend_or_name=<jaxlib.xla_extension.Client object at 0x149f0d3ad0b0>, platforms=('cuda',), axis_context=SPMDAxisContext(mesh=Mesh(device_ids=array([0, 1, 2, 3, 4, 5, 6, 7]), axis_names=('x',)), manual_axes=frozenset({'x'})), name_stack=NameStack(stack=(Scope(name='jit(main)'),)), keepalives=[], channel_iterator=count(1), host_callbacks=[], shape_poly_state=<jax._src.interpreters.mlir.ShapePolyLoweringState object at 0x149e8005e650>, cached_primitive_lowerings={}, traceback_caches=TracebackCaches(canonical_name_cache={'/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py'}, is_user_file_cache={'/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/source_info_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/partial_eval.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/core.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/linear_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/profiler.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/api.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/traceback_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/experimental/custom_partitioning.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/compiler.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/pxla.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/stages.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py': True}, raw_frame_to_frame_cache={('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', 16): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', function_name='hermitian', start_line=29, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', 188): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', function_name='test_custom_partitionning', start_line=255, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', 62): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', function_name='pytest_pyfunc_call', start_line=193, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py', 310): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py', function_name='_multicall', start_line=102, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py', 12): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py', function_name='_hookexec', start_line=119, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py', 72): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py', function_name='__call__', start_line=501, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', 10): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', function_name='runtest', start_line=1836, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py', 52): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py', function_name='pytest_runtest_call', start_line=173, start_column=0, end_line=0, end_column=0)}), lowering_parameters=LoweringParameters(override_lowering_rules=None, platforms=None, global_constant_computation=False, replace_tokens_with_dummy=True)), primitive=phermitian, avals_in=[ShapedArray(complex64[1,2,3])], avals_out=[ShapedArray(complex64[1,3,2])], tokens_in=<jax._src.interpreters.mlir.TokenSet object at 0x149e8005da80>, tokens_out=None, axis_size_env=None, dim_var_values=[]) 
+
+_phermitation_lowering => Context Type : <class 'jax._src.interpreters.mlir.LoweringRuleContext'> 
+
+_phermitation_lowering => Context Json attribute dump: {
+    "avals_in - <class 'list'>": {
+        "0 - <class 'jax._src.core.ShapedArray'>": "ShapedArray(complex64[1,2,3])"
+    },
+    "avals_out - <class 'list'>": {
+        "0 - <class 'jax._src.core.ShapedArray'>": "ShapedArray(complex64[1,3,2])"
+    },
+    "axis_size_env - <class 'NoneType'>": "None",
+    "dim_var_values - <class 'list'>": {},
+    "module_context - <class 'jax._src.interpreters.mlir.ModuleContext'>": "ModuleContext(context=<jaxlib.mlir._mlir_libs._site_initialize.<locals>.Context object at 0x149f352fe110>, module=<jaxlib.mlir._mlir_libs._mlir.ir.Module object at 0x149e80057a30>, ip=<jaxlib.mlir._mlir_libs._mlir.ir.InsertionPoint object at 0x149f0816b7f0>, symbol_table=<jaxlib.mlir._mlir_libs._mlir.ir.SymbolTable object at 0x149e800566b0>, backend_or_name=<jaxlib.xla_extension.Client object at 0x149f0d3ad0b0>, platforms=('cuda',), axis_context=SPMDAxisContext(mesh=Mesh(device_ids=array([0, 1, 2, 3, 4, 5, 6, 7]), axis_names=('x',)), manual_axes=frozenset({'x'})), name_stack=NameStack(stack=(Scope(name='jit(main)'),)), keepalives=[], channel_iterator=count(1), host_callbacks=[], shape_poly_state=<jax._src.interpreters.mlir.ShapePolyLoweringState object at 0x149e8005e650>, cached_primitive_lowerings={}, traceback_caches=TracebackCaches(canonical_name_cache={'/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py', '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py': '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py'}, is_user_file_cache={'/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/source_info_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/partial_eval.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/core.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/linear_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/profiler.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/api.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/traceback_util.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/experimental/custom_partitioning.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/compiler.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/pxla.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/stages.py': False, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py': True, '/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py': True}, raw_frame_to_frame_cache={('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', 16): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/hermitian.py', function_name='hermitian', start_line=29, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', 188): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py', function_name='test_custom_partitionning', start_line=255, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', 62): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', function_name='pytest_pyfunc_call', start_line=193, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py', 310): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_callers.py', function_name='_multicall', start_line=102, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py', 12): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_manager.py', function_name='_hookexec', start_line=119, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py', 72): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/pluggy/_hooks.py', function_name='__call__', start_line=501, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', 10): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/python.py', function_name='runtest', start_line=1836, start_column=0, end_line=0, end_column=0), ('/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py', 52): Frame(file_name='/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/_pytest/runner.py', function_name='pytest_runtest_call', start_line=173, start_column=0, end_line=0, end_column=0)}), lowering_parameters=LoweringParameters(override_lowering_rules=None, platforms=None, global_constant_computation=False, replace_tokens_with_dummy=True))",
+    "primitive - <class 'jax._src.core.Primitive'>": "phermitian",
+    "replace - <class 'method'>": {
+        "Function name": "jax._src.interpreters.mlir.replace]",
+        "arguments": "('self', 'kw')"
+    },
+    "set_tokens_out - <class 'method'>": {
+        "Function name": "jax._src.interpreters.mlir.set_tokens_out]",
+        "arguments": "('self', 'tokens_out')"
+    },
+    "tokens_in - <class 'jax._src.interpreters.mlir.TokenSet'>": "<jax._src.interpreters.mlir.TokenSet object at 0x149e8005da80>",
+    "tokens_out - <class 'NoneType'>": "None"
+}
+_phermitation_lowering => Operand : Value(<block argument> of type 'tensor<1x2x3xcomplex<f32>>' at index: 0) 
+
+_phermitation_lowering => Operand Type : <class 'jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument'> 
+
+_phermitation_lowering => Operand Json attribute dump: {
+    "_CAPICreate - <class 'method'>": "<bound method PyCapsule._CAPICreate of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e8007d4f0>>",
+    "_CAPIPtr - <class 'PyCapsule'>": "<capsule object \"jaxlib.mlir.ir.Value._CAPIPtr\" at 0x149e800805a0>",
+    "arg_number - <class 'int'>": "0",
+    "context - <class 'int'>": "Unable to convert function return value to a Python type! The signature was\n\t(arg0: jaxlib.mlir._mlir_libs._mlir.ir.Value) -> mlir::python::PyObjectRef<mlir::python::PyMlirContext>",
+    "dump - <class 'method'>": "<bound method PyCapsule.dump of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e8007d4f0>>",
+    "get_name - <class 'method'>": "<bound method PyCapsule.get_name of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e8007d4f0>>",
+    "isinstance - <class 'builtin_function_or_method'>": "<built-in method isinstance of PyCapsule object at 0x149f0d386010>",
+    "maybe_downcast - <class 'method'>": "<bound method PyCapsule.maybe_downcast of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e8007d4f0>>",
+    "owner - <class 'jaxlib.mlir._mlir_libs._mlir.ir.Block'>": "^bb0(%arg0: tensor<1x2x3xcomplex<f32>>):\n",
+    "replace_all_uses_with - <class 'method'>": "<bound method PyCapsule.replace_all_uses_with of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e8007d4f0>>",
+    "set_type - <class 'method'>": "<bound method PyCapsule.set_type of <jaxlib.mlir._mlir_libs._mlir.ir.BlockArgument object at 0x149e8007d4f0>>",
+    "type - <class 'jaxlib.mlir._mlir_libs._mlir.ir.RankedTensorType'>": "tensor<1x2x3xcomplex<f32>>",
+    "uses - <class 'jaxlib.mlir._mlir_libs._mlir.ir.OpOperandIterator'>": "<jaxlib.mlir._mlir_libs._mlir.ir.OpOperandIterator object at 0x149f096ae270>"
+}
+phermitation_lowering => batch_size : 1 
+
+phermitation_lowering => batch_size Type : <class 'int'> 
+
+phermitation_lowering => batch_size Json attribute dump: {
+    "as_integer_ratio - <class 'builtin_function_or_method'>": "<built-in method as_integer_ratio of int object at 0x149f36e800f0>",
+    "bit_count - <class 'builtin_function_or_method'>": "<built-in method bit_count of int object at 0x149f36e800f0>",
+    "bit_length - <class 'builtin_function_or_method'>": "<built-in method bit_length of int object at 0x149f36e800f0>",
+    "conjugate - <class 'builtin_function_or_method'>": "<built-in method conjugate of int object at 0x149f36e800f0>",
+    "denominator - <class 'int'>": "1",
+    "from_bytes - <class 'builtin_function_or_method'>": "<built-in method from_bytes of type object at 0x55a07c84d500>",
+    "imag - <class 'int'>": "0",
+    "numerator - <class 'int'>": "1",
+    "real - <class 'int'>": "1",
+    "to_bytes - <class 'builtin_function_or_method'>": "<built-in method to_bytes of int object at 0x149f36e800f0>"
+}
+HLO graph parallel hermitian HloModule pjit__unnamed_wrapped_function_, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="d58ce1576d2c731adad40265712ac0e8"}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  ROOT %custom-call.0 = c64[1,3,2]{2,1,0} custom-call(c64[1,2,3]{2,1,0} %param), custom_call_target="hermitian_operator", operand_layout_constraints={c64[1,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(<unnamed wrapped function>)/jit(main)/custom_partitioning[partition=<function test_custom_partitionning.<locals>.partition at 0x153c4c06d7e0> propagate_user_sharding=<function test_custom_partitionning.<locals>.propagate_user_sharding at 0x153cb229db40> infer_sharding_from_operands=<function test_custom_partitionning.<locals>.infer_sharding_from_operands at 0x153c4c06d750> decode_shardings=True in_tree=PyTreeDef((*,)) out_tree=PyTreeDef(*) static_args=[]]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py" source_line=255}, backend_config="\001\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+}
+
+
+HLO graph parallel hermitian HloModule pjit__unnamed_wrapped_function_, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="d58ce1576d2c731adad40265712ac0e8"}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  ROOT %custom-call.0 = c64[1,3,2]{2,1,0} custom-call(c64[1,2,3]{2,1,0} %param), custom_call_target="hermitian_operator", operand_layout_constraints={c64[1,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(<unnamed wrapped function>)/jit(main)/custom_partitioning[partition=<function test_custom_partitionning.<locals>.partition at 0x15193690d7e0> propagate_user_sharding=<function test_custom_partitionning.<locals>.propagate_user_sharding at 0x151963cc9b40> infer_sharding_from_operands=<function test_custom_partitionning.<locals>.infer_sharding_from_operands at 0x15193690d750> decode_shardings=True in_tree=PyTreeDef((*,)) out_tree=PyTreeDef(*) static_args=[]]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py" source_line=255}, backend_config="\001\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+}
+
+
+HLO graph parallel hermitian HloModule pjit__unnamed_wrapped_function_, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="d58ce1576d2c731adad40265712ac0e8"}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+HLO graph parallel hermitian HloModule pjit__unnamed_wrapped_function_, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="d58ce1576d2c731adad40265712ac0e8"}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  ROOT %custom-call.0 = c64[1,3,2]{2,1,0} custom-call(c64[1,2,3]{2,1,0} %param), custom_call_target="hermitian_operator", operand_layout_constraints={c64[1,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(<unnamed wrapped function>)/jit(main)/custom_partitioning[partition=<function test_custom_partitionning.<locals>.partition at 0x1459e000d7e0> propagate_user_sharding=<function test_custom_partitionning.<locals>.propagate_user_sharding at 0x145a94265b40> infer_sharding_from_operands=<function test_custom_partitionning.<locals>.infer_sharding_from_operands at 0x1459e000d750> decode_shardings=True in_tree=PyTreeDef((*,)) out_tree=PyTreeDef(*) static_args=[]]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py" source_line=255}, backend_config="\001\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+}
+
+
+  ROOT %custom-call.0 = c64[1,3,2]{2,1,0} custom-call(c64[1,2,3]{2,1,0} %param), custom_call_target="hermitian_operator", operand_layout_constraints={c64[1,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(<unnamed wrapped function>)/jit(main)/custom_partitioning[partition=<function test_custom_partitionning.<locals>.partition at 0x14bbdc031900> propagate_user_sharding=<function test_custom_partitionning.<locals>.propagate_user_sharding at 0x14bc0bc25b40> infer_sharding_from_operands=<function test_custom_partitionning.<locals>.infer_sharding_from_operands at 0x14bbdc031870> decode_shardings=True in_tree=PyTreeDef((*,)) out_tree=PyTreeDef(*) static_args=[]]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py" source_line=255}, backend_config="\001\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+}
+
+
+HLO graph parallel hermitian HloModule pjit__unnamed_wrapped_function_, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="d58ce1576d2c731adad40265712ac0e8"}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  ROOT %custom-call.0 = c64[1,3,2]{2,1,0} custom-call(c64[1,2,3]{2,1,0} %param), custom_call_target="hermitian_operator", operand_layout_constraints={c64[1,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(<unnamed wrapped function>)/jit(main)/custom_partitioning[partition=<function test_custom_partitionning.<locals>.partition at 0x14ff6c02d900> propagate_user_sharding=<function test_custom_partitionning.<locals>.propagate_user_sharding at 0x150008511b40> infer_sharding_from_operands=<function test_custom_partitionning.<locals>.infer_sharding_from_operands at 0x14ff6c02d870> decode_shardings=True in_tree=PyTreeDef((*,)) out_tree=PyTreeDef(*) static_args=[]]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py" source_line=255}, backend_config="\001\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+}
+
+
+HLO graph parallel hermitian HloModule pjit__unnamed_wrapped_function_, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="d58ce1576d2c731adad40265712ac0e8"}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  ROOT %custom-call.0 = c64[1,3,2]{2,1,0} custom-call(c64[1,2,3]{2,1,0} %param), custom_call_target="hermitian_operator", operand_layout_constraints={c64[1,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(<unnamed wrapped function>)/jit(main)/custom_partitioning[partition=<function test_custom_partitionning.<locals>.partition at 0x149e8001f1c0> propagate_user_sharding=<function test_custom_partitionning.<locals>.propagate_user_sharding at 0x149f352f1b40> infer_sharding_from_operands=<function test_custom_partitionning.<locals>.infer_sharding_from_operands at 0x149e8001f490> decode_shardings=True in_tree=PyTreeDef((*,)) out_tree=PyTreeDef(*) static_args=[]]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py" source_line=255}, backend_config="\001\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+}
+
+
+HLO graph parallel hermitian HloModule pjit__unnamed_wrapped_function_, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="d58ce1576d2c731adad40265712ac0e8"}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  ROOT %custom-call.0 = c64[1,3,2]{2,1,0} custom-call(c64[1,2,3]{2,1,0} %param), custom_call_target="hermitian_operator", operand_layout_constraints={c64[1,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(<unnamed wrapped function>)/jit(main)/custom_partitioning[partition=<function test_custom_partitionning.<locals>.partition at 0x14fb68241900> propagate_user_sharding=<function test_custom_partitionning.<locals>.propagate_user_sharding at 0x14fb955f9b40> infer_sharding_from_operands=<function test_custom_partitionning.<locals>.infer_sharding_from_operands at 0x14fb68241870> decode_shardings=True in_tree=PyTreeDef((*,)) out_tree=PyTreeDef(*) static_args=[]]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py" source_line=255}, backend_config="\001\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+}
+
+
+HLO graph parallel hermitian HloModule pjit__unnamed_wrapped_function_, is_scheduled=true, entry_computation_layout={(c64[1,2,3]{2,1,0})->c64[1,3,2]{2,1,0}}, num_partitions=8, frontend_attributes={fingerprint_before_lhs="d58ce1576d2c731adad40265712ac0e8"}
+
+ENTRY %main.5_spmd (param: c64[1,2,3]) -> c64[1,3,2] {
+  %param = c64[1,2,3]{2,1,0} parameter(0), sharding={devices=[8,1,1]<=[8]}
+  ROOT %custom-call.0 = c64[1,3,2]{2,1,0} custom-call(c64[1,2,3]{2,1,0} %param), custom_call_target="hermitian_operator", operand_layout_constraints={c64[1,2,3]{2,1,0}}, api_version=API_VERSION_STATUS_RETURNING, metadata={op_name="pjit(<unnamed wrapped function>)/jit(main)/custom_partitioning[partition=<function test_custom_partitionning.<locals>.partition at 0x154a6c161900> propagate_user_sharding=<function test_custom_partitionning.<locals>.propagate_user_sharding at 0x154a98b11b40> infer_sharding_from_operands=<function test_custom_partitionning.<locals>.infer_sharding_from_operands at 0x154a6c161870> decode_shardings=True in_tree=PyTreeDef((*,)) out_tree=PyTreeDef(*) static_args=[]]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py" source_line=255}, backend_config="\001\000\000\000\000\000\000\000\002\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+}
+
+
+.
+
+============================== 1 passed in 4.75s ===============================
+.
+
+============================== 1 passed in 5.07s ===============================
+.
+.
+
+
+============================== 1 passed in 4.75s ===============================
+============================== 1 passed in 4.75s ===============================
+.
+
+============================== 1 passed in 4.75s ===============================
+.
+.
+.
+
+
+============================== 1 passed in 5.07s ===============================
+=============================== warnings summary ===============================
+
+============================== 1 passed in 5.07s ===============================
+plinalg/utils.py:27
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/utils.py:27: DeprecationWarning: arr.device_buffer is deprecated. Use arr.addressable_data(0)
+    value = getattr(obj, attr)
+
+plinalg/utils.py:27
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/plinalg/utils.py:27: DeprecationWarning: arr.device_buffers is deprecated. Use [x.data for x in arr.addressable_shards]
+    value = getattr(obj, attr)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 1 passed, 2 warnings in 5.07s =========================

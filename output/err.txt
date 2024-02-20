@@ -1,0 +1,30 @@
+jax.errors.SimplifiedTraceback: For simplicity, JAX has removed its internal frames from the traceback of the following exception. Set JAX_TRACEBACK_FILTERING=off to include these.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/test.py", line 69, in <module>
+    y = fun(x)
+jaxlib.xla_extension.XlaRuntimeError: INTERNAL: custom_partitioner: ValueError: Mismatch in result shapes. [ShapedArray(float32[5,16])] vs [ShapedArray(complex64[4,20])]
+
+At:
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/experimental/custom_partitioning.py(196): _custom_partitioning_partition
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/compiler.py(236): backend_compile
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/profiler.py(336): wrapper
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/compiler.py(335): compile_or_get_cached
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/pxla.py(2589): _cached_compilation
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/pxla.py(2732): from_hlo
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/interpreters/pxla.py(2269): compile
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/pjit.py(1312): _pjit_call_impl_python
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/pjit.py(1376): call_impl_cache_miss
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/pjit.py(1393): _pjit_call_impl
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/core.py(935): process_primitive
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/core.py(447): bind_with_trace
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/core.py(2743): bind
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/pjit.py(140): _python_pjit_helper
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/pjit.py(245): cache_miss
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/venv/lib/python3.10/site-packages/jax/_src/traceback_util.py(179): reraise_with_filtered_traceback
+  /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/test.py(69): <module>
+
+srun: error: r3i7n7: task 0: Exited with exit code 1
+srun: Terminating StepId=730607.23

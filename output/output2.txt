@@ -1,0 +1,1997 @@
+[cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3)]
+X is like this 
+
+┌──────────────────┐
+│      GPU 0       │
+├──────────────────┤
+│      GPU 1       │
+├──────────────────┤
+│      GPU 2       │
+├──────────────────┤
+│      GPU 3       │
+└──────────────────┘
+tr is like this 
+
+┌───────┬───────┬───────┬───────┐
+│       │       │       │       │
+│       │       │       │       │
+│       │       │       │       │
+│       │       │       │       │
+│ GPU 0 │ GPU 1 │ GPU 2 │ GPU 3 │
+│       │       │       │       │
+│       │       │       │       │
+│       │       │       │       │
+│       │       │       │       │
+└───────┴───────┴───────┴───────┘
+[ 0.239411   -0.2441537   0.98121446 -0.7610452  -0.44684547  0.19244799
+ -1.5399084  -0.12426831 -0.67168105  2.38395    -0.02565377 -0.37954363
+ -0.72835875  0.4663711   0.38621864  0.75857204]
+Y is like this 
+
+infer_sharding_from_operands => mesh : Mesh('x': 4, 'y': 1) 
+
+infer_sharding_from_operands => mesh Type : <class 'jax._src.mesh.Mesh'> 
+
+infer_sharding_from_operands => mesh Json attribute dump: {
+    "_flat_devices_set - <class 'set'>": "'set' object is not subscriptable",
+    "_flat_devices_tuple - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_hash - <class 'int'>": "9009323562639297235",
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3))",
+    "_local_devices_set - <class 'set'>": "'set' object is not subscriptable",
+    "_local_mesh - <class 'method'>": {
+        "Function name": "jax._src.mesh._local_mesh]",
+        "arguments": "('self', 'process_index')"
+    },
+    "_recreate_cm - <class 'method'>": {
+        "Function name": "contextlib._recreate_cm]",
+        "arguments": "('self',)"
+    },
+    "_repr - <class 'str'>": "Mesh(device_ids=array([[0],\n       [1],\n       [2],\n       [3]]), axis_names=('x', 'y'))",
+    "axis_names - <class 'tuple'>": {
+        "0 - <class 'str'>": "x",
+        "1 - <class 'str'>": "y"
+    },
+    "device_ids - <class 'numpy.ndarray'>": "[[0]\n [1]\n [2]\n [3]]",
+    "devices - <class 'numpy.ndarray'>": "[[cuda(id=0)]\n [cuda(id=1)]\n [cuda(id=2)]\n [cuda(id=3)]]",
+    "empty - <class 'bool'>": "False",
+    "is_multi_process - <class 'bool'>": "False",
+    "local_devices - <class 'list'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "local_mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 4, 'y': 1)",
+    "shape - <class 'collections.OrderedDict'>": {
+        "x": "4",
+        "y": "1"
+    },
+    "size - <class 'int'>": "4"
+}
+infer_sharding_from_operands => arg_shapes : (ShapeDtypeStruct(shape=(20, 16), dtype=float32, sharding=NamedSharding(mesh=Mesh('x': 4, 'y': 1), spec=PartitionSpec('x', None))),) 
+
+infer_sharding_from_operands => arg_shapes Type : <class 'tuple'> 
+
+infer_sharding_from_operands => arg_shapes Json attribute dump: {
+    "count - <class 'builtin_function_or_method'>": "<built-in method count of tuple object at 0x149b1c0d9720>",
+    "index - <class 'builtin_function_or_method'>": "<built-in method index of tuple object at 0x149b1c0d9720>"
+}
+infer_sharding_from_operands => result_shape : ShapedArray(float32[20,16]) 
+
+infer_sharding_from_operands => result_shape Type : <class 'jax._src.core.ShapedArray'> 
+
+infer_sharding_from_operands => result_shape Json attribute dump: {
+    "T - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function transpose at 0x149b23d3dea0>"
+    },
+    "_abs - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function absolute at 0x149b23ffcc10>>",
+    "_add - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_and - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_array_module - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.__array_module__]",
+        "arguments": "('self', 'types')"
+    },
+    "_bool - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_complex - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_copy - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._copy]",
+        "arguments": "('self',)"
+    },
+    "_deepcopy - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._deepcopy]",
+        "arguments": "('self', 'memo')"
+    },
+    "_div - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_divmod - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_eq - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_float - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_floordiv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_ge - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_getitem - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._getitem]",
+        "arguments": "('self', 'item')"
+    },
+    "_gt - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_hex - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_index - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_int - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_invert - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function jax.numpy.invert at 0x149b23fade10>>",
+    "_iter - <class 'function'>": {
+        "Function name": "jax._src.lax.lax._iter]",
+        "arguments": "('tracer', 'n')"
+    },
+    "_le - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_len - <class 'method'>": {
+        "Function name": "jax._src.core._len]",
+        "arguments": "('self', 'ignored_tracer', 'err')"
+    },
+    "_lshift - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_lt - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_matmul - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_mod - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_mul - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_multi_slice - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _multi_slice at 0x149b23c5c430>"
+    },
+    "_ne - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_neg - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function jax.numpy.negative at 0x149b23faed40>>",
+    "_oct - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_or - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_pos - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function jax.numpy.positive at 0x149b23faf2e0>>",
+    "_pow - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_radd - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rand - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rdiv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rdivmod - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rfloordiv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rlshift - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rmatmul - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rmod - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rmul - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_ror - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_round - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._operator_round]",
+        "arguments": "('number', 'ndigits', 'out')"
+    },
+    "_rpow - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rrshift - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rshift - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rsub - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rtruediv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rxor - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_setitem - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._unimplemented_setitem]",
+        "arguments": "('self', 'i', 'x', 'msg')"
+    },
+    "_split - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function split at 0x149b23d53250>"
+    },
+    "_sub - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_truediv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_xor - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "all - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function all at 0x149b23f4edd0>"
+    },
+    "any - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function any at 0x149b23f4f370>"
+    },
+    "argmax - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function argmax at 0x149b23d7fd00>"
+    },
+    "argmin - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function argmin at 0x149b23d84310>"
+    },
+    "argpartition - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function argpartition at 0x149b23d86d40>>"
+    },
+    "argsort - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function argsort at 0x149b23d86320>>"
+    },
+    "array_abstraction_level - <class 'int'>": "2",
+    "astype - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _astype at 0x149b23e33010>"
+    },
+    "at - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'type'>": "<class 'jax._src.numpy.array_methods._IndexUpdateHelper'>"
+    },
+    "at_least_vspace - <class 'method'>": {
+        "Function name": "jax._src.core.at_least_vspace]",
+        "arguments": "('self',)"
+    },
+    "broadcast - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function broadcast at 0x149b240ba7a0>"
+    },
+    "choose - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function choose at 0x149b23d5a710>"
+    },
+    "clip - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _clip at 0x149b23e33760>"
+    },
+    "compress - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _compress_method at 0x149b23e33e20>"
+    },
+    "conj - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function conjugate at 0x149b240135b0>>"
+    },
+    "conjugate - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function conjugate at 0x149b240135b0>>"
+    },
+    "copy - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function copy at 0x149b23d68040>"
+    },
+    "cumprod - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function cumprod at 0x149b23f70280>"
+    },
+    "cumsum - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function cumsum at 0x149b23f63c70>"
+    },
+    "diagonal - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function diagonal at 0x149b23d6bbe0>>"
+    },
+    "dot - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function dot at 0x149b23d7cf70>>"
+    },
+    "dtype - <class 'numpy.dtypes.Float32DType'>": "float32",
+    "flat - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function _notimplemented_flat at 0x149b23e33a30>"
+    },
+    "flatten - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function ravel at 0x149b23d50c10>>"
+    },
+    "imag - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function imag at 0x149b24013ac0>>"
+    },
+    "item - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _item at 0x149b23e33640>"
+    },
+    "itemsize - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function _itemsize at 0x149b23e336d0>"
+    },
+    "join - <class 'method'>": {
+        "Function name": "jax._src.core.join]",
+        "arguments": "('self', 'other', 'weak_type', 'named_shape')"
+    },
+    "mT - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function matrix_transpose at 0x149b23d3dfc0>"
+    },
+    "max - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function max at 0x149b23f4e290>"
+    },
+    "mean - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function mean at 0x149b23f4f490>"
+    },
+    "min - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function min at 0x149b23f4e830>"
+    },
+    "named_shape - <class 'dict'>": {},
+    "nbytes - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function _nbytes at 0x149b23e335b0>"
+    },
+    "ndim - <class 'int'>": "2",
+    "nonzero - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function nonzero at 0x149b23d58f70>"
+    },
+    "prod - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function prod at 0x149b23f4dcf0>"
+    },
+    "ptp - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function ptp at 0x149b23f60c10>"
+    },
+    "ravel - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function ravel at 0x149b23d50c10>>"
+    },
+    "real - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function real at 0x149b24018040>>"
+    },
+    "repeat - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function repeat at 0x149b23d6a5f0>"
+    },
+    "reshape - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _reshape at 0x149b23e33910>"
+    },
+    "round - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function round at 0x149b23d53ac0>>"
+    },
+    "searchsorted - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function searchsorted at 0x149b23da03a0>>"
+    },
+    "shape - <class 'tuple'>": {
+        "0 - <class 'int'>": "20",
+        "1 - <class 'int'>": "16"
+    },
+    "size - <class 'int'>": "320",
+    "sort - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function sort at 0x149b23d853f0>>"
+    },
+    "squeeze - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function squeeze at 0x149b23d51750>"
+    },
+    "std - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function std at 0x149b23f60670>"
+    },
+    "str_short - <class 'method'>": {
+        "Function name": "jax._src.core.str_short]",
+        "arguments": "('self', 'short_dtypes', 'dt_str', 'shapestr', 'named_shapestr')"
+    },
+    "strip_named_shape - <class 'method'>": {
+        "Function name": "jax._src.core.strip_named_shape]",
+        "arguments": "('self',)"
+    },
+    "strip_weak_type - <class 'method'>": {
+        "Function name": "jax._src.core.strip_weak_type]",
+        "arguments": "('self',)"
+    },
+    "sum - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function sum at 0x149b23f4d750>"
+    },
+    "swapaxes - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function swapaxes at 0x149b23d51d80>>"
+    },
+    "take - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function take at 0x149b23d90ca0>"
+    },
+    "trace - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function trace at 0x149b23d6b130>>"
+    },
+    "transpose - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _transpose at 0x149b23e337f0>"
+    },
+    "update - <class 'method'>": {
+        "Function name": "jax._src.core.update]",
+        "arguments": "('self', 'shape', 'dtype', 'weak_type', 'named_shape')"
+    },
+    "var - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function var at 0x149b23f60040>"
+    },
+    "view - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _view at 0x149b23e339a0>"
+    },
+    "weak_type - <class 'bool'>": "False"
+}
+OUT_custom_partitioning_infer_sharding_from_operands => result_sharding : NamedSharding(mesh=Mesh('x': 4, 'y': 1), spec=PartitionSpec('x', 'y')) 
+
+OUT_custom_partitioning_infer_sharding_from_operands => result_sharding Type : <class 'jaxlib.xla_extension.NamedSharding'> 
+
+OUT_custom_partitioning_infer_sharding_from_operands => result_sharding Json attribute dump: {
+    "_addressable_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_from_parsed_pspec - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._from_parsed_pspec]",
+        "arguments": "('cls', 'mesh', 'parsed_pspec', 'memory_kind', '_manual_axes')"
+    },
+    "_hash - <class 'int'>": "8329387101077870994",
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3))",
+    "_manual_axes - <class 'frozenset'>": "frozenset()",
+    "_memory_kind - <class 'NoneType'>": "None",
+    "_original_py_fns - <class 'dict'>": {
+        "__init__": "<function NamedSharding.__init__ at 0x149b24875bd0>"
+    },
+    "_parsed_pspec - <class 'jax._src.sharding_impls.ParsedPartitionSpec'>": "ParsedPartitionSpec(partitions=(('x',), ('y',)), unsafe_user_spec=PartitionSpec('x', 'y'), sync=2)",
+    "_preprocess - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._preprocess]",
+        "arguments": "('self', '_')"
+    },
+    "_to_xla_hlo_sharding - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._to_xla_hlo_sharding]",
+        "arguments": "('self', 'num_dimensions')"
+    },
+    "addressable_devices - <class 'set'>": "'set' object is not subscriptable",
+    "addressable_devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding.addressable_devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "device_set - <class 'set'>": "'set' object is not subscriptable",
+    "devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "is_compatible_aval - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_compatible_aval]",
+        "arguments": "('self', 'aval_shape', 'extra_msg')"
+    },
+    "is_equivalent_to - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_equivalent_to]",
+        "arguments": "('self', 'other', 'ndim')"
+    },
+    "is_fully_addressable - <class 'bool'>": "True",
+    "is_fully_replicated - <class 'bool'>": "False",
+    "memory_kind - <class 'NoneType'>": "None",
+    "mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 4, 'y': 1)",
+    "shard_shape - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.shard_shape]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "spec - <class 'jax._src.partition_spec.PartitionSpec'>": {
+        "0 - <class 'str'>": "x",
+        "1 - <class 'str'>": "y"
+    },
+    "with_memory_kind - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.with_memory_kind]",
+        "arguments": "('self', 'kind')"
+    }
+}
+infer_sharding_from_operands => mesh : Mesh('x': 4, 'y': 1) 
+
+infer_sharding_from_operands => mesh Type : <class 'jax._src.mesh.Mesh'> 
+
+infer_sharding_from_operands => mesh Json attribute dump: {
+    "_flat_devices_set - <class 'set'>": "'set' object is not subscriptable",
+    "_flat_devices_tuple - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_hash - <class 'int'>": "9009323562639297235",
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3))",
+    "_local_devices_set - <class 'set'>": "'set' object is not subscriptable",
+    "_local_mesh - <class 'method'>": {
+        "Function name": "jax._src.mesh._local_mesh]",
+        "arguments": "('self', 'process_index')"
+    },
+    "_recreate_cm - <class 'method'>": {
+        "Function name": "contextlib._recreate_cm]",
+        "arguments": "('self',)"
+    },
+    "_repr - <class 'str'>": "Mesh(device_ids=array([[0],\n       [1],\n       [2],\n       [3]]), axis_names=('x', 'y'))",
+    "axis_names - <class 'tuple'>": {
+        "0 - <class 'str'>": "x",
+        "1 - <class 'str'>": "y"
+    },
+    "device_ids - <class 'numpy.ndarray'>": "[[0]\n [1]\n [2]\n [3]]",
+    "devices - <class 'numpy.ndarray'>": "[[cuda(id=0)]\n [cuda(id=1)]\n [cuda(id=2)]\n [cuda(id=3)]]",
+    "empty - <class 'bool'>": "False",
+    "is_multi_process - <class 'bool'>": "False",
+    "local_devices - <class 'list'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "local_mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 4, 'y': 1)",
+    "shape - <class 'collections.OrderedDict'>": {
+        "x": "4",
+        "y": "1"
+    },
+    "size - <class 'int'>": "4"
+}
+infer_sharding_from_operands => arg_shapes : (ShapeDtypeStruct(shape=(20, 16), dtype=float32, sharding=NamedSharding(mesh=Mesh('x': 4, 'y': 1), spec=PartitionSpec('x', None))),) 
+
+infer_sharding_from_operands => arg_shapes Type : <class 'tuple'> 
+
+infer_sharding_from_operands => arg_shapes Json attribute dump: {
+    "count - <class 'builtin_function_or_method'>": "<built-in method count of tuple object at 0x149b1c11f5e0>",
+    "index - <class 'builtin_function_or_method'>": "<built-in method index of tuple object at 0x149b1c11f5e0>"
+}
+infer_sharding_from_operands => result_shape : ShapedArray(float32[20,16]) 
+
+infer_sharding_from_operands => result_shape Type : <class 'jax._src.core.ShapedArray'> 
+
+infer_sharding_from_operands => result_shape Json attribute dump: {
+    "T - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function transpose at 0x149b23d3dea0>"
+    },
+    "_abs - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function absolute at 0x149b23ffcc10>>",
+    "_add - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_and - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_array_module - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.__array_module__]",
+        "arguments": "('self', 'types')"
+    },
+    "_bool - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_complex - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_copy - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._copy]",
+        "arguments": "('self',)"
+    },
+    "_deepcopy - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._deepcopy]",
+        "arguments": "('self', 'memo')"
+    },
+    "_div - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_divmod - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_eq - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_float - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_floordiv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_ge - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_getitem - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._getitem]",
+        "arguments": "('self', 'item')"
+    },
+    "_gt - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_hex - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_index - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_int - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_invert - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function jax.numpy.invert at 0x149b23fade10>>",
+    "_iter - <class 'function'>": {
+        "Function name": "jax._src.lax.lax._iter]",
+        "arguments": "('tracer', 'n')"
+    },
+    "_le - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_len - <class 'method'>": {
+        "Function name": "jax._src.core._len]",
+        "arguments": "('self', 'ignored_tracer', 'err')"
+    },
+    "_lshift - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_lt - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_matmul - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_mod - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_mul - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_multi_slice - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _multi_slice at 0x149b23c5c430>"
+    },
+    "_ne - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_neg - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function jax.numpy.negative at 0x149b23faed40>>",
+    "_oct - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_or - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_pos - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function jax.numpy.positive at 0x149b23faf2e0>>",
+    "_pow - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_radd - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rand - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rdiv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rdivmod - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rfloordiv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rlshift - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rmatmul - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rmod - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rmul - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_ror - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_round - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._operator_round]",
+        "arguments": "('number', 'ndigits', 'out')"
+    },
+    "_rpow - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rrshift - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rshift - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rsub - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rtruediv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rxor - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_setitem - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._unimplemented_setitem]",
+        "arguments": "('self', 'i', 'x', 'msg')"
+    },
+    "_split - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function split at 0x149b23d53250>"
+    },
+    "_sub - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_truediv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_xor - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "all - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function all at 0x149b23f4edd0>"
+    },
+    "any - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function any at 0x149b23f4f370>"
+    },
+    "argmax - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function argmax at 0x149b23d7fd00>"
+    },
+    "argmin - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function argmin at 0x149b23d84310>"
+    },
+    "argpartition - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function argpartition at 0x149b23d86d40>>"
+    },
+    "argsort - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function argsort at 0x149b23d86320>>"
+    },
+    "array_abstraction_level - <class 'int'>": "2",
+    "astype - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _astype at 0x149b23e33010>"
+    },
+    "at - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'type'>": "<class 'jax._src.numpy.array_methods._IndexUpdateHelper'>"
+    },
+    "at_least_vspace - <class 'method'>": {
+        "Function name": "jax._src.core.at_least_vspace]",
+        "arguments": "('self',)"
+    },
+    "broadcast - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function broadcast at 0x149b240ba7a0>"
+    },
+    "choose - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function choose at 0x149b23d5a710>"
+    },
+    "clip - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _clip at 0x149b23e33760>"
+    },
+    "compress - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _compress_method at 0x149b23e33e20>"
+    },
+    "conj - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function conjugate at 0x149b240135b0>>"
+    },
+    "conjugate - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function conjugate at 0x149b240135b0>>"
+    },
+    "copy - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function copy at 0x149b23d68040>"
+    },
+    "cumprod - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function cumprod at 0x149b23f70280>"
+    },
+    "cumsum - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function cumsum at 0x149b23f63c70>"
+    },
+    "diagonal - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function diagonal at 0x149b23d6bbe0>>"
+    },
+    "dot - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function dot at 0x149b23d7cf70>>"
+    },
+    "dtype - <class 'numpy.dtypes.Float32DType'>": "float32",
+    "flat - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function _notimplemented_flat at 0x149b23e33a30>"
+    },
+    "flatten - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function ravel at 0x149b23d50c10>>"
+    },
+    "imag - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function imag at 0x149b24013ac0>>"
+    },
+    "item - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _item at 0x149b23e33640>"
+    },
+    "itemsize - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function _itemsize at 0x149b23e336d0>"
+    },
+    "join - <class 'method'>": {
+        "Function name": "jax._src.core.join]",
+        "arguments": "('self', 'other', 'weak_type', 'named_shape')"
+    },
+    "mT - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function matrix_transpose at 0x149b23d3dfc0>"
+    },
+    "max - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function max at 0x149b23f4e290>"
+    },
+    "mean - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function mean at 0x149b23f4f490>"
+    },
+    "min - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function min at 0x149b23f4e830>"
+    },
+    "named_shape - <class 'dict'>": {},
+    "nbytes - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function _nbytes at 0x149b23e335b0>"
+    },
+    "ndim - <class 'int'>": "2",
+    "nonzero - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function nonzero at 0x149b23d58f70>"
+    },
+    "prod - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function prod at 0x149b23f4dcf0>"
+    },
+    "ptp - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function ptp at 0x149b23f60c10>"
+    },
+    "ravel - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function ravel at 0x149b23d50c10>>"
+    },
+    "real - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function real at 0x149b24018040>>"
+    },
+    "repeat - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function repeat at 0x149b23d6a5f0>"
+    },
+    "reshape - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _reshape at 0x149b23e33910>"
+    },
+    "round - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function round at 0x149b23d53ac0>>"
+    },
+    "searchsorted - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function searchsorted at 0x149b23da03a0>>"
+    },
+    "shape - <class 'tuple'>": {
+        "0 - <class 'int'>": "20",
+        "1 - <class 'int'>": "16"
+    },
+    "size - <class 'int'>": "320",
+    "sort - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function sort at 0x149b23d853f0>>"
+    },
+    "squeeze - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function squeeze at 0x149b23d51750>"
+    },
+    "std - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function std at 0x149b23f60670>"
+    },
+    "str_short - <class 'method'>": {
+        "Function name": "jax._src.core.str_short]",
+        "arguments": "('self', 'short_dtypes', 'dt_str', 'shapestr', 'named_shapestr')"
+    },
+    "strip_named_shape - <class 'method'>": {
+        "Function name": "jax._src.core.strip_named_shape]",
+        "arguments": "('self',)"
+    },
+    "strip_weak_type - <class 'method'>": {
+        "Function name": "jax._src.core.strip_weak_type]",
+        "arguments": "('self',)"
+    },
+    "sum - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function sum at 0x149b23f4d750>"
+    },
+    "swapaxes - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function swapaxes at 0x149b23d51d80>>"
+    },
+    "take - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function take at 0x149b23d90ca0>"
+    },
+    "trace - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function trace at 0x149b23d6b130>>"
+    },
+    "transpose - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _transpose at 0x149b23e337f0>"
+    },
+    "update - <class 'method'>": {
+        "Function name": "jax._src.core.update]",
+        "arguments": "('self', 'shape', 'dtype', 'weak_type', 'named_shape')"
+    },
+    "var - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function var at 0x149b23f60040>"
+    },
+    "view - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _view at 0x149b23e339a0>"
+    },
+    "weak_type - <class 'bool'>": "False"
+}
+OUT_custom_partitioning_infer_sharding_from_operands => result_sharding : NamedSharding(mesh=Mesh('x': 4, 'y': 1), spec=PartitionSpec('x', 'y')) 
+
+OUT_custom_partitioning_infer_sharding_from_operands => result_sharding Type : <class 'jaxlib.xla_extension.NamedSharding'> 
+
+OUT_custom_partitioning_infer_sharding_from_operands => result_sharding Json attribute dump: {
+    "_addressable_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_from_parsed_pspec - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._from_parsed_pspec]",
+        "arguments": "('cls', 'mesh', 'parsed_pspec', 'memory_kind', '_manual_axes')"
+    },
+    "_hash - <class 'int'>": "8329387101077870994",
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3))",
+    "_manual_axes - <class 'frozenset'>": "frozenset()",
+    "_memory_kind - <class 'NoneType'>": "None",
+    "_original_py_fns - <class 'dict'>": {
+        "__init__": "<function NamedSharding.__init__ at 0x149b24875bd0>"
+    },
+    "_parsed_pspec - <class 'jax._src.sharding_impls.ParsedPartitionSpec'>": "ParsedPartitionSpec(partitions=(('x',), ('y',)), unsafe_user_spec=PartitionSpec('x', 'y'), sync=2)",
+    "_preprocess - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._preprocess]",
+        "arguments": "('self', '_')"
+    },
+    "_to_xla_hlo_sharding - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._to_xla_hlo_sharding]",
+        "arguments": "('self', 'num_dimensions')"
+    },
+    "addressable_devices - <class 'set'>": "'set' object is not subscriptable",
+    "addressable_devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding.addressable_devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "device_set - <class 'set'>": "'set' object is not subscriptable",
+    "devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "is_compatible_aval - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_compatible_aval]",
+        "arguments": "('self', 'aval_shape', 'extra_msg')"
+    },
+    "is_equivalent_to - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_equivalent_to]",
+        "arguments": "('self', 'other', 'ndim')"
+    },
+    "is_fully_addressable - <class 'bool'>": "True",
+    "is_fully_replicated - <class 'bool'>": "False",
+    "memory_kind - <class 'NoneType'>": "None",
+    "mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 4, 'y': 1)",
+    "shard_shape - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.shard_shape]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "spec - <class 'jax._src.partition_spec.PartitionSpec'>": {
+        "0 - <class 'str'>": "x",
+        "1 - <class 'str'>": "y"
+    },
+    "with_memory_kind - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.with_memory_kind]",
+        "arguments": "('self', 'kind')"
+    }
+}
+infer_sharding_from_operands => mesh : Mesh('x': 4, 'y': 1) 
+
+infer_sharding_from_operands => mesh Type : <class 'jax._src.mesh.Mesh'> 
+
+infer_sharding_from_operands => mesh Json attribute dump: {
+    "_flat_devices_set - <class 'set'>": "'set' object is not subscriptable",
+    "_flat_devices_tuple - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_hash - <class 'int'>": "9009323562639297235",
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3))",
+    "_local_devices_set - <class 'set'>": "'set' object is not subscriptable",
+    "_local_mesh - <class 'method'>": {
+        "Function name": "jax._src.mesh._local_mesh]",
+        "arguments": "('self', 'process_index')"
+    },
+    "_recreate_cm - <class 'method'>": {
+        "Function name": "contextlib._recreate_cm]",
+        "arguments": "('self',)"
+    },
+    "_repr - <class 'str'>": "Mesh(device_ids=array([[0],\n       [1],\n       [2],\n       [3]]), axis_names=('x', 'y'))",
+    "axis_names - <class 'tuple'>": {
+        "0 - <class 'str'>": "x",
+        "1 - <class 'str'>": "y"
+    },
+    "device_ids - <class 'numpy.ndarray'>": "[[0]\n [1]\n [2]\n [3]]",
+    "devices - <class 'numpy.ndarray'>": "[[cuda(id=0)]\n [cuda(id=1)]\n [cuda(id=2)]\n [cuda(id=3)]]",
+    "empty - <class 'bool'>": "False",
+    "is_multi_process - <class 'bool'>": "False",
+    "local_devices - <class 'list'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "local_mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 4, 'y': 1)",
+    "shape - <class 'collections.OrderedDict'>": {
+        "x": "4",
+        "y": "1"
+    },
+    "size - <class 'int'>": "4"
+}
+infer_sharding_from_operands => arg_shapes : (ShapeDtypeStruct(shape=(20, 16), dtype=float32, sharding=NamedSharding(mesh=Mesh('x': 4, 'y': 1), spec=PartitionSpec('x', None))),) 
+
+infer_sharding_from_operands => arg_shapes Type : <class 'tuple'> 
+
+infer_sharding_from_operands => arg_shapes Json attribute dump: {
+    "count - <class 'builtin_function_or_method'>": "<built-in method count of tuple object at 0x149b1c0d9720>",
+    "index - <class 'builtin_function_or_method'>": "<built-in method index of tuple object at 0x149b1c0d9720>"
+}
+infer_sharding_from_operands => result_shape : ShapedArray(float32[20,16]) 
+
+infer_sharding_from_operands => result_shape Type : <class 'jax._src.core.ShapedArray'> 
+
+infer_sharding_from_operands => result_shape Json attribute dump: {
+    "T - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function transpose at 0x149b23d3dea0>"
+    },
+    "_abs - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function absolute at 0x149b23ffcc10>>",
+    "_add - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_and - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_array_module - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.__array_module__]",
+        "arguments": "('self', 'types')"
+    },
+    "_bool - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_complex - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_copy - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._copy]",
+        "arguments": "('self',)"
+    },
+    "_deepcopy - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._deepcopy]",
+        "arguments": "('self', 'memo')"
+    },
+    "_div - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_divmod - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_eq - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_float - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_floordiv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_ge - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_getitem - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._getitem]",
+        "arguments": "('self', 'item')"
+    },
+    "_gt - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_hex - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_index - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_int - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_invert - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function jax.numpy.invert at 0x149b23fade10>>",
+    "_iter - <class 'function'>": {
+        "Function name": "jax._src.lax.lax._iter]",
+        "arguments": "('tracer', 'n')"
+    },
+    "_le - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_len - <class 'method'>": {
+        "Function name": "jax._src.core._len]",
+        "arguments": "('self', 'ignored_tracer', 'err')"
+    },
+    "_lshift - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_lt - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_matmul - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_mod - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_mul - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_multi_slice - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _multi_slice at 0x149b23c5c430>"
+    },
+    "_ne - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_neg - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function jax.numpy.negative at 0x149b23faed40>>",
+    "_oct - <class 'method'>": {
+        "Function name": "jax._src.core.error]",
+        "arguments": "('self', 'arg')"
+    },
+    "_or - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_pos - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function jax.numpy.positive at 0x149b23faf2e0>>",
+    "_pow - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_radd - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rand - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rdiv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rdivmod - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rfloordiv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rlshift - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rmatmul - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rmod - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rmul - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_ror - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_round - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._operator_round]",
+        "arguments": "('number', 'ndigits', 'out')"
+    },
+    "_rpow - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rrshift - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rshift - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rsub - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rtruediv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_rxor - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_setitem - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods._unimplemented_setitem]",
+        "arguments": "('self', 'i', 'x', 'msg')"
+    },
+    "_split - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function split at 0x149b23d53250>"
+    },
+    "_sub - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_truediv - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "_xor - <class 'function'>": {
+        "Function name": "jax._src.numpy.array_methods.deferring_binary_op]",
+        "arguments": "('self', 'other', 'args')"
+    },
+    "all - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function all at 0x149b23f4edd0>"
+    },
+    "any - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function any at 0x149b23f4f370>"
+    },
+    "argmax - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function argmax at 0x149b23d7fd00>"
+    },
+    "argmin - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function argmin at 0x149b23d84310>"
+    },
+    "argpartition - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function argpartition at 0x149b23d86d40>>"
+    },
+    "argsort - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function argsort at 0x149b23d86320>>"
+    },
+    "array_abstraction_level - <class 'int'>": "2",
+    "astype - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _astype at 0x149b23e33010>"
+    },
+    "at - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'type'>": "<class 'jax._src.numpy.array_methods._IndexUpdateHelper'>"
+    },
+    "at_least_vspace - <class 'method'>": {
+        "Function name": "jax._src.core.at_least_vspace]",
+        "arguments": "('self',)"
+    },
+    "broadcast - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function broadcast at 0x149b240ba7a0>"
+    },
+    "choose - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function choose at 0x149b23d5a710>"
+    },
+    "clip - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _clip at 0x149b23e33760>"
+    },
+    "compress - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _compress_method at 0x149b23e33e20>"
+    },
+    "conj - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function conjugate at 0x149b240135b0>>"
+    },
+    "conjugate - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function conjugate at 0x149b240135b0>>"
+    },
+    "copy - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function copy at 0x149b23d68040>"
+    },
+    "cumprod - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function cumprod at 0x149b23f70280>"
+    },
+    "cumsum - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function cumsum at 0x149b23f63c70>"
+    },
+    "diagonal - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function diagonal at 0x149b23d6bbe0>>"
+    },
+    "dot - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function dot at 0x149b23d7cf70>>"
+    },
+    "dtype - <class 'numpy.dtypes.Float32DType'>": "float32",
+    "flat - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function _notimplemented_flat at 0x149b23e33a30>"
+    },
+    "flatten - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function ravel at 0x149b23d50c10>>"
+    },
+    "imag - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function imag at 0x149b24013ac0>>"
+    },
+    "item - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _item at 0x149b23e33640>"
+    },
+    "itemsize - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function _itemsize at 0x149b23e336d0>"
+    },
+    "join - <class 'method'>": {
+        "Function name": "jax._src.core.join]",
+        "arguments": "('self', 'other', 'weak_type', 'named_shape')"
+    },
+    "mT - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function matrix_transpose at 0x149b23d3dfc0>"
+    },
+    "max - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function max at 0x149b23f4e290>"
+    },
+    "mean - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function mean at 0x149b23f4f490>"
+    },
+    "min - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function min at 0x149b23f4e830>"
+    },
+    "named_shape - <class 'dict'>": {},
+    "nbytes - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'function'>": "<function _nbytes at 0x149b23e335b0>"
+    },
+    "ndim - <class 'int'>": "2",
+    "nonzero - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function nonzero at 0x149b23d58f70>"
+    },
+    "prod - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function prod at 0x149b23f4dcf0>"
+    },
+    "ptp - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function ptp at 0x149b23f60c10>"
+    },
+    "ravel - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function ravel at 0x149b23d50c10>>"
+    },
+    "real - <class 'jax._src.core.aval_property'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function real at 0x149b24018040>>"
+    },
+    "repeat - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function repeat at 0x149b23d6a5f0>"
+    },
+    "reshape - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _reshape at 0x149b23e33910>"
+    },
+    "round - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function round at 0x149b23d53ac0>>"
+    },
+    "searchsorted - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function searchsorted at 0x149b23da03a0>>"
+    },
+    "shape - <class 'tuple'>": {
+        "0 - <class 'int'>": "20",
+        "1 - <class 'int'>": "16"
+    },
+    "size - <class 'int'>": "320",
+    "sort - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function sort at 0x149b23d853f0>>"
+    },
+    "squeeze - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function squeeze at 0x149b23d51750>"
+    },
+    "std - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function std at 0x149b23f60670>"
+    },
+    "str_short - <class 'method'>": {
+        "Function name": "jax._src.core.str_short]",
+        "arguments": "('self', 'short_dtypes', 'dt_str', 'shapestr', 'named_shapestr')"
+    },
+    "strip_named_shape - <class 'method'>": {
+        "Function name": "jax._src.core.strip_named_shape]",
+        "arguments": "('self',)"
+    },
+    "strip_weak_type - <class 'method'>": {
+        "Function name": "jax._src.core.strip_weak_type]",
+        "arguments": "('self',)"
+    },
+    "sum - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function sum at 0x149b23f4d750>"
+    },
+    "swapaxes - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function swapaxes at 0x149b23d51d80>>"
+    },
+    "take - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function take at 0x149b23d90ca0>"
+    },
+    "trace - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'jaxlib.xla_extension.PjitFunction'>": "<PjitFunction of <function trace at 0x149b23d6b130>>"
+    },
+    "transpose - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _transpose at 0x149b23e337f0>"
+    },
+    "update - <class 'method'>": {
+        "Function name": "jax._src.core.update]",
+        "arguments": "('self', 'shape', 'dtype', 'weak_type', 'named_shape')"
+    },
+    "var - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function var at 0x149b23f60040>"
+    },
+    "view - <class 'jax._src.core.aval_method'>": {
+        "0 - <class 'function'>": "<function _view at 0x149b23e339a0>"
+    },
+    "weak_type - <class 'bool'>": "False"
+}
+OUT_custom_partitioning_infer_sharding_from_operands => result_sharding : NamedSharding(mesh=Mesh('x': 4, 'y': 1), spec=PartitionSpec('x', 'y')) 
+
+OUT_custom_partitioning_infer_sharding_from_operands => result_sharding Type : <class 'jaxlib.xla_extension.NamedSharding'> 
+
+OUT_custom_partitioning_infer_sharding_from_operands => result_sharding Json attribute dump: {
+    "_addressable_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_from_parsed_pspec - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._from_parsed_pspec]",
+        "arguments": "('cls', 'mesh', 'parsed_pspec', 'memory_kind', '_manual_axes')"
+    },
+    "_hash - <class 'int'>": "8329387101077870994",
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3))",
+    "_manual_axes - <class 'frozenset'>": "frozenset()",
+    "_memory_kind - <class 'NoneType'>": "None",
+    "_original_py_fns - <class 'dict'>": {
+        "__init__": "<function NamedSharding.__init__ at 0x149b24875bd0>"
+    },
+    "_parsed_pspec - <class 'jax._src.sharding_impls.ParsedPartitionSpec'>": "ParsedPartitionSpec(partitions=(('x',), ('y',)), unsafe_user_spec=PartitionSpec('x', 'y'), sync=2)",
+    "_preprocess - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._preprocess]",
+        "arguments": "('self', '_')"
+    },
+    "_to_xla_hlo_sharding - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._to_xla_hlo_sharding]",
+        "arguments": "('self', 'num_dimensions')"
+    },
+    "addressable_devices - <class 'set'>": "'set' object is not subscriptable",
+    "addressable_devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding.addressable_devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "device_set - <class 'set'>": "'set' object is not subscriptable",
+    "devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "is_compatible_aval - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_compatible_aval]",
+        "arguments": "('self', 'aval_shape', 'extra_msg')"
+    },
+    "is_equivalent_to - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_equivalent_to]",
+        "arguments": "('self', 'other', 'ndim')"
+    },
+    "is_fully_addressable - <class 'bool'>": "True",
+    "is_fully_replicated - <class 'bool'>": "False",
+    "memory_kind - <class 'NoneType'>": "None",
+    "mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 4, 'y': 1)",
+    "shard_shape - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.shard_shape]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "spec - <class 'jax._src.partition_spec.PartitionSpec'>": {
+        "0 - <class 'str'>": "x",
+        "1 - <class 'str'>": "y"
+    },
+    "with_memory_kind - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.with_memory_kind]",
+        "arguments": "('self', 'kind')"
+    }
+}
+_custom_partitioning_partition => arg_shapes : [f32[20,16]{1,0}] 
+
+_custom_partitioning_partition => arg_shapes Type : <class 'list'> 
+
+_custom_partitioning_partition => arg_shapes Json attribute dump: {
+    "append - <class 'builtin_function_or_method'>": "<built-in method append of list object at 0x149b1c146500>",
+    "clear - <class 'builtin_function_or_method'>": "<built-in method clear of list object at 0x149b1c146500>",
+    "copy - <class 'builtin_function_or_method'>": "<built-in method copy of list object at 0x149b1c146500>",
+    "count - <class 'builtin_function_or_method'>": "<built-in method count of list object at 0x149b1c146500>",
+    "extend - <class 'builtin_function_or_method'>": "<built-in method extend of list object at 0x149b1c146500>",
+    "index - <class 'builtin_function_or_method'>": "<built-in method index of list object at 0x149b1c146500>",
+    "insert - <class 'builtin_function_or_method'>": "<built-in method insert of list object at 0x149b1c146500>",
+    "pop - <class 'builtin_function_or_method'>": "<built-in method pop of list object at 0x149b1c146500>",
+    "remove - <class 'builtin_function_or_method'>": "<built-in method remove of list object at 0x149b1c146500>",
+    "reverse - <class 'builtin_function_or_method'>": "<built-in method reverse of list object at 0x149b1c146500>",
+    "sort - <class 'builtin_function_or_method'>": "<built-in method sort of list object at 0x149b1c146500>"
+}
+_custom_partitioning_partition => arg_shardings : [{devices=[4,1]<=[4]}] 
+
+_custom_partitioning_partition => arg_shardings Type : <class 'list'> 
+
+_custom_partitioning_partition => arg_shardings Json attribute dump: {
+    "append - <class 'builtin_function_or_method'>": "<built-in method append of list object at 0x149b1fec5980>",
+    "clear - <class 'builtin_function_or_method'>": "<built-in method clear of list object at 0x149b1fec5980>",
+    "copy - <class 'builtin_function_or_method'>": "<built-in method copy of list object at 0x149b1fec5980>",
+    "count - <class 'builtin_function_or_method'>": "<built-in method count of list object at 0x149b1fec5980>",
+    "extend - <class 'builtin_function_or_method'>": "<built-in method extend of list object at 0x149b1fec5980>",
+    "index - <class 'builtin_function_or_method'>": "<built-in method index of list object at 0x149b1fec5980>",
+    "insert - <class 'builtin_function_or_method'>": "<built-in method insert of list object at 0x149b1fec5980>",
+    "pop - <class 'builtin_function_or_method'>": "<built-in method pop of list object at 0x149b1fec5980>",
+    "remove - <class 'builtin_function_or_method'>": "<built-in method remove of list object at 0x149b1fec5980>",
+    "reverse - <class 'builtin_function_or_method'>": "<built-in method reverse of list object at 0x149b1fec5980>",
+    "sort - <class 'builtin_function_or_method'>": "<built-in method sort of list object at 0x149b1fec5980>"
+}
+_custom_partitioning_partition => result_shape : f32[20,16]{1,0} 
+
+_custom_partitioning_partition => result_shape Type : <class 'jaxlib.xla_extension.Shape'> 
+
+_custom_partitioning_partition => result_shape Json attribute dump: {
+    "array_shape - <class 'builtin_function_or_method'>": "<built-in method array_shape of PyCapsule object at 0x149b3936a1c0>",
+    "dimensions - <class 'method'>": "<bound method PyCapsule.dimensions of f32[20,16]{1,0}>",
+    "element_type - <class 'method'>": "<bound method PyCapsule.element_type of f32[20,16]{1,0}>",
+    "is_array - <class 'method'>": "<bound method PyCapsule.is_array of f32[20,16]{1,0}>",
+    "is_dynamic - <class 'method'>": "<bound method PyCapsule.is_dynamic of f32[20,16]{1,0}>",
+    "is_dynamic_dimension - <class 'method'>": "<bound method PyCapsule.is_dynamic_dimension of f32[20,16]{1,0}>",
+    "is_static - <class 'method'>": "<bound method PyCapsule.is_static of f32[20,16]{1,0}>",
+    "is_token - <class 'method'>": "<bound method PyCapsule.is_token of f32[20,16]{1,0}>",
+    "is_tuple - <class 'method'>": "<bound method PyCapsule.is_tuple of f32[20,16]{1,0}>",
+    "layout - <class 'method'>": "<bound method PyCapsule.layout of f32[20,16]{1,0}>",
+    "leaf_count - <class 'method'>": "<bound method PyCapsule.leaf_count of f32[20,16]{1,0}>",
+    "numpy_dtype - <class 'method'>": "<bound method PyCapsule.numpy_dtype of f32[20,16]{1,0}>",
+    "rank - <class 'method'>": "<bound method PyCapsule.rank of f32[20,16]{1,0}>",
+    "scalar_shape - <class 'builtin_function_or_method'>": "<built-in method scalar_shape of PyCapsule object at 0x149b3936a280>",
+    "set_dynamic_dimension - <class 'method'>": "<bound method PyCapsule.set_dynamic_dimension of f32[20,16]{1,0}>",
+    "to_serialized_proto - <class 'method'>": "<bound method PyCapsule.to_serialized_proto of f32[20,16]{1,0}>",
+    "token_shape - <class 'builtin_function_or_method'>": "<built-in method token_shape of PyCapsule object at 0x149b3936a1f0>",
+    "tuple_shape - <class 'builtin_function_or_method'>": "<built-in method tuple_shape of PyCapsule object at 0x149b3936a160>",
+    "tuple_shapes - <class 'method'>": "<bound method PyCapsule.tuple_shapes of f32[20,16]{1,0}>",
+    "with_major_to_minor_layout_if_absent - <class 'method'>": "<bound method PyCapsule.with_major_to_minor_layout_if_absent of f32[20,16]{1,0}>",
+    "xla_element_type - <class 'method'>": "<bound method PyCapsule.xla_element_type of f32[20,16]{1,0}>"
+}
+_custom_partitioning_partition => result_sharding : {devices=[4,1]<=[4]} 
+
+_custom_partitioning_partition => result_sharding Type : <class 'jaxlib.xla_extension.HloSharding'> 
+
+_custom_partitioning_partition => result_sharding Json attribute dump: {
+    "from_proto - <class 'builtin_function_or_method'>": "<built-in method from_proto of PyCapsule object at 0x149b3937f0c0>",
+    "from_string - <class 'builtin_function_or_method'>": "<built-in method from_string of PyCapsule object at 0x149b3937f120>",
+    "iota_tile - <class 'builtin_function_or_method'>": "<built-in method iota_tile of PyCapsule object at 0x149b3937f1e0>",
+    "is_manual - <class 'method'>": "<bound method PyCapsule.is_manual of {devices=[4,1]<=[4]}>",
+    "is_replicated - <class 'method'>": "<bound method PyCapsule.is_replicated of {devices=[4,1]<=[4]}>",
+    "is_tiled - <class 'method'>": "<bound method PyCapsule.is_tiled of {devices=[4,1]<=[4]}>",
+    "is_unknown - <class 'method'>": "<bound method PyCapsule.is_unknown of {devices=[4,1]<=[4]}>",
+    "manual - <class 'builtin_function_or_method'>": "<built-in method manual of PyCapsule object at 0x149b3937f240>",
+    "num_devices - <class 'method'>": "<bound method PyCapsule.num_devices of {devices=[4,1]<=[4]}>",
+    "num_dimensions - <class 'method'>": "<bound method PyCapsule.num_dimensions of {devices=[4,1]<=[4]}>",
+    "replicate - <class 'builtin_function_or_method'>": "<built-in method replicate of PyCapsule object at 0x149b3937f2a0>",
+    "replicate_on_last_tile_dim - <class 'method'>": "<bound method PyCapsule.replicate_on_last_tile_dim of {devices=[4,1]<=[4]}>",
+    "subgroup_types - <class 'method'>": "<bound method PyCapsule.subgroup_types of {devices=[4,1]<=[4]}>",
+    "tile - <class 'method'>": "<bound method PyCapsule.tile of {devices=[4,1]<=[4]}>",
+    "tile_assignment_devices - <class 'method'>": "<bound method PyCapsule.tile_assignment_devices of {devices=[4,1]<=[4]}>",
+    "tile_assignment_dimensions - <class 'method'>": "<bound method PyCapsule.tile_assignment_dimensions of {devices=[4,1]<=[4]}>",
+    "to_proto - <class 'method'>": "<bound method PyCapsule.to_proto of {devices=[4,1]<=[4]}>",
+    "tuple_elements - <class 'method'>": "<bound method PyCapsule.tuple_elements of {devices=[4,1]<=[4]}>",
+    "tuple_sharding - <class 'builtin_function_or_method'>": "<built-in method tuple_sharding of PyCapsule object at 0x149b3937f180>",
+    "unknown - <class 'builtin_function_or_method'>": "<built-in method unknown of PyCapsule object at 0x149b3937f300>"
+}
+partition_defined_function => mesh : Mesh('x': 4, 'y': 1) 
+
+partition_defined_function => mesh Type : <class 'jax._src.mesh.Mesh'> 
+
+partition_defined_function => mesh Json attribute dump: {
+    "_flat_devices_set - <class 'set'>": "'set' object is not subscriptable",
+    "_flat_devices_tuple - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_hash - <class 'int'>": "9009323562639297235",
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3))",
+    "_local_devices_set - <class 'set'>": "'set' object is not subscriptable",
+    "_local_mesh - <class 'method'>": {
+        "Function name": "jax._src.mesh._local_mesh]",
+        "arguments": "('self', 'process_index')"
+    },
+    "_recreate_cm - <class 'method'>": {
+        "Function name": "contextlib._recreate_cm]",
+        "arguments": "('self',)"
+    },
+    "_repr - <class 'str'>": "Mesh(device_ids=array([[0],\n       [1],\n       [2],\n       [3]]), axis_names=('x', 'y'))",
+    "axis_names - <class 'tuple'>": {
+        "0 - <class 'str'>": "x",
+        "1 - <class 'str'>": "y"
+    },
+    "device_ids - <class 'numpy.ndarray'>": "[[0]\n [1]\n [2]\n [3]]",
+    "devices - <class 'numpy.ndarray'>": "[[cuda(id=0)]\n [cuda(id=1)]\n [cuda(id=2)]\n [cuda(id=3)]]",
+    "empty - <class 'bool'>": "False",
+    "is_multi_process - <class 'bool'>": "False",
+    "local_devices - <class 'list'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "local_mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 4, 'y': 1)",
+    "shape - <class 'collections.OrderedDict'>": {
+        "x": "4",
+        "y": "1"
+    },
+    "size - <class 'int'>": "4"
+}
+partition_defined_function => arg_shapes : (ShapeDtypeStruct(shape=(20, 16), dtype=float32, sharding=NamedSharding(mesh=Mesh('x': 4, 'y': 1), spec=PartitionSpec('x', None))),) 
+
+partition_defined_function => arg_shapes Type : <class 'tuple'> 
+
+partition_defined_function => arg_shapes Json attribute dump: {
+    "count - <class 'builtin_function_or_method'>": "<built-in method count of tuple object at 0x149b1c11f700>",
+    "index - <class 'builtin_function_or_method'>": "<built-in method index of tuple object at 0x149b1c11f700>"
+}
+partition_defined_function => result_shape sharding : NamedSharding(mesh=Mesh('x': 4, 'y': 1), spec=PartitionSpec('x', None)) 
+
+partition_defined_function => result_shape sharding Type : <class 'jaxlib.xla_extension.NamedSharding'> 
+
+partition_defined_function => result_shape sharding Json attribute dump: {
+    "_addressable_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_from_parsed_pspec - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._from_parsed_pspec]",
+        "arguments": "('cls', 'mesh', 'parsed_pspec', 'memory_kind', '_manual_axes')"
+    },
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3))",
+    "_manual_axes - <class 'frozenset'>": "frozenset()",
+    "_memory_kind - <class 'NoneType'>": "None",
+    "_original_py_fns - <class 'dict'>": {
+        "__init__": "<function NamedSharding.__init__ at 0x149b24875bd0>"
+    },
+    "_parsed_pspec - <class 'jax._src.sharding_impls.ParsedPartitionSpec'>": "ParsedPartitionSpec(partitions=(('x',), ()), unsafe_user_spec=PartitionSpec('x', None), sync=2)",
+    "_preprocess - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._preprocess]",
+        "arguments": "('self', '_')"
+    },
+    "_to_xla_hlo_sharding - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._to_xla_hlo_sharding]",
+        "arguments": "('self', 'num_dimensions')"
+    },
+    "addressable_devices - <class 'set'>": "'set' object is not subscriptable",
+    "addressable_devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding.addressable_devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "device_set - <class 'set'>": "'set' object is not subscriptable",
+    "devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "is_compatible_aval - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_compatible_aval]",
+        "arguments": "('self', 'aval_shape', 'extra_msg')"
+    },
+    "is_equivalent_to - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_equivalent_to]",
+        "arguments": "('self', 'other', 'ndim')"
+    },
+    "is_fully_addressable - <class 'bool'>": "True",
+    "is_fully_replicated - <class 'bool'>": "False",
+    "memory_kind - <class 'NoneType'>": "None",
+    "mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 4, 'y': 1)",
+    "shard_shape - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.shard_shape]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "spec - <class 'jax._src.partition_spec.PartitionSpec'>": {
+        "0 - <class 'str'>": "x",
+        "1 - <class 'NoneType'>": "None"
+    },
+    "with_memory_kind - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.with_memory_kind]",
+        "arguments": "('self', 'kind')"
+    }
+}
+_custom_partitioning_partition_OUTPUT => mesh : Mesh('x': 4, 'y': 1) 
+
+_custom_partitioning_partition_OUTPUT => mesh Type : <class 'jax._src.mesh.Mesh'> 
+
+_custom_partitioning_partition_OUTPUT => mesh Json attribute dump: {
+    "_flat_devices_set - <class 'set'>": "'set' object is not subscriptable",
+    "_flat_devices_tuple - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_hash - <class 'int'>": "9009323562639297235",
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3))",
+    "_local_devices_set - <class 'set'>": "'set' object is not subscriptable",
+    "_local_mesh - <class 'method'>": {
+        "Function name": "jax._src.mesh._local_mesh]",
+        "arguments": "('self', 'process_index')"
+    },
+    "_recreate_cm - <class 'method'>": {
+        "Function name": "contextlib._recreate_cm]",
+        "arguments": "('self',)"
+    },
+    "_repr - <class 'str'>": "Mesh(device_ids=array([[0],\n       [1],\n       [2],\n       [3]]), axis_names=('x', 'y'))",
+    "axis_names - <class 'tuple'>": {
+        "0 - <class 'str'>": "x",
+        "1 - <class 'str'>": "y"
+    },
+    "device_ids - <class 'numpy.ndarray'>": "[[0]\n [1]\n [2]\n [3]]",
+    "devices - <class 'numpy.ndarray'>": "[[cuda(id=0)]\n [cuda(id=1)]\n [cuda(id=2)]\n [cuda(id=3)]]",
+    "empty - <class 'bool'>": "False",
+    "is_multi_process - <class 'bool'>": "False",
+    "local_devices - <class 'list'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "local_mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 4, 'y': 1)",
+    "shape - <class 'collections.OrderedDict'>": {
+        "x": "4",
+        "y": "1"
+    },
+    "size - <class 'int'>": "4"
+}
+_custom_partitioning_partition_OUTPUT => lower_fn : <function partition.<locals>.lower_fn at 0x149b1c131e10> 
+
+_custom_partitioning_partition_OUTPUT => lower_fn Type : <class 'function'> 
+
+_custom_partitioning_partition_OUTPUT => lower_fn Json attribute dump: {}
+_custom_partitioning_partition_OUTPUT => result_sharding : NamedSharding(mesh=Mesh('x': 4, 'y': 1), spec=PartitionSpec('x', None)) 
+
+_custom_partitioning_partition_OUTPUT => result_sharding Type : <class 'jaxlib.xla_extension.NamedSharding'> 
+
+_custom_partitioning_partition_OUTPUT => result_sharding Json attribute dump: {
+    "_addressable_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_device_assignment - <class 'tuple'>": {
+        "0 - <class 'jaxlib.xla_extension.Device'>": "cuda:0",
+        "1 - <class 'jaxlib.xla_extension.Device'>": "cuda:1",
+        "2 - <class 'jaxlib.xla_extension.Device'>": "cuda:2",
+        "3 - <class 'jaxlib.xla_extension.Device'>": "cuda:3"
+    },
+    "_from_parsed_pspec - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._from_parsed_pspec]",
+        "arguments": "('cls', 'mesh', 'parsed_pspec', 'memory_kind', '_manual_axes')"
+    },
+    "_internal_device_list - <class 'jaxlib.xla_extension.DeviceList'>": "(cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3))",
+    "_manual_axes - <class 'frozenset'>": "frozenset()",
+    "_memory_kind - <class 'NoneType'>": "None",
+    "_original_py_fns - <class 'dict'>": {
+        "__init__": "<function NamedSharding.__init__ at 0x149b24875bd0>"
+    },
+    "_parsed_pspec - <class 'jax._src.sharding_impls.ParsedPartitionSpec'>": "ParsedPartitionSpec(partitions=(('x',), ()), unsafe_user_spec=PartitionSpec('x', None), sync=2)",
+    "_preprocess - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._preprocess]",
+        "arguments": "('self', '_')"
+    },
+    "_to_xla_hlo_sharding - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls._to_xla_hlo_sharding]",
+        "arguments": "('self', 'num_dimensions')"
+    },
+    "addressable_devices - <class 'set'>": "'set' object is not subscriptable",
+    "addressable_devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding.addressable_devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "device_set - <class 'set'>": "'set' object is not subscriptable",
+    "devices_indices_map - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.devices_indices_map]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "is_compatible_aval - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_compatible_aval]",
+        "arguments": "('self', 'aval_shape', 'extra_msg')"
+    },
+    "is_equivalent_to - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.is_equivalent_to]",
+        "arguments": "('self', 'other', 'ndim')"
+    },
+    "is_fully_addressable - <class 'bool'>": "True",
+    "is_fully_replicated - <class 'bool'>": "False",
+    "memory_kind - <class 'NoneType'>": "None",
+    "mesh - <class 'jax._src.mesh.Mesh'>": "Mesh('x': 4, 'y': 1)",
+    "shard_shape - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.shard_shape]",
+        "arguments": "('self', 'global_shape')"
+    },
+    "spec - <class 'jax._src.partition_spec.PartitionSpec'>": {
+        "0 - <class 'str'>": "x",
+        "1 - <class 'NoneType'>": "None"
+    },
+    "with_memory_kind - <class 'method'>": {
+        "Function name": "jax._src.sharding_impls.with_memory_kind]",
+        "arguments": "('self', 'kind')"
+    }
+}
+_custom_partitioning_partition_OUTPUT => arg_shardings : (NamedSharding(mesh=Mesh('x': 4, 'y': 1), spec=PartitionSpec('x', None)),) 
+
+_custom_partitioning_partition_OUTPUT => arg_shardings Type : <class 'tuple'> 
+
+_custom_partitioning_partition_OUTPUT => arg_shardings Json attribute dump: {
+    "count - <class 'builtin_function_or_method'>": "<built-in method count of tuple object at 0x149b1c0d9720>",
+    "index - <class 'builtin_function_or_method'>": "<built-in method index of tuple object at 0x149b1c0d9720>"
+}
+_custom_partitioning_partition_OUTPUT => closed_jaxpr.out_avals : [ShapedArray(float32[5,16])] 
+
+_custom_partitioning_partition_OUTPUT => closed_jaxpr.out_avals Type : <class 'list'> 
+
+_custom_partitioning_partition_OUTPUT => closed_jaxpr.out_avals Json attribute dump: {
+    "append - <class 'builtin_function_or_method'>": "<built-in method append of list object at 0x149b1c147c00>",
+    "clear - <class 'builtin_function_or_method'>": "<built-in method clear of list object at 0x149b1c147c00>",
+    "copy - <class 'builtin_function_or_method'>": "<built-in method copy of list object at 0x149b1c147c00>",
+    "count - <class 'builtin_function_or_method'>": "<built-in method count of list object at 0x149b1c147c00>",
+    "extend - <class 'builtin_function_or_method'>": "<built-in method extend of list object at 0x149b1c147c00>",
+    "index - <class 'builtin_function_or_method'>": "<built-in method index of list object at 0x149b1c147c00>",
+    "insert - <class 'builtin_function_or_method'>": "<built-in method insert of list object at 0x149b1c147c00>",
+    "pop - <class 'builtin_function_or_method'>": "<built-in method pop of list object at 0x149b1c147c00>",
+    "remove - <class 'builtin_function_or_method'>": "<built-in method remove of list object at 0x149b1c147c00>",
+    "reverse - <class 'builtin_function_or_method'>": "<built-in method reverse of list object at 0x149b1c147c00>",
+    "sort - <class 'builtin_function_or_method'>": "<built-in method sort of list object at 0x149b1c147c00>"
+}
+_custom_partitioning_partition_OUTPUT => tiled_results : [ShapedArray(float32[5,16])] 
+
+_custom_partitioning_partition_OUTPUT => tiled_results Type : <class 'list'> 
+
+_custom_partitioning_partition_OUTPUT => tiled_results Json attribute dump: {
+    "append - <class 'builtin_function_or_method'>": "<built-in method append of list object at 0x149b1c12f780>",
+    "clear - <class 'builtin_function_or_method'>": "<built-in method clear of list object at 0x149b1c12f780>",
+    "copy - <class 'builtin_function_or_method'>": "<built-in method copy of list object at 0x149b1c12f780>",
+    "count - <class 'builtin_function_or_method'>": "<built-in method count of list object at 0x149b1c12f780>",
+    "extend - <class 'builtin_function_or_method'>": "<built-in method extend of list object at 0x149b1c12f780>",
+    "index - <class 'builtin_function_or_method'>": "<built-in method index of list object at 0x149b1c12f780>",
+    "insert - <class 'builtin_function_or_method'>": "<built-in method insert of list object at 0x149b1c12f780>",
+    "pop - <class 'builtin_function_or_method'>": "<built-in method pop of list object at 0x149b1c12f780>",
+    "remove - <class 'builtin_function_or_method'>": "<built-in method remove of list object at 0x149b1c12f780>",
+    "reverse - <class 'builtin_function_or_method'>": "<built-in method reverse of list object at 0x149b1c12f780>",
+    "sort - <class 'builtin_function_or_method'>": "<built-in method sort of list object at 0x149b1c12f780>"
+}
+┌──────────────────┐
+│      GPU 0       │
+├──────────────────┤
+│      GPU 1       │
+├──────────────────┤
+│      GPU 2       │
+├──────────────────┤
+│      GPU 3       │
+└──────────────────┘
+[ 0.239411   -0.2441537   0.98121446 -0.7610452  -0.44684547  0.19244799
+ -1.5399084  -0.12426831 -0.67168105  2.38395    -0.02565377 -0.37954363
+ -0.72835875  0.4663711   0.38621864  0.75857204]
+[ 11.97055   -12.2076845  49.060722  -38.05226   -22.342274    9.622399
+ -76.99542    -6.2134156 -33.584053  119.1975     -1.2826886 -18.977182
+ -36.41794    23.318554   19.310932   37.9286   ]

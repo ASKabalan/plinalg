@@ -1,3 +1,25 @@
 Loading nvhpc-hpcx-cuda11/23.9
   Loading requirement: hpcx
-+ srun python -m pytest -s tests/test_spmd_lowering.py
++ srun python -m pytest -s tests/test_spmd_lowering.py::test_custom_partitionning
+ERROR: found no collectors for /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py::test_custom_partitionning
+
+ERROR: found no collectors for /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py::test_custom_partitionning
+
+ERROR: found no collectors for /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py::test_custom_partitionning
+
+ERROR: found no collectors for /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py::test_custom_partitionning
+
+ERROR: found no collectors for /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py::test_custom_partitionning
+
+ERROR: found no collectors for /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py::test_custom_partitionning
+
+srun: error: r10i6n3: tasks 4-5: Exited with exit code 4
+srun: Terminating StepId=676288.0
+ERROR: found no collectors for /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py::test_custom_partitionning
+
+ERROR: found no collectors for /gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/tests/test_spmd_lowering.py::test_custom_partitionning
+
+srun: error: r6i1n3: tasks 2-3: Exited with exit code 4
+slurmstepd: error: *** STEP 676288.0 ON r6i1n3 CANCELLED AT 2024-02-16T12:29:14 ***
+srun: error: r10i6n3: tasks 6-7: Exited with exit code 4
+srun: error: r6i1n3: tasks 0-1: Exited with exit code 4

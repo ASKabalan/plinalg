@@ -1,0 +1,454 @@
+All ok True it took 0.7431745529174805 seconds
+All ok for jitted True it took 0.00034165382385253906 seconds
+beging testing multi gpu single controller
+Number of devices 4 they are [cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3)]
+┌───────────────────────┐
+│         GPU 0         │
+├───────────────────────┤
+│         GPU 1         │
+├───────────────────────┤
+│         GPU 2         │
+├───────────────────────┤
+│         GPU 3         │
+└───────────────────────┘
+The HLO graph is HloModule jit_cg, is_scheduled=true, entry_computation_layout={(s32[1,4]{1,0}, f32[4]{0})->f32[1]{0}}, allow_spmd_sharding_propagation_to_output={true}, num_partitions=4, frontend_attributes={fingerprint_before_lhs="c7026e3ba8ad134a688c859e23af0736"}
+
+%fused_add (param_1: f32[1], param_1.2: f32[1], param_2.2: f32[], param_3: f32[]) -> f32[1] {
+  %param_1 = f32[1]{0} parameter(0)
+  %param_2.2 = f32[] parameter(2)
+  %param_3 = f32[] parameter(3)
+  %divide.4 = f32[] divide(f32[] %param_2.2, f32[] %param_3), metadata={op_name="jit(cg)/jit(main)/while/body/div" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %bitcast.148 = f32[1]{0} bitcast(f32[] %divide.4)
+  %param_1.2 = f32[1]{0} parameter(1)
+  %multiply.27 = f32[1]{0} multiply(f32[1]{0} %bitcast.148, f32[1]{0} %param_1.2), metadata={op_name="jit(cg)/jit(main)/while/body/mul" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  ROOT %add.14 = f32[1]{0} add(f32[1]{0} %param_1, f32[1]{0} %multiply.27), metadata={op_name="jit(cg)/jit(main)/while/body/add" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%fused_add.1 (param_0.2: f32[1], param_1.28: f32[1], param_2.13: f32[]) -> f32[1] {
+  %param_0.2 = f32[1]{0} parameter(0)
+  %param_2.13 = f32[] parameter(2)
+  %bitcast.155 = f32[1]{0} bitcast(f32[] %param_2.13)
+  %param_1.28 = f32[1]{0} parameter(1)
+  %multiply.29 = f32[1]{0} multiply(f32[1]{0} %bitcast.155, f32[1]{0} %param_1.28), metadata={op_name="jit(cg)/jit(main)/while/body/mul" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  ROOT %add.15 = f32[1]{0} add(f32[1]{0} %param_0.2, f32[1]{0} %multiply.29), metadata={op_name="jit(cg)/jit(main)/while/body/add" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%scalar_add_computation (scalar_lhs: f32[], scalar_rhs: f32[]) -> f32[] {
+  %scalar_rhs = f32[] parameter(1)
+  %scalar_lhs = f32[] parameter(0)
+  ROOT %add.7 = f32[] add(f32[] %scalar_lhs, f32[] %scalar_rhs)
+}
+
+%fused_reduce (param_0.7: f32[4], param_1.11: s32[1,4]) -> f32[] {
+  %param_1.11 = s32[1,4]{1,0} parameter(1)
+  %convert.6 = f32[1,4]{1,0} convert(s32[1,4]{1,0} %param_1.11), metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %param_0.7 = f32[4]{0} parameter(0)
+  %bitcast.150 = f32[1,4]{1,0} bitcast(f32[4]{0} %param_0.7)
+  %multiply.30 = f32[1,4]{1,0} multiply(f32[1,4]{1,0} %convert.6, f32[1,4]{1,0} %bitcast.150)
+  %bitcast.149 = f32[4]{0} bitcast(f32[1,4]{1,0} %multiply.30)
+  %constant_31 = f32[] constant(0)
+  ROOT %reduce.14 = f32[] reduce(f32[4]{0} %bitcast.149, f32[] %constant_31), dimensions={0}, to_apply=%scalar_add_computation
+}
+
+%fused_multiply (param_0.18: f32[1], param_1.30: f32[]) -> f32[1] {
+  %param_0.18 = f32[1]{0} parameter(0)
+  %param_1.30 = f32[] parameter(1)
+  %bitcast.156 = f32[1]{0} bitcast(f32[] %param_1.30), metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  ROOT %multiply.36 = f32[1]{0} multiply(f32[1]{0} %param_0.18, f32[1]{0} %bitcast.156)
+}
+
+%fused_divide_multiply_subtract (param_0.23: f32[1], param_1.33: f32[], param_2.17: f32[], param_3.1: f32[]) -> (f32[1], f32[1], f32[]) {
+  %param_0.23 = f32[1]{0} parameter(0)
+  %param_2.17 = f32[] parameter(2)
+  %param_3.1 = f32[] parameter(3)
+  %divide.5 = f32[] divide(f32[] %param_2.17, f32[] %param_3.1), metadata={op_name="jit(cg)/jit(main)/while/body/div" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %bitcast.153.clone.1 = f32[1]{0} bitcast(f32[] %divide.5)
+  %param_1.33 = f32[] parameter(1)
+  %bitcast.154.clone.1 = f32[1]{0} bitcast(f32[] %param_1.33), metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %multiply.28.clone.1 = f32[1]{0} multiply(f32[1]{0} %bitcast.153.clone.1, f32[1]{0} %bitcast.154.clone.1), metadata={op_name="jit(cg)/jit(main)/while/body/mul" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %subtract.4.clone.1 = f32[1]{0} subtract(f32[1]{0} %param_0.23, f32[1]{0} %multiply.28.clone.1), metadata={op_name="jit(cg)/jit(main)/while/body/sub" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %multiply.37 = f32[1]{0} multiply(f32[1]{0} %subtract.4.clone.1, f32[1]{0} %subtract.4.clone.1)
+  ROOT %tuple.3 = (f32[1]{0}, f32[1]{0}, f32[]) tuple(f32[1]{0} %multiply.37, f32[1]{0} %subtract.4.clone.1, f32[] %divide.5)
+}
+
+%scalar_add_computation.clone.1 (scalar_lhs.2: f32[], scalar_rhs.2: f32[]) -> f32[] {
+  %scalar_rhs.2 = f32[] parameter(1)
+  %scalar_lhs.2 = f32[] parameter(0)
+  ROOT %add.9 = f32[] add(f32[] %scalar_lhs.2, f32[] %scalar_rhs.2)
+}
+
+%scalar_add_computation.clone.2 (scalar_lhs.3: f32[], scalar_rhs.3: f32[]) -> f32[] {
+  %scalar_rhs.3 = f32[] parameter(1)
+  %scalar_lhs.3 = f32[] parameter(0)
+  ROOT %add.10 = f32[] add(f32[] %scalar_lhs.3, f32[] %scalar_rhs.3)
+}
+
+%wrapped_copy_computation.1 (param_0.30: f32[]) -> f32[] {
+  %param_0.30 = f32[] parameter(0)
+  ROOT %copy.26 = f32[] copy(f32[] %param_0.30)
+}
+
+%wrapped_add_computation (param_0.31: s32[], param_1.37: s32[]) -> s32[] {
+  %param_0.31 = s32[] parameter(0)
+  %param_1.37 = s32[] parameter(1)
+  ROOT %add.16 = s32[] add(s32[] %param_0.31, s32[] %param_1.37), metadata={op_name="jit(cg)/jit(main)/while/body/add" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%region_0.16_spmd (param.1: (f32[1], f32[1], f32[], f32[1], s32[], /*index=5*/f32[], s32[1,4])) -> (f32[1], f32[1], f32[], f32[1], s32[], /*index=5*/f32[], s32[1,4]) {
+  %constant_16 = s32[] constant(1)
+  %param.1 = (f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) parameter(0)
+  %get-tuple-element.30 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=0
+  %get-tuple-element.31 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=1
+  %get-tuple-element.32 = f32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=2
+  %get-tuple-element.33 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=3
+  %get-tuple-element.34 = s32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=4
+  %wrapped_add = s32[] fusion(s32[] %get-tuple-element.34, s32[] %constant_16), kind=kLoop, calls=%wrapped_add_computation, metadata={op_name="jit(cg)/jit(main)/while/body/add" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %get-tuple-element.42 = f32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=5
+  %get-tuple-element.43 = s32[1,4]{1,0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=6
+  %all-gather-start = (f32[1]{0}, f32[4]{0}) all-gather-start(f32[1]{0} %get-tuple-element.33), channel_id=2, replica_groups={{0,1,2,3}}, dimensions={0}, use_global_device_ids=true, metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-gather-done = f32[4]{0} all-gather-done((f32[1]{0}, f32[4]{0}) %all-gather-start), metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %input_reduce_fusion = f32[] fusion(f32[4]{0} %all-gather-done, s32[1,4]{1,0} %get-tuple-element.43), kind=kInput, calls=%fused_reduce
+  %loop_multiply_fusion = f32[1]{0} fusion(f32[1]{0} %get-tuple-element.33, f32[] %input_reduce_fusion), kind=kLoop, calls=%fused_multiply
+  %bitcast.47 = f32[] bitcast(f32[1]{0} %loop_multiply_fusion)
+  %all-reduce-start = f32[] all-reduce-start(f32[] %bitcast.47), channel_id=3, replica_groups={{0,1,2,3}}, use_global_device_ids=true, to_apply=%scalar_add_computation.clone.1, metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-reduce-done = f32[] all-reduce-done(f32[] %all-reduce-start), metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %loop_divide_multiply_subtract_fusion = (f32[1]{0}, f32[1]{0}, f32[]) fusion(f32[1]{0} %get-tuple-element.31, f32[] %input_reduce_fusion, f32[] %get-tuple-element.32, f32[] %all-reduce-done), kind=kLoop, calls=%fused_divide_multiply_subtract
+  %get-tuple-element.13 = f32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[]) %loop_divide_multiply_subtract_fusion), index=2
+  %loop_add_fusion.1 = f32[1]{0} fusion(f32[1]{0} %get-tuple-element.30, f32[1]{0} %get-tuple-element.33, f32[] %get-tuple-element.13), kind=kLoop, calls=%fused_add.1, metadata={op_name="jit(cg)/jit(main)/while/body/add" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %get-tuple-element.38 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[]) %loop_divide_multiply_subtract_fusion), index=1
+  %get-tuple-element.11 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[]) %loop_divide_multiply_subtract_fusion), index=0
+  %bitcast.67 = f32[] bitcast(f32[1]{0} %get-tuple-element.11)
+  %all-reduce-start.1 = f32[] all-reduce-start(f32[] %bitcast.67), channel_id=4, replica_groups={{0,1,2,3}}, use_global_device_ids=true, to_apply=%scalar_add_computation.clone.2, metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-reduce-done.1 = f32[] all-reduce-done(f32[] %all-reduce-start.1), metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %loop_add_fusion = f32[1]{0} fusion(f32[1]{0} %get-tuple-element.38, f32[1]{0} %get-tuple-element.33, f32[] %all-reduce-done.1, f32[] %get-tuple-element.32), kind=kLoop, calls=%fused_add, metadata={op_name="jit(cg)/jit(main)/while/body/add" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %wrapped_copy.1 = f32[] fusion(f32[] %all-reduce-done.1), kind=kLoop, calls=%wrapped_copy_computation.1, control-predecessors={%loop_add_fusion}
+  ROOT %tuple.7 = (f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) tuple(f32[1]{0} %loop_add_fusion.1, f32[1]{0} %get-tuple-element.38, f32[] %wrapped_copy.1, f32[1]{0} %loop_add_fusion, s32[] %wrapped_add, /*index=5*/f32[] %get-tuple-element.42, s32[1,4]{1,0} %get-tuple-element.43)
+}
+
+%fused_and (param_0.9: s32[], param_1.14: f32[], param_2.6: f32[]) -> pred[] {
+  %param_1.14 = f32[] parameter(1)
+  %param_2.6 = f32[] parameter(2)
+  %compare.5 = pred[] compare(f32[] %param_1.14, f32[] %param_2.6), direction=GT, metadata={op_name="jit(cg)/jit(main)/while/cond/gt" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %param_0.9 = s32[] parameter(0)
+  %constant_32 = s32[] constant(40)
+  %compare.4 = pred[] compare(s32[] %param_0.9, s32[] %constant_32), direction=LT, metadata={op_name="jit(cg)/jit(main)/while/cond/lt" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  ROOT %and.2 = pred[] and(pred[] %compare.5, pred[] %compare.4), metadata={op_name="jit(cg)/jit(main)/while/cond/and" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%region_1.43_spmd (param: (f32[1], f32[1], f32[], f32[1], s32[], /*index=5*/f32[], s32[1,4])) -> pred[] {
+  %param = (f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) parameter(0)
+  %get-tuple-element.2 = s32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param), index=4
+  %get-tuple-element.1 = f32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param), index=5
+  %get-tuple-element = f32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param), index=2
+  ROOT %loop_and_fusion = pred[] fusion(s32[] %get-tuple-element.2, f32[] %get-tuple-element, f32[] %get-tuple-element.1), kind=kLoop, calls=%fused_and, metadata={op_name="jit(cg)/jit(main)/while/cond/and" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%scalar_add_computation.clone (scalar_lhs.1: f32[], scalar_rhs.1: f32[]) -> f32[] {
+  %scalar_rhs.1 = f32[] parameter(1)
+  %scalar_lhs.1 = f32[] parameter(0)
+  ROOT %add.8 = f32[] add(f32[] %scalar_lhs.1, f32[] %scalar_rhs.1)
+}
+
+%copy_horizontally_fused_computation (param_0_0: f32[1], param_1_0: f32[1]) -> (f32[1], f32[1]) {
+  %param_0_0 = f32[1]{0} parameter(0)
+  %copy.22 = f32[1]{0} copy(f32[1]{0} %param_0_0)
+  %param_1_0 = f32[1]{0} parameter(1)
+  %copy.23 = f32[1]{0} copy(f32[1]{0} %param_1_0)
+  ROOT %tuple.8 = (f32[1]{0}, f32[1]{0}) tuple(f32[1]{0} %copy.22, f32[1]{0} %copy.23)
+}
+
+%wrapped_copy_computation (param_0.29: s32[]) -> s32[] {
+  %param_0.29 = s32[] parameter(0)
+  ROOT %copy.25 = s32[] copy(s32[] %param_0.29)
+}
+
+%fused_reduce.2 (param_0.21: s32[1,4]) -> f32[] {
+  %param_0.21 = s32[1,4]{1,0} parameter(0)
+  %convert.8 = f32[1,4]{1,0} convert(s32[1,4]{1,0} %param_0.21), metadata={op_name="jit(cg)/jit(main)/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %constant_36 = f32[] constant(0)
+  %broadcast.11 = f32[1,4]{1,0} broadcast(f32[] %constant_36), dimensions={}, metadata={op_name="jit(cg)/jit(main)/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %multiply.35 = f32[1,4]{1,0} multiply(f32[1,4]{1,0} %convert.8, f32[1,4]{1,0} %broadcast.11)
+  %bitcast.152 = f32[4]{0} bitcast(f32[1,4]{1,0} %multiply.35)
+  ROOT %reduce.16 = f32[] reduce(f32[4]{0} %bitcast.152, f32[] %constant_36), dimensions={0}, to_apply=%scalar_add_computation
+}
+
+%fused_reduce.1 (param_0.20: f32[4]) -> f32[] {
+  %param_0.20 = f32[4]{0} parameter(0)
+  %multiply.33 = f32[4]{0} multiply(f32[4]{0} %param_0.20, f32[4]{0} %param_0.20)
+  %constant_35 = f32[] constant(0)
+  ROOT %reduce.15 = f32[] reduce(f32[4]{0} %multiply.33, f32[] %constant_35), dimensions={0}, to_apply=%scalar_add_computation, metadata={op_name="jit(cg)/jit(main)/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%fused_maximum (param_0.19: f32[]) -> f32[] {
+  %param_0.19 = f32[] parameter(0)
+  %constant_33 = f32[] constant(9.99999944e-11)
+  %multiply.32 = f32[] multiply(f32[] %param_0.19, f32[] %constant_33), metadata={op_name="jit(cg)/jit(main)/mul" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %constant_34 = f32[] constant(0)
+  ROOT %maximum.2 = f32[] maximum(f32[] %multiply.32, f32[] %constant_34), metadata={op_name="jit(cg)/jit(main)/max" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%fused_multiply_subtract (param_0.26: f32[], param_1.36: f32[4], param_2.19: u32[]) -> (f32[1], f32[1]) {
+  %param_1.36 = f32[4]{0} parameter(1)
+  %param_2.19 = u32[] parameter(2)
+  %convert.7.clone.1 = s32[] convert(u32[] %param_2.19), metadata={op_name="jit(cg)/jit(main)/sub" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %dynamic-slice.3.clone.1 = f32[1]{0} dynamic-slice(f32[4]{0} %param_1.36, s32[] %convert.7.clone.1), dynamic_slice_sizes={1}, metadata={op_name="jit(cg)/jit(main)/sub" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %param_0.26 = f32[] parameter(0)
+  %bitcast.151.clone.1 = f32[1]{0} bitcast(f32[] %param_0.26), metadata={op_name="jit(cg)/jit(main)/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %subtract.5.clone.1 = f32[1]{0} subtract(f32[1]{0} %dynamic-slice.3.clone.1, f32[1]{0} %bitcast.151.clone.1), metadata={op_name="jit(cg)/jit(main)/sub" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %multiply.38 = f32[1]{0} multiply(f32[1]{0} %subtract.5.clone.1, f32[1]{0} %subtract.5.clone.1)
+  ROOT %tuple.4 = (f32[1]{0}, f32[1]{0}) tuple(f32[1]{0} %multiply.38, f32[1]{0} %subtract.5.clone.1)
+}
+
+%command_buffer (p0: s32[], p1: s32[1,4], p2: f32[4]) -> (s32[], f32[], (f32[1], f32[1])) {
+  %p0 = s32[] parameter(0)
+  %p1 = s32[1,4]{1,0} parameter(1)
+  %p2 = f32[4]{0} parameter(2)
+  %wrapped_copy.2 = s32[] fusion(s32[] %p0), kind=kLoop, calls=%wrapped_copy_computation
+  %partition-id.3 = u32[] partition-id(), metadata={op_name="jit(cg)/jit(main)/sub" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %input_reduce_fusion.3 = f32[] fusion(s32[1,4]{1,0} %p1), kind=kInput, calls=%fused_reduce.2
+  %input_reduce_fusion.4 = f32[] fusion(f32[4]{0} %p2), kind=kInput, calls=%fused_reduce.1, metadata={op_name="jit(cg)/jit(main)/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %loop_maximum_fusion.1 = f32[] fusion(f32[] %input_reduce_fusion.4), kind=kLoop, calls=%fused_maximum, metadata={op_name="jit(cg)/jit(main)/max" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %loop_multiply_subtract_fusion.1 = (f32[1]{0}, f32[1]{0}) fusion(f32[] %input_reduce_fusion.3, f32[4]{0} %p2, u32[] %partition-id.3), kind=kLoop, calls=%fused_multiply_subtract
+  ROOT %tuple.9 = (s32[], f32[], (f32[1]{0}, f32[1]{0})) tuple(s32[] %wrapped_copy.2, f32[] %loop_maximum_fusion.1, (f32[1]{0}, f32[1]{0}) %loop_multiply_subtract_fusion.1)
+}
+
+ENTRY %main.64_spmd (param.3: s32[1,4], param.2: f32[4]) -> f32[1] {
+  %constant_30 = f32[1]{0} constant({0})
+  %constant_23 = s32[] constant(0)
+  %param.3 = s32[1,4]{1,0} parameter(0), sharding={devices=[4,1]<=[4]}
+  %param.2 = f32[4]{0} parameter(1), sharding={replicated}
+  %call = (s32[], f32[], (f32[1]{0}, f32[1]{0})) call(s32[] %constant_23, s32[1,4]{1,0} %param.3, f32[4]{0} %param.2), to_apply=%command_buffer
+  %get-tuple-element.53 = s32[] get-tuple-element((s32[], f32[], (f32[1]{0}, f32[1]{0})) %call), index=0
+  %get-tuple-element.54 = f32[] get-tuple-element((s32[], f32[], (f32[1]{0}, f32[1]{0})) %call), index=1
+  %get-tuple-element.55 = (f32[1]{0}, f32[1]{0}) get-tuple-element((s32[], f32[], (f32[1]{0}, f32[1]{0})) %call), index=2
+  %get-tuple-element.26 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}) %get-tuple-element.55), index=1
+  %get-tuple-element.14 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}) %get-tuple-element.55), index=0
+  %bitcast.119 = f32[] bitcast(f32[1]{0} %get-tuple-element.14)
+  %all-reduce-start.2 = f32[] all-reduce-start(f32[] %bitcast.119), channel_id=1, replica_groups={{0,1,2,3}}, use_global_device_ids=true, to_apply=%scalar_add_computation.clone, metadata={op_name="jit(cg)/jit(main)/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":false,"no_parallel_custom_call":false}}
+  %copy_fusion = (f32[1]{0}, f32[1]{0}) fusion(f32[1]{0} %constant_30, f32[1]{0} %get-tuple-element.26), kind=kLoop, calls=%copy_horizontally_fused_computation
+  %get-tuple-element.52 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}) %copy_fusion), index=1
+  %get-tuple-element.44 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}) %copy_fusion), index=0
+  %all-reduce-done.2 = f32[] all-reduce-done(f32[] %all-reduce-start.2), metadata={op_name="jit(cg)/jit(main)/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %tuple.5 = (f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) tuple(f32[1]{0} %get-tuple-element.44, f32[1]{0} %get-tuple-element.26, f32[] %all-reduce-done.2, f32[1]{0} %get-tuple-element.52, s32[] %get-tuple-element.53, /*index=5*/f32[] %get-tuple-element.54, s32[1,4]{1,0} %param.3)
+  %while = (f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) while((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %tuple.5), condition=%region_1.43_spmd, body=%region_0.16_spmd, metadata={op_name="jit(cg)/jit(main)/while[cond_nconsts=1 body_nconsts=1]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  ROOT %get-tuple-element.10 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %while), index=0, metadata={op_name="jit(cg)/jit(main)/while[cond_nconsts=1 body_nconsts=1]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+
+All gather happend True
+All ok for sharded jitted True it took 10.998148918151855 seconds
+┌───────┬───────┬───────┬───────┐
+│ GPU 0 │ GPU 1 │ GPU 2 │ GPU 3 │
+└───────┴───────┴───────┴───────┘
+The HLO graph for two sharded arrays is HloModule jit_cg, is_scheduled=true, entry_computation_layout={(s32[1,4]{1,0}, f32[1]{0})->f32[1]{0}}, allow_spmd_sharding_propagation_to_output={true}, num_partitions=4, frontend_attributes={fingerprint_before_lhs="626f36b92c2c66d7f71fe8be78e7ad5f"}
+
+%fused_add (param_1: f32[1], param_1.2: f32[1], param_2.2: f32[], param_3: f32[]) -> f32[1] {
+  %param_1 = f32[1]{0} parameter(0)
+  %param_2.2 = f32[] parameter(2)
+  %param_3 = f32[] parameter(3)
+  %divide.4 = f32[] divide(f32[] %param_2.2, f32[] %param_3), metadata={op_name="jit(cg)/jit(main)/while/body/div" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %bitcast.154 = f32[1]{0} bitcast(f32[] %divide.4)
+  %param_1.2 = f32[1]{0} parameter(1)
+  %multiply.27 = f32[1]{0} multiply(f32[1]{0} %bitcast.154, f32[1]{0} %param_1.2), metadata={op_name="jit(cg)/jit(main)/while/body/mul" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  ROOT %add.16 = f32[1]{0} add(f32[1]{0} %param_1, f32[1]{0} %multiply.27), metadata={op_name="jit(cg)/jit(main)/while/body/add" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%fused_add.1 (param_0.2: f32[1], param_1.25: f32[1], param_2.11: f32[]) -> f32[1] {
+  %param_0.2 = f32[1]{0} parameter(0)
+  %param_2.11 = f32[] parameter(2)
+  %bitcast.161 = f32[1]{0} bitcast(f32[] %param_2.11)
+  %param_1.25 = f32[1]{0} parameter(1)
+  %multiply.29 = f32[1]{0} multiply(f32[1]{0} %bitcast.161, f32[1]{0} %param_1.25), metadata={op_name="jit(cg)/jit(main)/while/body/mul" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  ROOT %add.17 = f32[1]{0} add(f32[1]{0} %param_0.2, f32[1]{0} %multiply.29), metadata={op_name="jit(cg)/jit(main)/while/body/add" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%scalar_add_computation (scalar_lhs: f32[], scalar_rhs: f32[]) -> f32[] {
+  %scalar_rhs = f32[] parameter(1)
+  %scalar_lhs = f32[] parameter(0)
+  ROOT %add.8 = f32[] add(f32[] %scalar_lhs, f32[] %scalar_rhs)
+}
+
+%fused_reduce (param_0.7: f32[4], param_1.11: s32[1,4]) -> f32[] {
+  %param_1.11 = s32[1,4]{1,0} parameter(1)
+  %convert.4 = f32[1,4]{1,0} convert(s32[1,4]{1,0} %param_1.11), metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %param_0.7 = f32[4]{0} parameter(0)
+  %bitcast.156 = f32[1,4]{1,0} bitcast(f32[4]{0} %param_0.7)
+  %multiply.30 = f32[1,4]{1,0} multiply(f32[1,4]{1,0} %convert.4, f32[1,4]{1,0} %bitcast.156)
+  %bitcast.155 = f32[4]{0} bitcast(f32[1,4]{1,0} %multiply.30)
+  %constant_28 = f32[] constant(0)
+  ROOT %reduce.14 = f32[] reduce(f32[4]{0} %bitcast.155, f32[] %constant_28), dimensions={0}, to_apply=%scalar_add_computation
+}
+
+%fused_multiply (param_0.15: f32[1], param_1.27: f32[]) -> f32[1] {
+  %param_0.15 = f32[1]{0} parameter(0)
+  %param_1.27 = f32[] parameter(1)
+  %bitcast.162 = f32[1]{0} bitcast(f32[] %param_1.27), metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  ROOT %multiply.35 = f32[1]{0} multiply(f32[1]{0} %param_0.15, f32[1]{0} %bitcast.162)
+}
+
+%fused_divide_multiply_subtract (param_0.19: f32[1], param_1.30: f32[], param_2.15: f32[], param_3.1: f32[]) -> (f32[1], f32[1], f32[]) {
+  %param_0.19 = f32[1]{0} parameter(0)
+  %param_2.15 = f32[] parameter(2)
+  %param_3.1 = f32[] parameter(3)
+  %divide.5 = f32[] divide(f32[] %param_2.15, f32[] %param_3.1), metadata={op_name="jit(cg)/jit(main)/while/body/div" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %bitcast.159.clone.1 = f32[1]{0} bitcast(f32[] %divide.5)
+  %param_1.30 = f32[] parameter(1)
+  %bitcast.160.clone.1 = f32[1]{0} bitcast(f32[] %param_1.30), metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %multiply.28.clone.1 = f32[1]{0} multiply(f32[1]{0} %bitcast.159.clone.1, f32[1]{0} %bitcast.160.clone.1), metadata={op_name="jit(cg)/jit(main)/while/body/mul" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %subtract.4.clone.1 = f32[1]{0} subtract(f32[1]{0} %param_0.19, f32[1]{0} %multiply.28.clone.1), metadata={op_name="jit(cg)/jit(main)/while/body/sub" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %multiply.36 = f32[1]{0} multiply(f32[1]{0} %subtract.4.clone.1, f32[1]{0} %subtract.4.clone.1)
+  ROOT %tuple.3 = (f32[1]{0}, f32[1]{0}, f32[]) tuple(f32[1]{0} %multiply.36, f32[1]{0} %subtract.4.clone.1, f32[] %divide.5)
+}
+
+%scalar_add_computation.clone.2 (scalar_lhs.3: f32[], scalar_rhs.3: f32[]) -> f32[] {
+  %scalar_rhs.3 = f32[] parameter(1)
+  %scalar_lhs.3 = f32[] parameter(0)
+  ROOT %add.11 = f32[] add(f32[] %scalar_lhs.3, f32[] %scalar_rhs.3)
+}
+
+%scalar_add_computation.clone.3 (scalar_lhs.4: f32[], scalar_rhs.4: f32[]) -> f32[] {
+  %scalar_rhs.4 = f32[] parameter(1)
+  %scalar_lhs.4 = f32[] parameter(0)
+  ROOT %add.12 = f32[] add(f32[] %scalar_lhs.4, f32[] %scalar_rhs.4)
+}
+
+%wrapped_copy_computation.1 (param_0.26: f32[]) -> f32[] {
+  %param_0.26 = f32[] parameter(0)
+  ROOT %copy.27 = f32[] copy(f32[] %param_0.26)
+}
+
+%wrapped_add_computation (param_0.27: s32[], param_1.33: s32[]) -> s32[] {
+  %param_0.27 = s32[] parameter(0)
+  %param_1.33 = s32[] parameter(1)
+  ROOT %add.18 = s32[] add(s32[] %param_0.27, s32[] %param_1.33), metadata={op_name="jit(cg)/jit(main)/while/body/add" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%region_0.16_spmd (param.1: (f32[1], f32[1], f32[], f32[1], s32[], /*index=5*/f32[], s32[1,4])) -> (f32[1], f32[1], f32[], f32[1], s32[], /*index=5*/f32[], s32[1,4]) {
+  %constant_16 = s32[] constant(1)
+  %param.1 = (f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) parameter(0)
+  %get-tuple-element.32 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=0
+  %get-tuple-element.33 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=1
+  %get-tuple-element.34 = f32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=2
+  %get-tuple-element.35 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=3
+  %get-tuple-element.36 = s32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=4
+  %wrapped_add = s32[] fusion(s32[] %get-tuple-element.36, s32[] %constant_16), kind=kLoop, calls=%wrapped_add_computation, metadata={op_name="jit(cg)/jit(main)/while/body/add" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %get-tuple-element.44 = f32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=5
+  %get-tuple-element.52 = s32[1,4]{1,0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param.1), index=6
+  %all-gather-start = (f32[1]{0}, f32[4]{0}) all-gather-start(f32[1]{0} %get-tuple-element.35), channel_id=3, replica_groups={{0,1,2,3}}, dimensions={0}, use_global_device_ids=true, metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-gather-done = f32[4]{0} all-gather-done((f32[1]{0}, f32[4]{0}) %all-gather-start), metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %input_reduce_fusion = f32[] fusion(f32[4]{0} %all-gather-done, s32[1,4]{1,0} %get-tuple-element.52), kind=kInput, calls=%fused_reduce
+  %loop_multiply_fusion = f32[1]{0} fusion(f32[1]{0} %get-tuple-element.35, f32[] %input_reduce_fusion), kind=kLoop, calls=%fused_multiply
+  %bitcast.53 = f32[] bitcast(f32[1]{0} %loop_multiply_fusion)
+  %all-reduce-start = f32[] all-reduce-start(f32[] %bitcast.53), channel_id=4, replica_groups={{0,1,2,3}}, use_global_device_ids=true, to_apply=%scalar_add_computation.clone.2, metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-reduce-done = f32[] all-reduce-done(f32[] %all-reduce-start), metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %loop_divide_multiply_subtract_fusion = (f32[1]{0}, f32[1]{0}, f32[]) fusion(f32[1]{0} %get-tuple-element.33, f32[] %input_reduce_fusion, f32[] %get-tuple-element.34, f32[] %all-reduce-done), kind=kLoop, calls=%fused_divide_multiply_subtract
+  %get-tuple-element.13 = f32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[]) %loop_divide_multiply_subtract_fusion), index=2
+  %loop_add_fusion.1 = f32[1]{0} fusion(f32[1]{0} %get-tuple-element.32, f32[1]{0} %get-tuple-element.35, f32[] %get-tuple-element.13), kind=kLoop, calls=%fused_add.1, metadata={op_name="jit(cg)/jit(main)/while/body/add" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %get-tuple-element.40 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[]) %loop_divide_multiply_subtract_fusion), index=1
+  %get-tuple-element.11 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[]) %loop_divide_multiply_subtract_fusion), index=0
+  %bitcast.73 = f32[] bitcast(f32[1]{0} %get-tuple-element.11)
+  %all-reduce-start.1 = f32[] all-reduce-start(f32[] %bitcast.73), channel_id=5, replica_groups={{0,1,2,3}}, use_global_device_ids=true, to_apply=%scalar_add_computation.clone.3, metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-reduce-done.1 = f32[] all-reduce-done(f32[] %all-reduce-start.1), metadata={op_name="jit(cg)/jit(main)/while/body/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %loop_add_fusion = f32[1]{0} fusion(f32[1]{0} %get-tuple-element.40, f32[1]{0} %get-tuple-element.35, f32[] %all-reduce-done.1, f32[] %get-tuple-element.34), kind=kLoop, calls=%fused_add, metadata={op_name="jit(cg)/jit(main)/while/body/add" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %wrapped_copy.1 = f32[] fusion(f32[] %all-reduce-done.1), kind=kLoop, calls=%wrapped_copy_computation.1, control-predecessors={%loop_add_fusion}
+  ROOT %tuple.7 = (f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) tuple(f32[1]{0} %loop_add_fusion.1, f32[1]{0} %get-tuple-element.40, f32[] %wrapped_copy.1, f32[1]{0} %loop_add_fusion, s32[] %wrapped_add, /*index=5*/f32[] %get-tuple-element.44, s32[1,4]{1,0} %get-tuple-element.52)
+}
+
+%fused_and (param_0.9: s32[], param_1.14: f32[], param_2.6: f32[]) -> pred[] {
+  %param_1.14 = f32[] parameter(1)
+  %param_2.6 = f32[] parameter(2)
+  %compare.5 = pred[] compare(f32[] %param_1.14, f32[] %param_2.6), direction=GT, metadata={op_name="jit(cg)/jit(main)/while/cond/gt" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %param_0.9 = s32[] parameter(0)
+  %constant_29 = s32[] constant(40)
+  %compare.4 = pred[] compare(s32[] %param_0.9, s32[] %constant_29), direction=LT, metadata={op_name="jit(cg)/jit(main)/while/cond/lt" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  ROOT %and.2 = pred[] and(pred[] %compare.5, pred[] %compare.4), metadata={op_name="jit(cg)/jit(main)/while/cond/and" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%region_1.43_spmd (param: (f32[1], f32[1], f32[], f32[1], s32[], /*index=5*/f32[], s32[1,4])) -> pred[] {
+  %param = (f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) parameter(0)
+  %get-tuple-element.2 = s32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param), index=4
+  %get-tuple-element.1 = f32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param), index=5
+  %get-tuple-element = f32[] get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %param), index=2
+  ROOT %loop_and_fusion = pred[] fusion(s32[] %get-tuple-element.2, f32[] %get-tuple-element, f32[] %get-tuple-element.1), kind=kLoop, calls=%fused_and, metadata={op_name="jit(cg)/jit(main)/while/cond/and" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%fused_maximum (param_0.16: f32[]) -> f32[] {
+  %param_0.16 = f32[] parameter(0)
+  %constant_30 = f32[] constant(9.99999944e-11)
+  %multiply.32 = f32[] multiply(f32[] %param_0.16, f32[] %constant_30), metadata={op_name="jit(cg)/jit(main)/mul" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %constant_31 = f32[] constant(0)
+  ROOT %maximum.2 = f32[] maximum(f32[] %multiply.32, f32[] %constant_31), metadata={op_name="jit(cg)/jit(main)/max" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+%fused_reduce.1 (param_0.17: s32[1,4]) -> f32[] {
+  %param_0.17 = s32[1,4]{1,0} parameter(0)
+  %convert.5 = f32[1,4]{1,0} convert(s32[1,4]{1,0} %param_0.17), metadata={op_name="jit(cg)/jit(main)/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %constant_32 = f32[] constant(0)
+  %broadcast.11 = f32[1,4]{1,0} broadcast(f32[] %constant_32), dimensions={}, metadata={op_name="jit(cg)/jit(main)/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %multiply.33 = f32[1,4]{1,0} multiply(f32[1,4]{1,0} %convert.5, f32[1,4]{1,0} %broadcast.11)
+  %bitcast.158 = f32[4]{0} bitcast(f32[1,4]{1,0} %multiply.33)
+  ROOT %reduce.15 = f32[] reduce(f32[4]{0} %bitcast.158, f32[] %constant_32), dimensions={0}, to_apply=%scalar_add_computation
+}
+
+%fused_multiply_subtract (param_0.21: f32[1], param_1.32: f32[]) -> (f32[1], f32[1]) {
+  %param_0.21 = f32[1]{0} parameter(0)
+  %param_1.32 = f32[] parameter(1)
+  %bitcast.157.clone.1 = f32[1]{0} bitcast(f32[] %param_1.32), metadata={op_name="jit(cg)/jit(main)/dot_general[dimension_numbers=(((1,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %subtract.5.clone.1 = f32[1]{0} subtract(f32[1]{0} %param_0.21, f32[1]{0} %bitcast.157.clone.1), metadata={op_name="jit(cg)/jit(main)/sub" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %multiply.37 = f32[1]{0} multiply(f32[1]{0} %subtract.5.clone.1, f32[1]{0} %subtract.5.clone.1)
+  ROOT %tuple.4 = (f32[1]{0}, f32[1]{0}) tuple(f32[1]{0} %multiply.37, f32[1]{0} %subtract.5.clone.1)
+}
+
+%scalar_add_computation.clone (scalar_lhs.1: f32[], scalar_rhs.1: f32[]) -> f32[] {
+  %scalar_rhs.1 = f32[] parameter(1)
+  %scalar_lhs.1 = f32[] parameter(0)
+  ROOT %add.9 = f32[] add(f32[] %scalar_lhs.1, f32[] %scalar_rhs.1)
+}
+
+%copy_horizontally_fused_computation (param_0_0: f32[1], param_1_0: f32[1]) -> (f32[1], f32[1]) {
+  %param_0_0 = f32[1]{0} parameter(0)
+  %copy.23 = f32[1]{0} copy(f32[1]{0} %param_0_0)
+  %param_1_0 = f32[1]{0} parameter(1)
+  %copy.24 = f32[1]{0} copy(f32[1]{0} %param_1_0)
+  ROOT %tuple.8 = (f32[1]{0}, f32[1]{0}) tuple(f32[1]{0} %copy.23, f32[1]{0} %copy.24)
+}
+
+%wrapped_multiply_computation (param_0.24: f32[1]) -> f32[1] {
+  %param_0.24 = f32[1]{0} parameter(0)
+  ROOT %multiply.38 = f32[1]{0} multiply(f32[1]{0} %param_0.24, f32[1]{0} %param_0.24)
+}
+
+%wrapped_copy_computation (param_0.25: s32[]) -> s32[] {
+  %param_0.25 = s32[] parameter(0)
+  ROOT %copy.26 = s32[] copy(s32[] %param_0.25)
+}
+
+ENTRY %main.64_spmd (param.3: s32[1,4], param.2: f32[1]) -> f32[1] {
+  %constant_27 = f32[1]{0} constant({0})
+  %constant_22 = s32[] constant(0)
+  %param.2 = f32[1]{0} parameter(1), sharding={devices=[4]<=[4]}
+  %param.3 = s32[1,4]{1,0} parameter(0), sharding={devices=[4,1]<=[4]}
+  %wrapped_copy = s32[] fusion(s32[] %constant_22), kind=kLoop, calls=%wrapped_copy_computation
+  %wrapped_multiply = f32[1]{0} fusion(f32[1]{0} %param.2), kind=kLoop, calls=%wrapped_multiply_computation
+  %bitcast.129 = f32[] bitcast(f32[1]{0} %wrapped_multiply)
+  %input_reduce_fusion.1 = f32[] fusion(s32[1,4]{1,0} %param.3), kind=kInput, calls=%fused_reduce.1
+  %loop_multiply_subtract_fusion = (f32[1]{0}, f32[1]{0}) fusion(f32[1]{0} %param.2, f32[] %input_reduce_fusion.1), kind=kLoop, calls=%fused_multiply_subtract
+  %get-tuple-element.28 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}) %loop_multiply_subtract_fusion), index=1
+  %get-tuple-element.14 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}) %loop_multiply_subtract_fusion), index=0
+  %bitcast.121 = f32[] bitcast(f32[1]{0} %get-tuple-element.14)
+  %all-reduce-start.2 = (f32[], f32[]) all-reduce-start(f32[] %bitcast.121, f32[] %bitcast.129), channel_id=1, replica_groups={{0,1,2,3}}, use_global_device_ids=true, to_apply=%scalar_add_computation.clone, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"collective_backend_config":{"is_sync":true,"no_parallel_custom_call":false}}
+  %all-reduce-done.2 = (f32[], f32[]) all-reduce-done((f32[], f32[]) %all-reduce-start.2)
+  %get-tuple-element.17 = f32[] get-tuple-element((f32[], f32[]) %all-reduce-done.2), index=1, metadata={op_name="jit(cg)/jit(main)/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %loop_maximum_fusion = f32[] fusion(f32[] %get-tuple-element.17), kind=kLoop, calls=%fused_maximum, metadata={op_name="jit(cg)/jit(main)/max" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %get-tuple-element.27 = f32[] get-tuple-element((f32[], f32[]) %all-reduce-done.2), index=0, metadata={op_name="jit(cg)/jit(main)/dot_general[dimension_numbers=(((0,), (0,)), ((), ())) precision=(<Precision.HIGHEST: 2>, <Precision.HIGHEST: 2>) preferred_element_type=float32]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  %copy_fusion = (f32[1]{0}, f32[1]{0}) fusion(f32[1]{0} %constant_27, f32[1]{0} %get-tuple-element.28), kind=kLoop, calls=%copy_horizontally_fused_computation
+  %get-tuple-element.54 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}) %copy_fusion), index=1
+  %get-tuple-element.53 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}) %copy_fusion), index=0
+  %tuple.5 = (f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) tuple(f32[1]{0} %get-tuple-element.53, f32[1]{0} %get-tuple-element.28, f32[] %get-tuple-element.27, f32[1]{0} %get-tuple-element.54, s32[] %wrapped_copy, /*index=5*/f32[] %loop_maximum_fusion, s32[1,4]{1,0} %param.3)
+  %while = (f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) while((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %tuple.5), condition=%region_1.43_spmd, body=%region_0.16_spmd, metadata={op_name="jit(cg)/jit(main)/while[cond_nconsts=1 body_nconsts=1]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+  ROOT %get-tuple-element.10 = f32[1]{0} get-tuple-element((f32[1]{0}, f32[1]{0}, f32[], f32[1]{0}, s32[], /*index=5*/f32[], s32[1,4]{1,0}) %while), index=0, metadata={op_name="jit(cg)/jit(main)/while[cond_nconsts=1 body_nconsts=1]" source_file="/gpfsdswork/projects/rech/nih/uow47az/Projects/plinalg/cg.py" source_line=49}
+}
+
+
+All gather happend again True
+All ok for sharded jitted True it took 0.13614153861999512 seconds

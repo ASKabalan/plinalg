@@ -1,0 +1,20 @@
+All ok True it took 0.7842786312103271 seconds
+All ok for jitted True it took 0.0003256797790527344 seconds
+beging testing multi gpu single controller
+Number of devices 4 they are [cuda(id=0), cuda(id=1), cuda(id=2), cuda(id=3)]
+┌───────────────────────┐
+│         GPU 0         │
+├───────────────────────┤
+│         GPU 1         │
+├───────────────────────┤
+│         GPU 2         │
+├───────────────────────┤
+│         GPU 3         │
+└───────────────────────┘
+All gather happend True
+All ok for sharded jitted True it took 11.534702062606812 seconds
+┌───────┬───────┬───────┬───────┐
+│ GPU 0 │ GPU 1 │ GPU 2 │ GPU 3 │
+└───────┴───────┴───────┴───────┘
+All gather happend again True
+All ok for sharded jitted True it took 0.1363823413848877 seconds

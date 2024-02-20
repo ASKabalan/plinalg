@@ -1,5 +1,4 @@
 from plinalglib import _pHermitian
-from plinalg import utils
 import jax
 import jax.numpy as jnp
 from jax.interpreters import mlir
@@ -40,16 +39,12 @@ def default_layouts(*shapes):
 
 def _phermitation_lowering(ctx,x):
 
-    utils.inspect_attr(ctx,"Context","_phermitation_lowering")
-    utils.inspect_attr(x,"Operand","_phermitation_lowering")
-
     """Lower the Hermitian operator to CUDA via MLIR, ensuring output is complex and transposed."""
     x_type = ir.RankedTensorType(x.type)
     x_shape = x_type.shape
     
     dims = x_type.shape
     batch_size = dims[0] if len(dims) > 2 else 1
-    utils.inspect_attr(batch_size, "batch_size", "phermitation_lowering")
 
     # Adjust for the transposed shape of the output.
     if len(dims) == 2:
@@ -143,24 +138,24 @@ batching.primitive_batchers[phermitian_p] = phermitian_batching_rule
 # SPMD Defintion     #
 ######################
 
-from jax.experimental.maps import xmap
-jax.config.update("experimental_xmap_spmd_lowering", True)
-jax.config.update("experimental_xmap_spmd_lowering_manual", True)
+# from jax.experimental.maps import xmap
+# jax.config.update("experimental_xmap_spmd_lowering", True)
+# jax.config.update("experimental_xmap_spmd_lowering_manual", True)
 
-def phermitian(x, *, device_count):
-    # only batched matrices allowed
-    if x.ndim < 3:
-        raise ValueError("Input to phermitian must be a batched matrices with 2 dimensions")
+# def phermitian(x, *, device_count):
+#     # only batched matrices allowed
+#     if x.ndim < 3:
+#         raise ValueError("Input to phermitian must be a batched matrices with 2 dimensions")
 
-    reshaped = x.reshape(device_count, x.shape[0] // device_count, *x.shape[1:])
-    xmapped = xmap(
-        hermitian,
-        in_axes=("x", None, None),
-        out_axes=("x", None, None),
-        axis_resources={"x": "x"},
-    )
-    reshaped_out = xmapped(reshaped)
-    return reshaped_out.reshape(x.shape)
+#     reshaped = x.reshape(device_count, x.shape[0] // device_count, *x.shape[1:])
+#     xmapped = xmap(
+#         hermitian,
+#         in_axes=("x", None, None),
+#         out_axes=("x", None, None),
+#         axis_resources={"x": "x"},
+#     )
+#     reshaped_out = xmapped(reshaped)
+#     return reshaped_out.reshape(x.shape)
 
 
 
